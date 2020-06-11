@@ -195,6 +195,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x004653D3+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck - не нужен
+                
+                // AI moat damage calculation fix
+				_PI->WriteByte(0x4B2A79, 0xEB);
             }
 
             // Heroes III Armageddon - v2.0
