@@ -419,7 +419,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x00462C0C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
-                _PI->WriteHexPatch(0x4419E4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x441354, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F472, "90 90 90 90 90 90");
             }
 
