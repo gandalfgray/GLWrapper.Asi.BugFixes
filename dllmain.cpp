@@ -209,9 +209,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E13F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465203+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck
-                _PI->WriteHexPatch(0x441574, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  
+		// Neutral creatures luck - не нужен
             }
 
             // Heroes III Erathia - v1.4
@@ -224,9 +222,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E47F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004653D3+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck
-                _PI->WriteHexPatch(0x4416B4, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F7D2, "90 90 90 90 90 90");  
+		// Neutral creatures luck - не нужен
             }
 
             // Heroes III Armageddon - v2.0
@@ -456,6 +452,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E27F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465CB3+1, 0x4D); // fdiv -> fmul
 		    
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441914, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FA32, "90 90 90 90 90 90");		    
             }
@@ -470,6 +467,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E54F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004661B3+1, 0x4D); // fdiv -> fmul
 		    
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441CF4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FE12, "90 90 90 90 90 90");		    
             }
@@ -488,6 +486,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E4BF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465813+1, 0x4D); // fdiv -> fmul
 		    
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x4414A4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F5C2, "90 90 90 90 90 90");		    
             }
@@ -501,7 +500,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E233+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E36F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465AE3+1, 0x4D); // fdiv -> fmul
-		    
+		 
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441574, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F692, "90 90 90 90 90 90");		    
             }
@@ -515,7 +515,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E353+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E48F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465973+1, 0x4D); // fdiv -> fmul
-		    
+		   
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x4414E4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F602, "90 90 90 90 90 90");		    
             }
@@ -530,6 +531,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E2DF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465903+1, 0x4D); // fdiv -> fmul
 		    
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441764, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F883, "90 90 90 90 90 90");		    
             }
