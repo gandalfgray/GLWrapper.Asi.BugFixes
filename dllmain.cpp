@@ -1,4 +1,5 @@
 #include "..\..\include\patcher_x86.hpp"
+#include "H3Structures.h"
 
 Patcher* _P;
 PatcherInstance* _PI;
