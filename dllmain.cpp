@@ -59,7 +59,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041D5B3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041D6F1+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004640FD+1, 0x4D); // fdiv -> fmul
-
+		    
+                // Neutral creatures luck 6 NOP
+                _PI->WriteHexPatch(0x440545, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43F642, "90 90 90 90 90 90");		    
             }
 
             // Heroes III Armageddon - v2.2 Buka
@@ -71,7 +74,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041D553+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041D691+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00463D9D+1, 0x4D); // fdiv -> fmul
-
+		    
+                // Neutral creatures luck 6 NOP
+                _PI->WriteHexPatch(0x440045, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43F642, "90 90 90 90 90 90");			    
             }
 
             // Heroes III Shadow - v3.1 Buka
@@ -83,7 +89,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E2D3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E40F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465EF3+1, 0x4D); // fdiv -> fmul
-
+		    
+                // Neutral creatures luck 6 NOP
+                _PI->WriteHexPatch(0x441DA4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43F642, "90 90 90 90 90 90");		    
             }
 
             // Heroes III Complete - v4.0 Buka
@@ -181,7 +190,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E13F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465203+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441574, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  
             }
 
             // Heroes III Erathia - v1.4
@@ -194,10 +205,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E47F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004653D3+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
-                
-                // AI moat damage calculation fix
-		_PI->WriteByte(0x4B2A79, 0xEB);
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x4416B4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  
             }
 
             // Heroes III Armageddon - v2.0
@@ -209,6 +219,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041DDE3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041DF1F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00460C59+1, 0x4D); // fdiv -> fmul
+		    
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x440850, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Armageddon - v2.1
@@ -220,6 +234,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E343+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E47F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465A23+1, 0x4D); // fdiv -> fmul
+		    
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x4416D4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Armageddon - v2.2
@@ -231,6 +249,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E033+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E16F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465A53+1, 0x4D); // fdiv -> fmul
+		    
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441904, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Shadow - v3.0
@@ -242,6 +264,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E4B3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E5EF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465D63+1, 0x4D); // fdiv -> fmul
+		    
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441A64, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Shadow - v3.1
@@ -253,6 +279,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E203+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E33F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465B23+1, 0x4D); // fdiv -> fmul
+		    
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x4414A4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Complete - v4.0
@@ -264,6 +294,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E223+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E35F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465D63+1, 0x4D); // fdiv -> fmul
+		    
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441804, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");  		    
             }
 
             // Heroes Chronicles Warlords & Underworld - v1.0
@@ -276,7 +310,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E2DF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0046364C+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441D34, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");
             }
 
             // Heroes Chronicles Elements & Dragons - v1.0
@@ -289,7 +325,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E2FF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004632CC+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441744, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");
             }
 
             // Heroes Chronicles WorldTree - v1.0
@@ -302,7 +340,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E29F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0046326C+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x4418F4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");
             }
 
             // Heroes Chronicles FieryMoon - v1.0
@@ -315,7 +355,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E2BF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00462CDC+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441424, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -328,7 +370,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E34F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00462E5C+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x441514, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");
             }
 
             // ------------------------------
@@ -345,7 +389,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E56F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0046345C+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
+                _PI->WriteHexPatch(0x4419E4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");
             }
 
             // ------------------------------
@@ -360,7 +406,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 // Armorer fix - отсутствует
 
                 // Neutral creatures luck - не нужен
-
             }
 
             // Heroes Chronicles Dragons - GOG - v1.0
@@ -373,7 +418,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E22F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00462C0C+1, 0x4D); // fdiv -> fmul
 
-                // Neutral creatures luck - не нужен
+                // Neutral creatures luck
             }
 
             // ------------------------------
@@ -389,6 +434,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E143+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E27F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465CB3+1, 0x4D); // fdiv -> fmul
+		    
+                _PI->WriteHexPatch(0x441914, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");		    
             }
 
             // Heroes III Shadow - v3.1
@@ -400,6 +448,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E413+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E54F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004661B3+1, 0x4D); // fdiv -> fmul
+		    
+                _PI->WriteHexPatch(0x441CF4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");		    
             }
 
             // ------------------------------
@@ -415,6 +466,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E383+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E4BF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465813+1, 0x4D); // fdiv -> fmul
+		    
+                _PI->WriteHexPatch(0x4414A4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");		    
             }
 
             // Heroes III Shadow - v3.1
@@ -426,6 +480,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E233+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E36F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465AE3+1, 0x4D); // fdiv -> fmul
+		    
+                _PI->WriteHexPatch(0x441574, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");		    
             }
 
             // Heroes III Shadow - v3.2
@@ -437,6 +494,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E353+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E48F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465973+1, 0x4D); // fdiv -> fmul
+		    
+                _PI->WriteHexPatch(0x4414E4, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");		    
             }
 
             // Heroes III Shadow - v3.2 / Armageddon - v2.2
@@ -448,6 +508,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E1A3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x0041E2DF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465903+1, 0x4D); // fdiv -> fmul
+		    
+                _PI->WriteHexPatch(0x441764, "90 90 90 90 90 90");
+                _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");		    
             }
 
         }
