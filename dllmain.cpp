@@ -5,6 +5,20 @@ PatcherInstance* _PI;
 
 static _bool_ plugin_On = 0;
 
+// The Castle's Lighthouse building bonus
+DWORD castleOwnerCheckReturnAddress;
+int __stdcall castleOwnerCheck(LoHook *h, HookContext *c)
+{
+   H3Town *town = (H3Town*)(c->ecx);
+   H3Hero *hero = *(H3Hero**)(c->ebp - 4); // _Hero_ is stored in temp variable [LOCAL.1]
+
+   if (hero->owner_id == town->owner_id) // normal
+      return EXEC_DEFAULT;
+  
+   c->return_address = castleOwnerCheckReturnAddress; // skip procedure
+   return NO_EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -32,6 +46,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 //_PI->WriteCodePatch(0x43F642, "%n", 6);
                 _PI->WriteHexPatch(0x441524, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F642, "90 90 90 90 90 90");
+		    
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E4D6C;		    
+		_PI->WriteLoHook(0x4E4D40, castleOwnerCheck);		    
     
             }
 
