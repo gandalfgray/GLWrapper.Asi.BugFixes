@@ -95,9 +95,9 @@ struct H3Hero
  DWORD temp_mod_flags; // + 261	
  FLOAT ai_experience_effectivness;
  BYTE dimdoor_cast_count; // +269
- DWORD disguise; // +270
- DWORD fly; // +274
- DWORD waterwalk; // +278
+ DWORD disguise_power; // +270
+ DWORD fly_power; // +274
+ DWORD waterwalk_power; // +278
  INT8 morale; // +282
  INT8 luck; // +283
  BOOL8 is_sleeping; // +284
