@@ -1,5 +1,6 @@
 #include "..\..\include\patcher_x86.hpp"
 #include "H3Structures.h"
+#include "H3Numerations.h"
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -14,9 +15,9 @@ int __stdcall Ai_WaterwalkFly(LoHook *h, HookContext *c)
     if (c->eax == 0) // no angel wings
     {
         H3Hero* hero = (H3Hero*)(c->esi);
-        if (hero->learned_spell[6] == 0 && hero->available_spell[6] == 0) // this AI hero does not have the means to cast fly (id = 6)
+        if (hero->learned_spell[SPL_FLY] == 0 && hero->available_spell[SPL_FLY] == 0) // this AI hero does not have the means to cast fly (id = 6)
         {
-            if (hero->learned_spell[7] != 0 || hero->available_spell[7] != 0) // this AI hero has access to waterwalk (id = 7)
+            if (hero->learned_spell[SPL_WATER_WALK] != 0 || hero->available_spell[SPL_WATER_WALK] != 0) // this AI hero has access to waterwalk (id = 7)
             {
                 if (hero->waterwalk_power == -1) // waterwalk is not cast ~ waterwalk field is *(&hero + 0x116) (see 0x4E6040 Cast_waterwalk function)
                     c->return_address = Ai_WaterwalkFlyReturnAddress_Cast; // try to cast waterwalk instead (code checks for Boots of Levitation first...)
