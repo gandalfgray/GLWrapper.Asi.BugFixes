@@ -1,3 +1,5 @@
+typedef char BOOL8;
+
 struct H3String
 {
 	BOOL _init; // useless
