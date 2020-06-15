@@ -100,8 +100,8 @@ struct H3Hero
  INT8 morale; // +282
  INT8 luck; // +283
  BOOLEAN is_sleeping; // +284
- INT8 unk6[12]; // +284
- INT32 vision_power;
+ INT8 unk6[12]; // +285
+ INT32 vision_power; // +297
  H3Artifact body_art[19]; // +301
  BYTE free_slots_count; // +453
  BYTE locked_slot[14]; // +454
@@ -121,5 +121,5 @@ struct H3Hero
  DWORD ai_duration_effectivness; // DurationEffectivness +1154
  DWORD ai_knowl_effectivness; // KnowledgeEffectivness +1158
  DWORD ai_dmana_effectivness; // DoubleManaEffectivness +1162
- DWORD ai_mana_effectivness; // ManaEffectivness +1164
+ DWORD ai_mana_effectivness; // ManaEffectivness +1166
 };
