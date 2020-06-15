@@ -103,7 +103,7 @@ struct H3Hero
  INT8 unk6[12]; // +284
  INT32 vision_power;
  H3Artifact body_art[19]; // +301
- BYTE free_add_slots; // +453
+ BYTE free_slots_count; // +453
  BYTE locked_slot[14]; // +454
  H3Artifact backpack_art[64]; // +468
  BYTE backpack_arts_count; // +980
