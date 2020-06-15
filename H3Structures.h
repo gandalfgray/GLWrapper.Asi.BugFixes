@@ -1,4 +1,3 @@
-typedef char BOOL8;
 
 struct H3String
 {
@@ -24,7 +23,7 @@ struct H3Town
 {
  INT8 id; // +0
  INT8 owner_id; // +1
- BOOL8 built_this_turn; // +2
+ bool built_this_turn; // +2
  INT8 unk1; // +3
  INT8 type; // +4
  BYTE x; // +5
@@ -39,10 +38,10 @@ struct H3Town
  INT8 unk3; // +21
  WORD recruitable_creatures[2][7]; // +22
  INT8 unk4; // +50
- BOOL8 is_mana_vortex_unused; // +51
+ bool is_mana_vortex_unused; // +51
  INT8 unk5[16]; // +52
  DWORD spells[5][6]; // +68
- BOOL8 magic_guild[5]; // +188
+ bool magic_guild[5]; // +188
  INT8 unk6[3]; // +193
  H3String name; // +196
  INT8 unk7[12]; // +212
@@ -58,9 +57,9 @@ struct H3Hero
  INT16 x; // +0
  INT16 y; // +2
  INT16 z; // +4
- BOOL8 is_visible; // +6
+ bool is_visible; // +6
  DWORD xyz; // +7
- BOOL8 is_object_under; // +11
+ bool is_object_under; // +11
  INT32 object_type_under; // +12
  DWORD object_flags_under; // +16
  DWORD object_under_setup; // +20
@@ -100,7 +99,7 @@ struct H3Hero
  INT32 waterwalk_power; // +278
  INT8 morale; // +282
  INT8 luck; // +283
- BOOL8 is_sleeping; // +284
+ bool is_sleeping; // +284
  INT8 unk6[12]; // +284
  INT32 vision_power;
  H3Artifact body_art[19]; // +301
@@ -109,7 +108,7 @@ struct H3Hero
  H3Artifact backpack_art[64]; // +468
  BYTE backpack_arts_count; // +980
  DWORD gender; // +981
- BOOL8 has_custom_biography; // +985
+ bool has_custom_biography; // +985
  H3String biography; // +986
  BYTE learned_spell[70]; // +1002
  BYTE available_spell[70]; // +1072
