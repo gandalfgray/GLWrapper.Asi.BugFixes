@@ -53,66 +53,69 @@ struct H3Hero
  INT16 x; // +0
  INT16 y; // +2
  INT16 z; // +4
- UINT8 visible; // +6
- DWORD mui_xyz; // +7
- INT8 field_0B; // +11
- DWORD miu_object_type; // +12
- DWORD miu_object_c_flag; // +16
- DWORD miu_setup; // +20
+ BOOL8 is_visible; // +6
+ DWORD xyz; // +7
+ BOOL8 is_object_under; // +11
+ INT32 object_type_under; // +12
+ DWORD object_flags_under; // +16
+ DWORD object_under_setup; // +20
  UINT16 spell_points; // +24
  DWORD id; // +26
- DWORD id_wtf; // +30
+ DWORD unk1; // +30
  INT8 owner_id; // +34
  CHAR name[13]; // +35
- DWORD _class; // +48
- INT8 pic; // +52
- DWORD aim_x; // +53
- DWORD aim_y; // +57
- DWORD aim_z; // +61
- INT8 field_41[3]; // +65
- INT8 x_0; // +68
- INT8 y_0; // +69
- INT8 run; // +70
- INT8 field_47; // +71
- INT8 flags; // +72
+ DWORD hero_class; // +48
+ UINT8 pic; // +52
+ INT32 dest_x; // +53
+ INT32 dest_y; // +57
+ INT32 dest_z; // +61
+ INT8 unk2[3]; // +65
+ UINT8 patrol_x; // +68
+ UINT8 patrol_y; // +69
+ UINT8 patrol_radius; // +70
+ INT8 unk3; // +71
+ UINT8 flags; // +72
  DWORD movement_points_max; // +73
  DWORD movement_points; // +77
- DWORD expa; // +81
- INT16 level; // +85
- DWORD visited[10]; // +87
- INT8 field_7F[18]; // +127
+ DWORD experience; // +81
+ UINT16 level; // +85
+ DWORD visited_objects[10]; // +87
+ INT8 unk4[16]; // +127
+ UINT8 skill_tree_seed;
+ INT8 unk5;
  H3Army army; // +145
  INT8 second_skill[28]; // +201
- INT8 second_skill_show[28]; // +229
+ INT8 second_skill_show_position[28]; // +229
  DWORD second_skill_count; // +257
  DWORD temp_mod_flags; // + 261	
- float ai_exp_eff_109;
- INT8 dd_cast_this_turn; // +269
+ FLOAT ai_experience_effectivness;
+ INT8 dimdoor_cast_count; // +269
  DWORD disguise; // +270
  DWORD fly; // +274
  DWORD waterwalk; // +278
- INT8 d_morale_1; // +282
- INT8 d_luck; // +283
- INT8 is_sleeping_byte11C; // +284
- INT8 field_11E[16]; // +284
- H3Artifact doll_art[19]; // +301
- INT8 free_add_slots; // +453
- INT8 locked_slot[14]; // +454
+ INT8 morale; // +282
+ INT8 luck; // +283
+ BOOL8 is_sleeping; // +284
+ INT8 unk6[12]; // +284
+ DWORD vision_power;
+ H3Artifact body_art[19]; // +301
+ UINT8 free_add_slots; // +453
+ UINT8 locked_slot[14]; // +454
  H3Artifact backpack_art[64]; // +468
  INT8 backpack_arts_count; // +980
- DWORD sex; // +981
- bool has_biography; // +985
+ DWORD gender; // +981
+ BOOL8 has_custom_biography; // +985
  INT8 biography[16]; // +986
- INT8 spell[70]; // +1002
- INT8 spell_level[70]; // +1072
- INT8 attack; // +1142
- INT8 defence; // +1143
- INT8 power; // +1144
- INT8 knowledge; // +1145
- DWORD ai_agress_47A; // Agressivness + 1146
- DWORD ai_power_eff_47E; // PowerEffectivness +1150
- DWORD ai_duration_eff_482; // DurationEffectivness +1154
- DWORD ai_knowl_eff_486; // KnowledgeEffectivness +1158
- DWORD ai_dmana_eff_48A; // DoubleManaEffectivness +1162
- DWORD ai_mana_eff_48E; // ManaEffectivness +1164
+ INT8 learned_spell[70]; // +1002
+ INT8 available_spell[70]; // +1072
+ UINT8 attack; // +1142
+ UINT8 defence; // +1143
+ UINT8 power; // +1144
+ UINT8 knowledge; // +1145
+ DWORD ai_agressivness; // Agressivness + 1146
+ DWORD ai_power_effectivness; // PowerEffectivness +1150
+ DWORD ai_duration_effectivness; // DurationEffectivness +1154
+ DWORD ai_knowl_effectivness; // KnowledgeEffectivness +1158
+ DWORD ai_dmana_effectivness; // DoubleManaEffectivness +1162
+ DWORD ai_mana_effectivness; // ManaEffectivness +1164
 };
