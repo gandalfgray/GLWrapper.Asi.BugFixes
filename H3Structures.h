@@ -92,7 +92,7 @@ struct H3Hero
  BYTE second_skill_show_position[28]; // +229
  DWORD second_skill_count; // +257
  DWORD temp_mod_flags; // + 261	
- FLOAT ai_experience_effectivness;
+ float ai_experience_effectivness;
  BYTE dimdoor_cast_count; // +269
  INT32 disguise_power; // +270
  INT32 fly_power; // +274
