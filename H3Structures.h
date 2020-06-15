@@ -1,3 +1,11 @@
+struct H3String
+{
+	BOOL _init; // useless
+	PCHAR str;
+	INT32 length;
+	INT32 size;
+};
+
 struct H3Army
 {
  INT32 type[7];
@@ -34,7 +42,7 @@ struct H3Town
  DWORD spells[5][6]; // +68
  BOOL8 magic_guild[5]; // +188
  INT8 unk6[3]; // +193
- CHAR name[16]; // +196
+ H3String name; // +196
  INT8 unk7[12]; // +212
  H3Army guards; // +224
  H3Army guards_unused; // +280
@@ -100,7 +108,7 @@ struct H3Hero
  BYTE backpack_arts_count; // +980
  DWORD gender; // +981
  BOOL8 has_custom_biography; // +985
- INT8 biography[16]; // +986
+ H3String biography; // +986
  BYTE learned_spell[70]; // +1002
  BYTE available_spell[70]; // +1072
  BYTE attack; // +1142
