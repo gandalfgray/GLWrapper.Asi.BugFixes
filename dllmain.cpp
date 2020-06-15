@@ -6,6 +6,29 @@ PatcherInstance* _PI;
 
 static _bool_ plugin_On = 0;
 
+// Prevents AI from casting Fly if they don't have it.
+DWORD Ai_WaterwalkFlyReturnAddress_Cast;
+DWORD Ai_WaterwalkFlyReturnAddress_Skip;
+int __stdcall Ai_WaterwalkFly(LoHook *h, HookContext *c)
+{
+    if (c->eax == 0) // no angel wings
+    {
+        H3Hero* hero = (H3Hero*)(c->esi);
+        if (hero->learned_spell[6] == 0 && hero->available_spell[6] == 0) // this AI hero does not have the means to cast fly (id = 6)
+        {
+            if (hero->learned_spell[7] != 0 || hero->available_spell[7] != 0) // this AI hero has access to waterwalk (id = 7)
+            {
+                if (hero->waterwalk_cast_power == -1) // waterwalk is not cast ~ waterwalk field is *(&hero + 0x116) (see 0x4E6040 Cast_waterwalk function)
+                    c->return_address = Ai_WaterwalkFlyReturnAddress_Cast; // try to cast waterwalk instead (code checks for Boots of Levitation first...)
+                else
+                    c->return_address = Ai_WaterwalkFlyReturnAddress_Skip; // skip procedure
+                return NO_EXEC_DEFAULT;
+            }
+        }
+    }
+    return EXEC_DEFAULT;
+}
+
 // The Castle's Lighthouse building bonus
 DWORD castleOwnerCheckReturnAddress;
 int __stdcall castleOwnerCheck(LoHook *h, HookContext *c)
@@ -50,7 +73,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4E4D6C;		    
-		_PI->WriteLoHook(0x4E4D40, castleOwnerCheck);		    
+		_PI->WriteLoHook(0x4E4D40, castleOwnerCheck);	
+		
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
+		_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
     
             }
 
