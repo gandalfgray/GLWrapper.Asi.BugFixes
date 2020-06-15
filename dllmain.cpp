@@ -18,7 +18,7 @@ int __stdcall Ai_WaterwalkFly(LoHook *h, HookContext *c)
         {
             if (hero->learned_spell[7] != 0 || hero->available_spell[7] != 0) // this AI hero has access to waterwalk (id = 7)
             {
-                if (hero->waterwalk_cast_power == -1) // waterwalk is not cast ~ waterwalk field is *(&hero + 0x116) (see 0x4E6040 Cast_waterwalk function)
+                if (hero->waterwalk_power == -1) // waterwalk is not cast ~ waterwalk field is *(&hero + 0x116) (see 0x4E6040 Cast_waterwalk function)
                     c->return_address = Ai_WaterwalkFlyReturnAddress_Cast; // try to cast waterwalk instead (code checks for Boots of Levitation first...)
                 else
                     c->return_address = Ai_WaterwalkFlyReturnAddress_Skip; // skip procedure
