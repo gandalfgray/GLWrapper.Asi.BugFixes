@@ -1,10 +1,10 @@
 
 struct H3String
 {
-	BOOL _init; // useless
-	PCHAR str;
-	INT32 length;
-	INT32 size;
+ BOOL _init; // useless
+ PCHAR str;
+ INT32 length;
+ INT32 size;
 };
 
 struct H3Army
