@@ -95,14 +95,14 @@ struct H3Hero
  DWORD temp_mod_flags; // + 261	
  FLOAT ai_experience_effectivness;
  BYTE dimdoor_cast_count; // +269
- DWORD disguise_power; // +270
- DWORD fly_power; // +274
- DWORD waterwalk_power; // +278
+ INT32 disguise_power; // +270
+ INT32 fly_power; // +274
+ INT32 waterwalk_power; // +278
  INT8 morale; // +282
  INT8 luck; // +283
  BOOL8 is_sleeping; // +284
  INT8 unk6[12]; // +284
- DWORD vision_power;
+ INT32 vision_power;
  H3Artifact body_art[19]; // +301
  BYTE free_add_slots; // +453
  BYTE locked_slot[14]; // +454
