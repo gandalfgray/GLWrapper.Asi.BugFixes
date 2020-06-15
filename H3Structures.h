@@ -12,40 +12,35 @@ struct H3Artifact
 
 struct H3Town
 {
- UINT8 id;
+ BYTE id;
  INT8 owner_id;
- INT8 built_this_turn;
- INT8 field_03;
- INT8 type;
- INT8 x;
- INT8 y;
- INT8 z;
- INT8 boat_x;
- INT8 boat_y;
- INT16 field_0A;
- INT32 up_hero_id;
- INT32 down_hero_id;
+ BOOL8 built_this_turn;
+ INT8 unk1;
+ BYTE type;
+ BYTE x;
+ BYTE y;
+ BYTE z;
+ BYTE placed_boat_x;
+ BYTE placed_boat_y;
+ INT16 unk2;
+ INT32 garrison_hero;
+ INT32 visiting_hero;
  INT8 mag_level;
- INT8 field_15;
- INT16 available_creatures[14];
- INT8 fields_32[6];
- DWORD field_38;
- DWORD field_3C;
- INT16 field_40;
- INT16 field_42;
+ INT8 unk3;
+ WORD available_creatures[2][7];
+ INT8 unk4;
+ BOOL8 is_mana_vortex_unused;
+ INT8 unk5[16];
  DWORD spells[5][6];
- INT8 magic_hild[5];
- INT8 fields_C1[7];
- CHAR name[12];
- INT32 _u8[3];
- H3Army guards; //+E0 = охрана замка
- H3Army guards0; //+118 = охрана замка
- DWORD built_bits; //*B +150h = уже построенные здания (0400)
- DWORD built_bits2;
- DWORD bonus_bits;//*B +158h = бонус на существ, ресурсы и т.п., вызванный строениями
- DWORD bonus_bits2;
- DWORD available_bits;      //*B- +160h = маска доступных для строения строений
- DWORD available_bits2;     
+ BOOL8 magic_guild[5];
+ INT8 unk6[3];
+ CHAR name[16];
+ INT8 unk7[12];
+ H3Army guards; //+E0
+ H3Army guards_unused; //+118
+ DWORD built_bits[2]; //*B +150h
+ DWORD built_bits2[2];
+ DWORD buildable_bits[2];      //*B- +160h = маска доступных для строения строений   
 };
 
 struct H3Hero
