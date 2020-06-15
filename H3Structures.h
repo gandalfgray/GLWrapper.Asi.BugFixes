@@ -59,37 +59,37 @@ struct H3Hero
  INT32 object_type_under; // +12
  DWORD object_flags_under; // +16
  DWORD object_under_setup; // +20
- UINT16 spell_points; // +24
+ WORD spell_points; // +24
  DWORD id; // +26
  DWORD unk1; // +30
  INT8 owner_id; // +34
  CHAR name[13]; // +35
  DWORD hero_class; // +48
- UINT8 pic; // +52
- INT32 dest_x; // +53
- INT32 dest_y; // +57
- INT32 dest_z; // +61
+ BYTE pic; // +52
+ DWORD dest_x; // +53
+ DWORD dest_y; // +57
+ DWORD dest_z; // +61
  INT8 unk2[3]; // +65
- UINT8 patrol_x; // +68
- UINT8 patrol_y; // +69
- UINT8 patrol_radius; // +70
+ BYTE patrol_x; // +68
+ BYTE patrol_y; // +69
+ BYTE patrol_radius; // +70
  INT8 unk3; // +71
- UINT8 flags; // +72
+ BYTE flags; // +72
  DWORD movement_points_max; // +73
  DWORD movement_points; // +77
  DWORD experience; // +81
- UINT16 level; // +85
+ WORD level; // +85
  DWORD visited_objects[10]; // +87
  INT8 unk4[16]; // +127
- UINT8 skill_tree_seed;
- INT8 unk5;
+ BYTE skill_tree_seed; // +143
+ INT8 unk5; // +144
  H3Army army; // +145
- INT8 second_skill[28]; // +201
- INT8 second_skill_show_position[28]; // +229
+ BYTE second_skill[28]; // +201
+ BYTE second_skill_show_position[28]; // +229
  DWORD second_skill_count; // +257
  DWORD temp_mod_flags; // + 261	
  FLOAT ai_experience_effectivness;
- INT8 dimdoor_cast_count; // +269
+ BYTE dimdoor_cast_count; // +269
  DWORD disguise; // +270
  DWORD fly; // +274
  DWORD waterwalk; // +278
@@ -99,19 +99,19 @@ struct H3Hero
  INT8 unk6[12]; // +284
  DWORD vision_power;
  H3Artifact body_art[19]; // +301
- UINT8 free_add_slots; // +453
- UINT8 locked_slot[14]; // +454
+ BYTE free_add_slots; // +453
+ BYTE locked_slot[14]; // +454
  H3Artifact backpack_art[64]; // +468
- INT8 backpack_arts_count; // +980
+ BYTE backpack_arts_count; // +980
  DWORD gender; // +981
  BOOL8 has_custom_biography; // +985
  INT8 biography[16]; // +986
- INT8 learned_spell[70]; // +1002
- INT8 available_spell[70]; // +1072
- UINT8 attack; // +1142
- UINT8 defence; // +1143
- UINT8 power; // +1144
- UINT8 knowledge; // +1145
+ BYTE learned_spell[70]; // +1002
+ BYTE available_spell[70]; // +1072
+ BYTE attack; // +1142
+ BYTE defence; // +1143
+ BYTE power; // +1144
+ BYTE knowledge; // +1145
  DWORD ai_agressivness; // Agressivness + 1146
  DWORD ai_power_effectivness; // PowerEffectivness +1150
  DWORD ai_duration_effectivness; // DurationEffectivness +1154
