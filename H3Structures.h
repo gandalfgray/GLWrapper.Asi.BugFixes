@@ -12,35 +12,35 @@ struct H3Artifact
 
 struct H3Town
 {
- BYTE id;
- INT8 owner_id;
- BOOL8 built_this_turn;
- INT8 unk1;
- BYTE type;
- BYTE x;
- BYTE y;
- BYTE z;
- BYTE placed_boat_x;
- BYTE placed_boat_y;
- INT16 unk2;
- INT32 garrison_hero;
- INT32 visiting_hero;
- INT8 mag_level;
- INT8 unk3;
- WORD available_creatures[2][7];
- INT8 unk4;
- BOOL8 is_mana_vortex_unused;
- INT8 unk5[16];
- DWORD spells[5][6];
- BOOL8 magic_guild[5];
- INT8 unk6[3];
- CHAR name[16];
- INT8 unk7[12];
- H3Army guards; //+E0
- H3Army guards_unused; //+118
- DWORD built_bits[2]; //*B +150h
- DWORD built_bits2[2];
- DWORD buildable_bits[2];      //*B- +160h = маска доступных для строения строений   
+ INT8 id; // +0
+ INT8 owner_id; // +1
+ BOOL8 built_this_turn; // +2
+ INT8 unk1; // +3
+ INT8 type; // +4
+ BYTE x; // +5
+ BYTE y; // +6
+ BYTE z; // +7
+ BYTE placed_boat_x; // +8
+ BYTE placed_boat_y; // +9
+ INT8 unk2[2]; // +10
+ INT32 garrison_hero; // +12
+ INT32 visiting_hero; // +16
+ INT8 mag_level; // +20
+ INT8 unk3; // +21
+ WORD recruitable_creatures[2][7]; // +22
+ INT8 unk4; // +50
+ BOOL8 is_mana_vortex_unused; // +51
+ INT8 unk5[16]; // +52
+ DWORD spells[5][6]; // +68
+ BOOL8 magic_guild[5]; // +188
+ INT8 unk6[3]; // +193
+ CHAR name[16]; // +196
+ INT8 unk7[12]; // +212
+ H3Army guards; // +224
+ H3Army guards_unused; // +280
+ DWORD built_bits[2]; // +336
+ DWORD built_bits2[2]; // +344
+ DWORD buildable_bits[2]; // +352   
 };
 
 struct H3Hero
