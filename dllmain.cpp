@@ -572,8 +572,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43FE12, "90 90 90 90 90 90");
 		    
 		// The Castle's Lighthouse building bonus
-		castleOwnerCheckReturnAddress = 0x4C89F9;		    
-		_PI->WriteLoHook(0x4C89DC, castleOwnerCheck);
+		castleOwnerCheckReturnAddress = 0x4E4A4C;		    
+		_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
 		    
             }
 
@@ -623,7 +623,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		   
 		// Neutral creatures luck
                 _PI->WriteHexPatch(0x4414E4, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F602, "90 90 90 90 90 90");		    
+                _PI->WriteHexPatch(0x43F602, "90 90 90 90 90 90");
+		    
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E44AC;		    
+		_PI->WriteLoHook(0x4E4480, castleOwnerCheck);
+		    
             }
 
             // Heroes III Shadow - v3.2 / Armageddon - v2.2
@@ -638,7 +643,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441764, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F883, "90 90 90 90 90 90");		    
+                _PI->WriteHexPatch(0x43F883, "90 90 90 90 90 90");
+		    
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E2B4C;		    
+		_PI->WriteLoHook(0x4E2B20, castleOwnerCheck);
+		    
             }
 
         }
