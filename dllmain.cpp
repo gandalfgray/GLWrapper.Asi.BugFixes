@@ -222,52 +222,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ENG
             // ------------------------------
 
-            // Heroes III Erathia - v1.0
-            check1 = *(DWORD*)(0x004D3363+1);
-            check2 = *(DWORD*)(0x0058E558+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix - отсутствует
-
-                // Neutral creatures luck - не нужен
-
-            }
-
-            // Heroes III Erathia - v1.1
-            check1 = *(DWORD*)(0x0041E573+1);
-            check2 = *(DWORD*)(0x004210B8+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix - отсутствует
-
-                // Neutral creatures luck - не нужен
-
-            }
-
-            // Heroes III Erathia - v1.2
-            check1 = *(DWORD*)(0x0041E523+1);
-            check2 = *(DWORD*)(0x00421078+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix - отсутствует
-
-                // Neutral creatures luck - не нужен
-
-            }
-
-            // Heroes III Erathia - v1.3
-            check1 = *(DWORD*)(0x004F58F3+1);
-            check2 = *(DWORD*)(0x005D9679+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041E003+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E13F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465203+1, 0x4D); // fdiv -> fmul
-
-		// Neutral creatures luck - не нужен
-            }
-
             // Heroes III Erathia - v1.4
             check1 = *(DWORD*)(0x004F5583+1);
             check2 = *(DWORD*)(0x005D8F69+1);
@@ -284,36 +238,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E261C;		    
 		_PI->WriteLoHook(0x4E25F0, castleOwnerCheck);	
 		    
-            }
-
-            // Heroes III Armageddon - v2.0
-            check1 = *(DWORD*)(0x004EB283+1);
-            check2 = *(DWORD*)(0x005EEFD8+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041DDE3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041DF1F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00460C59+1, 0x4D); // fdiv -> fmul
-		    
-                // Neutral creatures luck
-                _PI->WriteHexPatch(0x440850, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43E992, "90 90 90 90 90 90");  		    
-            }
-
-            // Heroes III Armageddon - v2.1
-            check1 = *(DWORD*)(0x004F5C43+1);
-            check2 = *(DWORD*)(0x00600299+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041E343+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E47F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465A23+1, 0x4D); // fdiv -> fmul
-		    
-                // Neutral creatures luck
-                _PI->WriteHexPatch(0x4416D4, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F7F2, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Armageddon - v2.2
@@ -334,36 +258,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E296C;		    
 		_PI->WriteLoHook(0x4E2940, castleOwnerCheck);
 		    
-            }
-
-            // Heroes III Shadow - v3.0
-            check1 = *(DWORD*)(0x004F7D73+1);
-            check2 = *(DWORD*)(0x006027E9+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041E4B3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E5EF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465D63+1, 0x4D); // fdiv -> fmul
-		    
-                // Neutral creatures luck
-                _PI->WriteHexPatch(0x441A64, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43FB82, "90 90 90 90 90 90");  		    
-            }
-
-            // Heroes III Shadow - v3.1
-            check1 = *(DWORD*)(0x004F85B3+1);
-            check2 = *(DWORD*)(0x006027E9+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041E203+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E33F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465B23+1, 0x4D); // fdiv -> fmul
-		    
-                // Neutral creatures luck
-                _PI->WriteHexPatch(0x4414A4, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F5C2, "90 90 90 90 90 90");  		    
             }
 
             // Heroes III Complete - v4.0
@@ -580,36 +474,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
             // POL
             // ------------------------------
-
-            // Heroes III Armageddon - v2.1
-            check1 = *(DWORD*)(0x004F5723+1);
-            check2 = *(DWORD*)(0x005FED57+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041E383+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E4BF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465813+1, 0x4D); // fdiv -> fmul
-		    
-		// Neutral creatures luck
-                _PI->WriteHexPatch(0x4414A4, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F5C2, "90 90 90 90 90 90");		    
-            }
-
-            // Heroes III Shadow - v3.1
-            check1 = *(DWORD*)(0x004F7AF3+1);
-            check2 = *(DWORD*)(0x00600ED7+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix
-                _PI->WriteByte(0x0041E233+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E36F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465AE3+1, 0x4D); // fdiv -> fmul
-		 
-		// Neutral creatures luck
-                _PI->WriteHexPatch(0x441574, "90 90 90 90 90 90");
-                _PI->WriteHexPatch(0x43F692, "90 90 90 90 90 90");		    
-            }
 
             // Heroes III Shadow - v3.2
             check1 = *(DWORD*)(0x004F78D3+1);
