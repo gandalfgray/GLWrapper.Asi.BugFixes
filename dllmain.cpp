@@ -385,19 +385,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // GER
             // ------------------------------
 
-            // Heroes III Erathia - v1.2
-            check1 = *(DWORD*)(0x004D5253+1);
-            check2 = *(DWORD*)(0x00591B29+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix - отсутствует
-
-                // Neutral creatures luck - не нужен
-		    
-		// The Castle's Lighthouse building bonus - отсутствует
-		    
-            }
-
             // Heroes Chronicles Dragons - GOG - v1.0
             check1 = *(DWORD*)(0x004EFA04+1);
             check2 = *(DWORD*)(0x005B51C9+1);
