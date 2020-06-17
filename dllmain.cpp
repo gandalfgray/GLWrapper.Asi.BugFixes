@@ -105,6 +105,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4DFE5C;		    
 		_PI->WriteLoHook(0x4DFE30, castleOwnerCheck);
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42EDEB;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F10B;
+		_PI->WriteLoHook(0x42EDC8, Ai_WaterwalkFly);		    
+		    
             }
 
             // Heroes III Armageddon - v2.2 Buka
@@ -225,7 +230,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4E261C;		    
-		_PI->WriteLoHook(0x4E25F0, castleOwnerCheck);	
+		_PI->WriteLoHook(0x4E25F0, castleOwnerCheck);
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x4301A1;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4304B0;
+		_PI->WriteLoHook(0x43017E, Ai_WaterwalkFly);		    
 		    
             }
 
