@@ -178,7 +178,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4E4EFC;		    
-		_PI->WriteLoHook(0x4E4ED0, castleOwnerCheck);		    
+		_PI->WriteLoHook(0x4E4ED0, castleOwnerCheck);
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430209;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430519;
+		_PI->WriteLoHook(0x4301E6, Ai_WaterwalkFly);		    
 
             }
 
@@ -198,7 +203,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4D9132;		    
-		_PI->WriteLoHook(0x4D9107, castleOwnerCheck);		    
+		_PI->WriteLoHook(0x4D9107, castleOwnerCheck);
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42ED9B;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0BB;
+		_PI->WriteLoHook(0x42E978, Ai_WaterwalkFly);		    
 
             }
 
@@ -218,7 +228,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4D8EF2;		    
-		_PI->WriteLoHook(0x4D8EC7, castleOwnerCheck);		    
+		_PI->WriteLoHook(0x4D8EC7, castleOwnerCheck);
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42EE8B;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F1AB;
+		_PI->WriteLoHook(0x42EE68, Ai_WaterwalkFly);		    
 
             }
 
@@ -267,6 +282,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E296C;		    
 		_PI->WriteLoHook(0x4E2940, castleOwnerCheck);
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FE91;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4301A0;
+		_PI->WriteLoHook(0x42FE6E, Ai_WaterwalkFly);			    
+		    
             }
 
             // Heroes III Complete - v4.0
@@ -287,6 +307,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E4AFC;		    
 		_PI->WriteLoHook(0x4E4AD1, castleOwnerCheck);
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
+		_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);			    
+		    
             }
 
             // Heroes Chronicles Warlords & Underworld - v1.0
@@ -304,6 +329,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43FE52, "90 90 90 90 90 90");
 		    
 		// The Castle's Lighthouse building bonus - другой код 0x4C0BF6
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF31;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430240;
+		_PI->WriteLoHook(0x42FF0E, Ai_WaterwalkFly);		    
 		    
             }
 
