@@ -87,17 +87,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // RUS
             // ------------------------------
 
-            // Heroes III Erathia - v1.0 Buka
-            check1 = *(DWORD*)(0x004D4A5F+1);
-            check2 = *(DWORD*)(0x0059308B+1);
-            if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-                // Armorer fix - отсутствует
-
-                // Neutral creatures luck - не нужен
-
-            }
-
             // Heroes III Armageddon - v2.1 Buka
             check1 = *(DWORD*)(0x004F2533+1);
             check2 = *(DWORD*)(0x005F9649+1);
