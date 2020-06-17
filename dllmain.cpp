@@ -155,6 +155,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E4A4C;		    
 		_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430101;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430410;
+		_PI->WriteLoHook(0x4300DE, Ai_WaterwalkFly);		    
+		    
             }
 
             // Heroes III Complete - v4.0 Buka
