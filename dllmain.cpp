@@ -353,6 +353,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus - другой код 0x4C0626
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430011;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430320;
+		_PI->WriteLoHook(0x42FFEE, Ai_WaterwalkFly);			    
+		    
             }
 
             // Heroes Chronicles WorldTree - v1.0
@@ -370,6 +375,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43FA12, "90 90 90 90 90 90");
 		    
 		// The Castle's Lighthouse building bonus - не нужно
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FEE1;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4301F0;
+		_PI->WriteLoHook(0x42FEBE, Ai_WaterwalkFly);		    
 		    
             }
 
@@ -389,6 +399,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus - не нужно
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF01;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430210;
+		_PI->WriteLoHook(0x42FEDE, Ai_WaterwalkFly);		    
+		    
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -406,6 +421,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43F632, "90 90 90 90 90 90");
 		    
 		// The Castle's Lighthouse building bonus - другой код 0x4BFF96
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF69;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430279;
+		_PI->WriteLoHook(0x42FF46, Ai_WaterwalkFly);			    
 		    
             }
 
@@ -429,6 +449,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// The Castle's Lighthouse building bonus - другой код 0x4C05A6
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x4301B1;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4304C0;
+		_PI->WriteLoHook(0x43018E, Ai_WaterwalkFly);			    
+		    
             }
 
             // ------------------------------
@@ -450,6 +475,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43F472, "90 90 90 90 90 90");
 		    
 		// The Castle's Lighthouse building bonus - другой код 0x4BFE26
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FE71;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430180;
+		_PI->WriteLoHook(0x42FE4E, Ai_WaterwalkFly);			    
 		    
             }
 
@@ -475,6 +505,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E307C;		    
 		_PI->WriteLoHook(0x4E3050, castleOwnerCheck);
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF81;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430290;
+		_PI->WriteLoHook(0x42FF5E, Ai_WaterwalkFly);		    
+		    
             }
 
             // Heroes III Shadow - v3.1
@@ -494,6 +529,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4E4A4C;		    
 		_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430251;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430560;
+		_PI->WriteLoHook(0x43022E, Ai_WaterwalkFly);		    
 		    
             }
 
@@ -519,6 +559,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		castleOwnerCheckReturnAddress = 0x4E44AC;		    
 		_PI->WriteLoHook(0x4E4480, castleOwnerCheck);
 		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430159;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430469;
+		_PI->WriteLoHook(0x430136, Ai_WaterwalkFly);			    
+		    
             }
 
             // Heroes III Shadow - v3.2 / Armageddon - v2.2
@@ -538,6 +583,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// The Castle's Lighthouse building bonus
 		castleOwnerCheckReturnAddress = 0x4E2B4C;		    
 		_PI->WriteLoHook(0x4E2B20, castleOwnerCheck);
+		    
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FFA9;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4302B9;
+		_PI->WriteLoHook(0x42FF86, Ai_WaterwalkFly);		    
 		    
             }
 
