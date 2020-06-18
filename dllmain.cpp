@@ -208,7 +208,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Prevents AI from casting Fly if they don't have it.
 		Ai_WaterwalkFlyReturnAddress_Cast = 0x42ED9B;
 		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0BB;
-		_PI->WriteLoHook(0x42E978, Ai_WaterwalkFly);		    
+		_PI->WriteLoHook(0x42ED78, Ai_WaterwalkFly);		    
 
             }
 
