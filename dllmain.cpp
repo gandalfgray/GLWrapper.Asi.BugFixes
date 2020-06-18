@@ -80,6 +80,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
 		Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
 		_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
+		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CCC43, 0x696DE8);		    
     
             }
 
@@ -208,7 +211,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Prevents AI from casting Fly if they don't have it.
 		Ai_WaterwalkFlyReturnAddress_Cast = 0x42ED9B;
 		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0BB;
-		_PI->WriteLoHook(0x42ED78, Ai_WaterwalkFly);		    
+		_PI->WriteLoHook(0x42ED78, Ai_WaterwalkFly);	
+		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C1150, 0x636154);		    
 
             }
 
