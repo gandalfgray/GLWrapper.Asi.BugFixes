@@ -60,7 +60,7 @@ int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 	}
 }
 
-void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int sourceCell, H3Army* destArmy, int destCell, bool isHero,  bool destIsHero)
+void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int sourceCell, H3Army* destArmy, int cell, bool isHero,  bool destIsHero)
 {
 	creaturesCount = 0;
 	for(int i=0; i<7; i++)
@@ -80,7 +80,7 @@ void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int sourceCell, H3Army* 
 	     ((destArmy->type[destCell] == -1) || (destCreaturesCount <= 1)))
 			return;
 
-	CALL_6(void, __thiscall, hook->GetDefaultFunc(), army, sourceCell, destArmy, destCell, isHero, destIsHero);
+	CALL_6(void, __thiscall, hook->GetDefaultFunc(), army, cell, destArmy, destCell, isHero, destIsHero);
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
