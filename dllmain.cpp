@@ -143,7 +143,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		refugeCampReturnAddress_Skip = 0x4FFDF6;
 		refugeCampReturnAddress_Write = 0x4FFBC4;
-		_PI->WriteLoHook(0x4FFBBA, fixRefugeCamp);		    
+		_PI->WriteLoHook(0x4FFBB8, fixRefugeCamp);		    
 		    
             }
 
@@ -179,7 +179,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		refugeCampReturnAddress_Skip = 0x500126;
 		refugeCampReturnAddress_Write = 0x4FFEF4;
-		_PI->WriteLoHook(0x4FFEEA, fixRefugeCamp);		    
+		_PI->WriteLoHook(0x4FFEE8, fixRefugeCamp);		    
 		    
             }
 
@@ -240,7 +240,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4301E6, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CCFE0, 0x69A538);		    
+		_PI->WriteDword(0x4CCFE0, 0x69A538);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x505DA9;
+		refugeCampReturnAddress_Write = 0x505B7A;
+		_PI->WriteLoHook(0x505B6E, fixRefugeCamp);		    
 
             }
 
@@ -270,8 +275,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Tavern rumors bug fix
 		_PI->WriteDword(0x4C1150, 0x636154);
 
-		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C1150, 0x636154);		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		//refugeCampReturnAddress_Skip = 0x4F83C6;
+		//refugeCampReturnAddress_Write = 0x4F8194;
+		//_PI->WriteLoHook(0x4F8188, fixRefugeCamp);
+		// не нужен
 
             }
 
@@ -299,7 +307,13 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42EE68, Ai_WaterwalkFly);	
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C1410, 0x636174);		    
+		_PI->WriteDword(0x4C1410, 0x636174);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		//refugeCampReturnAddress_Skip = 0x4F7D26;
+		//refugeCampReturnAddress_Write = 0x4F7AF4;
+		//_PI->WriteLoHook(0x4F7AE8, fixRefugeCamp);
+		// не нужен
 
             }
 
@@ -332,7 +346,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteDword(0x4CA6C0, 0x668D38);
 
 		// AI moat damage fix
-		_PI->WriteByte(0x4B2A79, 0xEB);		    
+		_PI->WriteByte(0x4B2A79, 0xEB);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x502B5F;
+		refugeCampReturnAddress_Write = 0x502931;
+		_PI->WriteLoHook(0x502925, fixRefugeCamp);		    
 		    
             }
 
@@ -363,7 +382,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteDword(0x4CB020, 0x693C78);
 
 		// AI moat damage fix
-		_PI->WriteByte(0x4B3399, 0xEB);			    
+		_PI->WriteByte(0x4B3399, 0xEB);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x50380F;
+		refugeCampReturnAddress_Write = 0x5035E1;
+		_PI->WriteLoHook(0x5035D5, fixRefugeCamp);		    
 		    
             }
 
@@ -391,7 +415,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CCF80, 0x696D98);		    
+		_PI->WriteDword(0x4CCF80, 0x696D98);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x5059FF;
+		refugeCampReturnAddress_Write = 0x5057D1;
+		_PI->WriteLoHook(0x5057C5, fixRefugeCamp);		    
 		    
             }
 
@@ -417,7 +446,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FF0E, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C5160, 0x638F40);		    
+		_PI->WriteDword(0x4C5160, 0x638F40);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		    
             }
 
@@ -443,7 +475,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FFEE, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C4B90, 0x638F40);		    
+		_PI->WriteDword(0x4C4B90, 0x638F40);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		    
             }
 
@@ -469,7 +504,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FEBE, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C4AF0, 0x638F40);		    
+		_PI->WriteDword(0x4C4AF0, 0x638F40);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		    
             }
 
@@ -495,7 +533,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FEDE, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C4810, 0x63B338);		    
+		_PI->WriteDword(0x4C4810, 0x63B338);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		   
             }
 
@@ -521,7 +562,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FF46, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C4520, 0x63C3A8);		    
+		_PI->WriteDword(0x4C4520, 0x63C3A8);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		    
             }
 
@@ -551,7 +595,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x43018E, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C4B40, 0x63D3A0);		    
+		_PI->WriteDword(0x4C4B40, 0x63D3A0);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		    
             }
 
@@ -581,7 +628,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FE4E, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C43C0, 0x63B380);		    
+		_PI->WriteDword(0x4C43C0, 0x63B380);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		// не нужен
 		    
             }
 
@@ -616,7 +666,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteDword(0x4CB170, 0x693D98);
 
 		// AI moat damage fix
-		_PI->WriteByte(0x4B34D9, 0xEB);			    
+		_PI->WriteByte(0x4B34D9, 0xEB);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x50402F;
+		refugeCampReturnAddress_Write = 0x503E01;
+		_PI->WriteLoHook(0x503DF5, fixRefugeCamp);		    
 		    
             }
 
@@ -644,7 +699,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x43022E, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CD040, 0x697EC8);		    
+		_PI->WriteDword(0x4CD040, 0x697EC8);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x505FEF;
+		refugeCampReturnAddress_Write = 0x505DC1;
+		_PI->WriteLoHook(0x505DB5, fixRefugeCamp);		    
 		    
             }
 
@@ -676,7 +736,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x430136, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CC630, 0x699E20);		    
+		_PI->WriteDword(0x4CC630, 0x699E20);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x505668;
+		refugeCampReturnAddress_Write = 0x505661;
+		_PI->WriteLoHook(0x505659, fixRefugeCamp);		    
 		    
             }
 
@@ -704,7 +769,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FF86, Ai_WaterwalkFly);
 
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CAB10, 0x695CB8);		    
+		_PI->WriteDword(0x4CAB10, 0x695CB8);
+		    
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x503859;
+		refugeCampReturnAddress_Write = 0x50362A;
+		_PI->WriteLoHook(0x50361E, fixRefugeCamp);		    
 		    
             }
 
