@@ -114,7 +114,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42EDC8, Ai_WaterwalkFly);	
 		    
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C8550, 0x68E77C);			    
+		_PI->WriteDword(0x4C8550, 0x68E77C);
+		    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B11E9, 0xEB);			    
 		    
             }
 
@@ -142,7 +145,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42ED98, Ai_WaterwalkFly);	
 		    
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4C87E0, 0x68E7CC);		    
+		_PI->WriteDword(0x4C87E0, 0x68E7CC);
+		    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B0C59, 0xEB);			    
 		    
             }
 
@@ -287,7 +293,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x43017E, Ai_WaterwalkFly);
 		    
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CA6C0, 0x668D38);		    
+		_PI->WriteDword(0x4CA6C0, 0x668D38);
+		    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B2A79, 0xEB);		    
 		    
             }
 
@@ -315,7 +324,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FE6E, Ai_WaterwalkFly);
 		    
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CB020, 0x693C78);		    
+		_PI->WriteDword(0x4CB020, 0x693C78);
+		    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B3399, 0xEB);			    
 		    
             }
 
@@ -565,7 +577,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42FF5E, Ai_WaterwalkFly);
 		    
 		// Tavern rumors bug fix
-		_PI->WriteDword(0x4CB170, 0x693D98);			    
+		_PI->WriteDword(0x4CB170, 0x693D98);
+		    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B34D9, 0xEB);			    
 		    
             }
 
