@@ -64,7 +64,7 @@ void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int cell, H3Army* destAr
 {
 	if(isHero && army != destArmy)
 	{
-		creaturesCount = 0;
+		int creaturesCount = 0;
 		for(int i=0; i<7; i++)
 		{
 			if(army->type[i] >= 0)
@@ -124,7 +124,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x505E15, fixRefugeCamp);
 		   
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449B60, SPLICE_, extended_, THISCALL_, ghostHeroFix);
+		_PI->WriteHiHook(0x449B60, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		       
             }
 
@@ -167,7 +167,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4FFBB8, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x448B10, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x448B10, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -206,7 +206,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4FFEE8, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x448600, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x448600, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    	    
             }
 
@@ -242,7 +242,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x505B05, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x44A3F0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x44A3F0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -278,7 +278,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x505B6E, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449BE0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449BE0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    
             }
 
@@ -315,7 +315,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x4486B0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x4486B0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    
             }
 
@@ -352,7 +352,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x4483E0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x4483E0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    
             }
 
@@ -393,7 +393,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x502925, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449D30, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449D30, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -432,7 +432,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5035D5, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449F40, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449F40, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -468,7 +468,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5057C5, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449E90, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449E90, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -500,7 +500,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x44A4C0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x44A4C0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -532,7 +532,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449EE0, SPLICE_, extended_, THISCALL_, ghostHeroFix);	    
+		_PI->WriteHiHook(0x449EE0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);	    
 		    		    
             }
 
@@ -564,7 +564,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x44A0B0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x44A0B0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -596,7 +596,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449BB0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449BB0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		   
             }
 
@@ -628,7 +628,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449CB0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449CB0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -664,7 +664,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x44A170, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x44A170, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -700,7 +700,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449AE0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449AE0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -743,7 +743,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x503DF5, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449F50, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449F50, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -779,7 +779,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x505DB5, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x44A340, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x44A340, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -819,7 +819,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x505659, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449B70, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449B70, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
@@ -855,7 +855,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x50361E, fixRefugeCamp);
 		    
 		// fix ghost hero (without army)
-		_PI->WriteHiHook(0x449DA0, SPLICE_, extended_, THISCALL_, ghostHeroFix);		    
+		_PI->WriteHiHook(0x449DA0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		    		    
             }
 
