@@ -60,20 +60,6 @@ int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 	}
 }
 
-/*
- *
- * The AI with very large army may calculate army strength as negative and enter infinite loops.
- * This caps power to 2^31 - 1.
- *
- */
-int __stdcall _HH_GetArmyValue(HiHook *h, H3Army* army)
-{
-	int r = CALL_1(int, __thiscall, h->GetDefaultFunc(), army);
-	if (r < 0)
-		r = INT_MAX - 500; // - 500 is needed as sometimes this is used to calculate experience and if a town/hero is present it will overflow.
-	return r;
-}
-
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -118,10 +104,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x50604F;
 		refugeCampReturnAddress_Write = 0x505E21;
 		_PI->WriteLoHook(0x505E15, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44A950, SPLICE_, THISCALL_, _HH_GetArmyValue);
-    
+		       
             }
 
             // ------------------------------
@@ -161,10 +144,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x4FFDF6;
 		refugeCampReturnAddress_Write = 0x4FFBC4;
 		_PI->WriteLoHook(0x4FFBB8, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x4498D0, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes III Armageddon - v2.2 Buka
@@ -200,10 +180,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x500126;
 		refugeCampReturnAddress_Write = 0x4FFEF4;
 		_PI->WriteLoHook(0x4FFEE8, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x4493C0, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    	    
             }
 
             // Heroes III Shadow - v3.1 Buka
@@ -236,10 +213,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x505D3F;
 		refugeCampReturnAddress_Write = 0x505B11;
 		_PI->WriteLoHook(0x505B05, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44B1E0, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes III Complete - v4.0 Buka
@@ -273,9 +247,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Write = 0x505B7A;
 		_PI->WriteLoHook(0x505B6E, fixRefugeCamp);
 		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44A9D0, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-
             }
 
             // Heroes Chronicles Warlords & Underworld & Elements & Dragons - v1.0
@@ -310,9 +281,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4F8188, fixRefugeCamp);
 		// не нужен
 		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x449440, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -347,9 +315,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4F7AE8, fixRefugeCamp);
 		// не нужен
 		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x449170, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-
             }
 
             // ------------------------------
@@ -387,10 +352,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x502B5F;
 		refugeCampReturnAddress_Write = 0x502931;
 		_PI->WriteLoHook(0x502925, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AB20, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes III Armageddon - v2.2
@@ -426,10 +388,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x50380F;
 		refugeCampReturnAddress_Write = 0x5035E1;
 		_PI->WriteLoHook(0x5035D5, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AD30, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes III Complete - v4.0
@@ -462,10 +421,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x5059FF;
 		refugeCampReturnAddress_Write = 0x5057D1;
 		_PI->WriteLoHook(0x5057C5, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AC80, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes Chronicles Warlords & Underworld - v1.0
@@ -494,10 +450,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x449440, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes Chronicles Elements & Dragons - v1.0
@@ -526,10 +479,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44ACA0, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes Chronicles WorldTree - v1.0
@@ -558,10 +508,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AE70, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes Chronicles FieryMoon - v1.0
@@ -590,10 +537,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44A970, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		   
+		    		   
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -622,10 +566,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AA70, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // ------------------------------
@@ -658,10 +599,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AF30, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // ------------------------------
@@ -694,10 +632,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		// не нужен
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44A8A0, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // ------------------------------
@@ -737,10 +672,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x50402F;
 		refugeCampReturnAddress_Write = 0x503E01;
 		_PI->WriteLoHook(0x503DF5, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AD40, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes III Shadow - v3.1
@@ -773,10 +705,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x505FEF;
 		refugeCampReturnAddress_Write = 0x505DC1;
 		_PI->WriteLoHook(0x505DB5, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44B130, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // ------------------------------
@@ -813,10 +742,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x505668;
 		refugeCampReturnAddress_Write = 0x505661;
 		_PI->WriteLoHook(0x505659, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44A960, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
             // Heroes III Shadow - v3.2 / Armageddon - v2.2
@@ -849,10 +775,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		refugeCampReturnAddress_Skip = 0x503859;
 		refugeCampReturnAddress_Write = 0x50362A;
 		_PI->WriteLoHook(0x50361E, fixRefugeCamp);
-		    
-		// prevent AI infinte loop for big armies (overflow fix)
-		_PI->WriteHiHook(0x44AB90, SPLICE_, THISCALL_, _HH_GetArmyValue);		    
-		    
+		    		    
             }
 
         }
