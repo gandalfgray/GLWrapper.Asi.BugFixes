@@ -78,6 +78,34 @@ void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int cell, H3Army* destAr
 	CALL_6(void, __thiscall, hook->GetDefaultFunc(), army, cell, destArmy, destCell, isHero, destIsHero);
 }
 
+/*
+int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
+{
+	H3Army* army = (H3Army*)(*(DWORD*)(c->esi + 4 * *(DWORD*)(c->esi + 72) + 64) + 145);
+	DWORD cell = *(DWORD*)(c->esi + 80);
+	H3Army* destArmy = (H3Army*)(*(DWORD*)(c->esi + 4 * *(DWORD*)(c->esi + 76) + 64) + 145);
+	DWORD destCell = *(DWORD*)(c->esi + 84);
+
+	if(army != destArmy)
+	{
+		int creaturesCount = 0;
+		for(int i=0; i<7; i++)
+		{
+			if(army->type[i] >= 0)
+				creaturesCount += army->count[i];
+		}
+
+		if(creaturesCount <= 1 && destArmy->type[destCell] < 0)
+		{
+			c->return_address = h->GetAddress() + 0x26;
+			return NO_EXEC_DEFAULT;
+		}
+	}
+	
+	return EXEC_DEFAULT;
+}
+*/
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -125,6 +153,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		   
 		// fix ghost hero (without army)
 		_PI->WriteHiHook(0x449B60, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
+		// _PI->WriteLoHook(0x5AF8E9, ghostHeroFix);
 		       
             }
 
