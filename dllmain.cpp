@@ -60,7 +60,7 @@ int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 	}
 }
 
-void __stdcall ghostHeroFix(HiHook* hook, _Army_* army, int sourceCell, _Army_* destArmy, int destCell, bool isHero,  bool destIsHero)
+void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int sourceCell, H3Army* destArmy, int destCell, bool isHero,  bool destIsHero)
 {
 	creaturesCount = 0;
 	for(int i=0; i<7; i++)
