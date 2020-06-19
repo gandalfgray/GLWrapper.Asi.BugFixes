@@ -88,22 +88,22 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441524, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F642, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E4D6C;		    
-				_PI->WriteLoHook(0x4E4D40, castleOwnerCheck);	
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E4D6C;		    
+		_PI->WriteLoHook(0x4E4D40, castleOwnerCheck);	
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
-				_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
+		_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CCC43, 0x696DE8);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CCC43, 0x696DE8);
 				
-				// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
-				refugeCampReturnAddress_Skip = 0x50604F;
-				refugeCampReturnAddress_Write = 0x505E21;
-				_PI->WriteLoHook(0x505E15, fixRefugeCamp);				
+		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
+		refugeCampReturnAddress_Skip = 0x50604F;
+		refugeCampReturnAddress_Write = 0x505E21;
+		_PI->WriteLoHook(0x505E15, fixRefugeCamp);				
     
             }
 
@@ -125,20 +125,20 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x440545, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43E686, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4DFE5C;		    
-				_PI->WriteLoHook(0x4DFE30, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4DFE5C;		    
+		_PI->WriteLoHook(0x4DFE30, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42EDEB;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x42F10B;
-				_PI->WriteLoHook(0x42EDC8, Ai_WaterwalkFly);	
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42EDEB;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F10B;
+		_PI->WriteLoHook(0x42EDC8, Ai_WaterwalkFly);	
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C8550, 0x68E77C);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C8550, 0x68E77C);
 
-				// AI moat damage fix
-				_PI->WriteByte(0x4B11E9, 0xEB);			    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B11E9, 0xEB);			    
 		    
             }
 
@@ -156,20 +156,20 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x440045, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43E186, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E031C;		    
-				_PI->WriteLoHook(0x4E02F0, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E031C;		    
+		_PI->WriteLoHook(0x4E02F0, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42EDDD;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0DB;
-				_PI->WriteLoHook(0x42ED98, Ai_WaterwalkFly);	
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42EDDD;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0DB;
+		_PI->WriteLoHook(0x42ED98, Ai_WaterwalkFly);	
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C87E0, 0x68E7CC);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C87E0, 0x68E7CC);
 
-				// AI moat damage fix
-				_PI->WriteByte(0x4B0C59, 0xEB);			    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B0C59, 0xEB);			    
 		    
             }
 
@@ -187,17 +187,17 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441DA4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FEC2, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E4A4C;		    
-				_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E4A4C;		    
+		_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430101;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430410;
-				_PI->WriteLoHook(0x4300DE, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430101;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430410;
+		_PI->WriteLoHook(0x4300DE, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CCD40, 0x695E08);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CCD40, 0x695E08);		    
 		    
             }
 
@@ -215,17 +215,17 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441626, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F7B2, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E4EFC;		    
-				_PI->WriteLoHook(0x4E4ED0, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E4EFC;		    
+		_PI->WriteLoHook(0x4E4ED0, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430209;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430519;
-				_PI->WriteLoHook(0x4301E6, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430209;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430519;
+		_PI->WriteLoHook(0x4301E6, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CCFE0, 0x69A538);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CCFE0, 0x69A538);		    
 
             }
 
@@ -243,20 +243,20 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43E0F6, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FFB5, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4D9132;		    
-				_PI->WriteLoHook(0x4D9107, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4D9132;		    
+		_PI->WriteLoHook(0x4D9107, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42ED9B;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0BB;
-				_PI->WriteLoHook(0x42ED78, Ai_WaterwalkFly);	
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42ED9B;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F0BB;
+		_PI->WriteLoHook(0x42ED78, Ai_WaterwalkFly);	
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C1150, 0x636154);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C1150, 0x636154);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C1150, 0x636154);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C1150, 0x636154);		    
 
             }
 
@@ -274,17 +274,17 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x43FD05, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43DE46, "90 90 90 90 90 90");      
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4D8EF2;		    
-				_PI->WriteLoHook(0x4D8EC7, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4D8EF2;		    
+		_PI->WriteLoHook(0x4D8EC7, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42EE8B;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x42F1AB;
-				_PI->WriteLoHook(0x42EE68, Ai_WaterwalkFly);	
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42EE8B;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x42F1AB;
+		_PI->WriteLoHook(0x42EE68, Ai_WaterwalkFly);	
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C1410, 0x636174);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C1410, 0x636174);		    
 
             }
 
@@ -302,22 +302,22 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E47F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004653D3+1, 0x4D); // fdiv -> fmul
 
-				// Neutral creatures luck - не нужен
+		// Neutral creatures luck - не нужен
 
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E261C;		    
-				_PI->WriteLoHook(0x4E25F0, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E261C;		    
+		_PI->WriteLoHook(0x4E25F0, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x4301A1;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x4304B0;
-				_PI->WriteLoHook(0x43017E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x4301A1;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4304B0;
+		_PI->WriteLoHook(0x43017E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CA6C0, 0x668D38);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CA6C0, 0x668D38);
 
-				// AI moat damage fix
-				_PI->WriteByte(0x4B2A79, 0xEB);		    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B2A79, 0xEB);		    
 		    
             }
 
@@ -335,20 +335,20 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441904, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FA22, "90 90 90 90 90 90"); 
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E296C;		    
-				_PI->WriteLoHook(0x4E2940, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E296C;		    
+		_PI->WriteLoHook(0x4E2940, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FE91;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x4301A0;
-				_PI->WriteLoHook(0x42FE6E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FE91;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4301A0;
+		_PI->WriteLoHook(0x42FE6E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CB020, 0x693C78);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CB020, 0x693C78);
 
-				// AI moat damage fix
-				_PI->WriteByte(0x4B3399, 0xEB);			    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B3399, 0xEB);			    
 		    
             }
 
@@ -366,17 +366,17 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441804, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F922, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E4AFC;		    
-				_PI->WriteLoHook(0x4E4AD1, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E4AFC;		    
+		_PI->WriteLoHook(0x4E4AD1, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
-				_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430231;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430540;
+		_PI->WriteLoHook(0x43020E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CCF80, 0x696D98);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CCF80, 0x696D98);		    
 		    
             }
 
@@ -394,15 +394,15 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441D34, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FE52, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - другой код 0x4C0BF6
+		// The Castle's Lighthouse building bonus - другой код 0x4C0BF6
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF31;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430240;
-				_PI->WriteLoHook(0x42FF0E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF31;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430240;
+		_PI->WriteLoHook(0x42FF0E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C5160, 0x638F40);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C5160, 0x638F40);		    
 		    
             }
 
@@ -420,15 +420,15 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441744, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F862, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - другой код 0x4C0626
+		// The Castle's Lighthouse building bonus - другой код 0x4C0626
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430011;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430320;
-				_PI->WriteLoHook(0x42FFEE, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430011;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430320;
+		_PI->WriteLoHook(0x42FFEE, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C4B90, 0x638F40);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C4B90, 0x638F40);		    
 		    
             }
 
@@ -446,15 +446,15 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x4418F4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FA12, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - не нужно
+		// The Castle's Lighthouse building bonus - не нужно
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FEE1;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x4301F0;
-				_PI->WriteLoHook(0x42FEBE, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FEE1;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4301F0;
+		_PI->WriteLoHook(0x42FEBE, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C4AF0, 0x638F40);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C4AF0, 0x638F40);		    
 		    
             }
 
@@ -472,16 +472,16 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441424, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F542, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - не нужно
+		// The Castle's Lighthouse building bonus - не нужно
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF01;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430210;
-				_PI->WriteLoHook(0x42FEDE, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF01;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430210;
+		_PI->WriteLoHook(0x42FEDE, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C4810, 0x63B338);		    
-		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C4810, 0x63B338);		    
+		   
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -498,15 +498,15 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441514, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F632, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - другой код 0x4BFF96
+		// The Castle's Lighthouse building bonus - другой код 0x4BFF96
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF69;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430279;
-				_PI->WriteLoHook(0x42FF46, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF69;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430279;
+		_PI->WriteLoHook(0x42FF46, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C4520, 0x63C3A8);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C4520, 0x63C3A8);		    
 		    
             }
 
@@ -528,15 +528,15 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x4419E4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FB02, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - другой код 0x4C05A6
+		// The Castle's Lighthouse building bonus - другой код 0x4C05A6
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x4301B1;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x4304C0;
-				_PI->WriteLoHook(0x43018E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x4301B1;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4304C0;
+		_PI->WriteLoHook(0x43018E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C4B40, 0x63D3A0);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C4B40, 0x63D3A0);		    
 		    
             }
 
@@ -558,15 +558,15 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteHexPatch(0x441354, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F472, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus - другой код 0x4BFE26
+		// The Castle's Lighthouse building bonus - другой код 0x4BFE26
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FE71;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430180;
-				_PI->WriteLoHook(0x42FE4E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FE71;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430180;
+		_PI->WriteLoHook(0x42FE4E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4C43C0, 0x63B380);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4C43C0, 0x63B380);		    
 		    
             }
 
@@ -584,24 +584,24 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E27F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465CB3+1, 0x4D); // fdiv -> fmul
 		    
-				// Neutral creatures luck
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441914, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FA32, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E307C;		    
-				_PI->WriteLoHook(0x4E3050, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E307C;		    
+		_PI->WriteLoHook(0x4E3050, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF81;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430290;
-				_PI->WriteLoHook(0x42FF5E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FF81;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430290;
+		_PI->WriteLoHook(0x42FF5E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CB170, 0x693D98);
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CB170, 0x693D98);
 
-				// AI moat damage fix
-				_PI->WriteByte(0x4B34D9, 0xEB);			    
+		// AI moat damage fix
+		_PI->WriteByte(0x4B34D9, 0xEB);			    
 		    
             }
 
@@ -615,21 +615,21 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E54F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x004661B3+1, 0x4D); // fdiv -> fmul
 		    
-				// Neutral creatures luck
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441CF4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43FE12, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E4A4C;		    
-				_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E4A4C;		    
+		_PI->WriteLoHook(0x4E4A20, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430251;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430560;
-				_PI->WriteLoHook(0x43022E, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430251;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430560;
+		_PI->WriteLoHook(0x43022E, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CD040, 0x697EC8);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CD040, 0x697EC8);		    
 		    
             }
 
@@ -647,21 +647,21 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E48F+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465973+1, 0x4D); // fdiv -> fmul
 		   
-				// Neutral creatures luck
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x4414E4, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F602, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E44AC;		    
-				_PI->WriteLoHook(0x4E4480, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E44AC;		    
+		_PI->WriteLoHook(0x4E4480, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x430159;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x430469;
-				_PI->WriteLoHook(0x430136, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x430159;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x430469;
+		_PI->WriteLoHook(0x430136, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CC630, 0x699E20);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CC630, 0x699E20);		    
 		    
             }
 
@@ -675,21 +675,21 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x0041E2DF+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x00465903+1, 0x4D); // fdiv -> fmul
 		    
-				// Neutral creatures luck
+		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441764, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F883, "90 90 90 90 90 90");
 		    
-				// The Castle's Lighthouse building bonus
-				castleOwnerCheckReturnAddress = 0x4E2B4C;		    
-				_PI->WriteLoHook(0x4E2B20, castleOwnerCheck);
+		// The Castle's Lighthouse building bonus
+		castleOwnerCheckReturnAddress = 0x4E2B4C;		    
+		_PI->WriteLoHook(0x4E2B20, castleOwnerCheck);
 
-				// Prevents AI from casting Fly if they don't have it.
-				Ai_WaterwalkFlyReturnAddress_Cast = 0x42FFA9;
-				Ai_WaterwalkFlyReturnAddress_Skip = 0x4302B9;
-				_PI->WriteLoHook(0x42FF86, Ai_WaterwalkFly);
+		// Prevents AI from casting Fly if they don't have it.
+		Ai_WaterwalkFlyReturnAddress_Cast = 0x42FFA9;
+		Ai_WaterwalkFlyReturnAddress_Skip = 0x4302B9;
+		_PI->WriteLoHook(0x42FF86, Ai_WaterwalkFly);
 
-				// Tavern rumors bug fix
-				_PI->WriteDword(0x4CAB10, 0x695CB8);		    
+		// Tavern rumors bug fix
+		_PI->WriteDword(0x4CAB10, 0x695CB8);		    
 		    
             }
 
