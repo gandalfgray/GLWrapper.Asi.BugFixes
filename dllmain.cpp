@@ -75,7 +75,7 @@ void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int cell, H3Army* destAr
 		if(destArmy->type[destCell] >= 0)
 			destCellCreaturesCount += destArmy->count[destCell];
 
-		if(creaturesCount <= 1 && destCellCreaturesCount == 0)
+		if(creaturesCount <= 1 && destCellCreaturesCount <= 0)
 			return;
 	}
 	
