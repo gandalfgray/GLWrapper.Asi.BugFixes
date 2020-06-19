@@ -60,6 +60,20 @@ int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 	}
 }
 
+/*
+ *
+ * The AI with very large army may calculate army strength as negative and enter infinite loops.
+ * This caps power to 2^31 - 1.
+ *
+ */
+int __stdcall _HH_AI_GetArmyValue(HiHook *h, H3Army* army)
+{
+	int r = CALL_1(int, __thiscall, h->GetDefaultFunc(), army);
+	if (r < 0)
+		r = INT_MAX - 500; // - 500 is needed as sometimes this is used to calculate experience and if a town/hero is present it will overflow.
+	return r;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -103,7 +117,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// RefugeCamp fix for random maps (it gave only 1 Pikeman each week)
 		refugeCampReturnAddress_Skip = 0x50604F;
 		refugeCampReturnAddress_Write = 0x505E21;
-		_PI->WriteLoHook(0x505E15, fixRefugeCamp);				
+		_PI->WriteLoHook(0x505E15, fixRefugeCamp);
+		    
+		// prevent AI infinte loop for big armies (overflow fix)
+		_PI->WriteHiHook(0x44A950, SPLICE_, THISCALL_, _HH_AI_GetArmyValue);
     
             }
 
