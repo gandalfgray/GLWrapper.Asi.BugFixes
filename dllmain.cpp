@@ -62,19 +62,22 @@ int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 
 void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int cell, H3Army* destArmy, int destCell, bool isHero,  bool destIsHero)
 {
-	creaturesCount = 0;
-	for(int i=0; i<7; i++)
+	if(army != destArmy)
 	{
-		if(army->type[i] >= 0)
-			creaturesCount += army->count[i];
+		creaturesCount = 0;
+		for(int i=0; i<7; i++)
+		{
+			if(army->type[i] >= 0)
+				creaturesCount += army->count[i];
+		}
+
+		destCellCreaturesCount = 0;
+		if(destArmy->type[destCell] >= 0)
+			destCellCreaturesCount += destArmy->count[destCell];
+
+		if(creaturesCount <= 1 && destCellCreaturesCount == 0)
+			return;
 	}
-	
-	destCellCreaturesCount = 0;
-	if(destArmy->type[destCell] >= 0)
-		destCellCreaturesCount += destArmy->count[destCell];
-	
-	if(creaturesCount <= 1 && destCellCreaturesCount == 0)
-		return;
 	
 	CALL_6(void, __thiscall, hook->GetDefaultFunc(), army, cell, destArmy, destCell, isHero, destIsHero);
 }
