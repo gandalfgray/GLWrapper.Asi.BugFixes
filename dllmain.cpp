@@ -82,6 +82,7 @@ void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int cell, H3Army* destAr
 }
 */
 
+// fix ghost hero (without army)
 int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
 {
 	H3Army* army = (H3Army*)(*(DWORD*)(c->esi + 4 * *(DWORD*)(c->esi + 72) + 64) + 145);
@@ -109,6 +110,7 @@ int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+// fix Harpy fly after Dendroid bind
 DWORD fixHarpyBindsReturnAddress;
 int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 {
