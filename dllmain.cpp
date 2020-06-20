@@ -109,6 +109,7 @@ int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+DWORD fixHarpyBindsReturnAddress;
 int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 {
     int offsetRoots = 696;
@@ -433,6 +434,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteHiHook(0x4483E0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x5650C9, ghostHeroFix);
 		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x47363D;
+		_PI->WriteLoHook(0x473634, fixHarpyBinds);		    
+		    
             }
 
             // ------------------------------
@@ -474,6 +479,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449D30, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x58C5D9, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x4780C5;
+		_PI->WriteLoHook(0x4780BB, fixHarpyBinds);		    
 		    		    
             }
 
@@ -514,6 +523,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449F40, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x5AD5F9, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x4789D5;
+		_PI->WriteLoHook(0x4789CB, fixHarpyBinds);		    
 		    		    
             }
 
@@ -551,6 +564,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449E90, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x5AF559, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x478A35;
+		_PI->WriteLoHook(0x478A2B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -584,6 +601,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x44A4C0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x569F39, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x476445;
+		_PI->WriteLoHook(0x47643B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -617,6 +638,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449EE0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x56A1F9, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x475F05;
+		_PI->WriteLoHook(0x475EFB, fixHarpyBinds);		    
 		    		    
             }
 
@@ -650,6 +675,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x44A0B0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x569F19, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x475D95;
+		_PI->WriteLoHook(0x475D8B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -683,6 +712,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449BB0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x56A1C9, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x4758A5;
+		_PI->WriteLoHook(0x47589B, fixHarpyBinds);		    
 		    		   
             }
 
@@ -716,6 +749,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449CB0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		_PI->WriteLoHook(0x569BB9, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x475B25;
+		_PI->WriteLoHook(0x475B1B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -753,6 +790,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x44A170, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		_PI->WriteLoHook(0x56A149, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x476035;
+		_PI->WriteLoHook(0x47602B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -790,6 +831,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449AE0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x56A149, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x475795;
+		_PI->WriteLoHook(0x47578B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -834,6 +879,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449F50, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x5ADD19, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x478995;
+		_PI->WriteLoHook(0x47898B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -871,6 +920,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x44A340, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x5B02C9, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x478BF5;
+		_PI->WriteLoHook(0x478BEB, fixHarpyBinds);		    
 		    		    
             }
 
@@ -912,6 +965,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449B70, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);
 		_PI->WriteLoHook(0x5AF999, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x478215;
+		_PI->WriteLoHook(0x47820B, fixHarpyBinds);		    
 		    		    
             }
 
@@ -949,6 +1006,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix ghost hero (without army)
 		//_PI->WriteHiHook(0x449DA0, SPLICE_, EXTENDED_, THISCALL_, ghostHeroFix);		    
 		_PI->WriteLoHook(0x5AD119, ghostHeroFix);
+		    
+		// fix Harpy fly after Dendroid bind
+		fixHarpyBindsReturnAddress = 0x478275;
+		_PI->WriteLoHook(0x47826B, fixHarpyBinds);		    
 		    		    
             }
 
