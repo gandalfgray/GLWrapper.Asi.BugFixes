@@ -1,4 +1,20 @@
 
+template <typename _Type> struct H3Array
+{
+ BOOL _init; // +0 useless
+ _Type* Data; // +4 the first item, also start of list
+ _Type* EndData; // +8 the end of last item
+ _Type* EndMemory; // +12 end of allocated memory
+};
+
+struct H3String;
+struct H3Army;
+struct H3Artifact;
+struct H3Town;
+struct H3Hero;
+struct H3CombatMonsterSpellsData;
+struct H3CombatMonster;
+
 struct H3String
 {
  BOOL _init; // useless
@@ -122,4 +138,106 @@ struct H3Hero
  DWORD ai_knowl_effectivness; // KnowledgeEffectivness +1158
  DWORD ai_dmana_effectivness; // DoubleManaEffectivness +1162
  DWORD ai_mana_effectivness; // ManaEffectivness +1166
+};
+
+// a substructure of H3CombatMonster related to spells
+// size 1352 (0x548)
+struct H3CombatMonsterSpellsData
+{
+ INT32 bless_damage;            // 0x458
+ INT32 curse_damage;            // 0x45C
+ INT32 anti_magic;              // 0x460
+ INT32 bloodlust_effect;        // 0x464
+ INT32 precision_effect;        // 0x468
+ INT32 weakness_effect;         // 0x46C
+ INT32 stone_skin_effect;       // 0x470
+ INT32 unknown13;               // 0x474
+ INT32 prayer_effect;           // 0x478
+ INT32 mirth_effect;            // 0x47C
+ INT32 sorrow_effect;           // 0x480
+ INT32 fortune_effect;          // 0x484
+ INT32 misfortune_effect;       // 0x488
+ INT32 slayer_type;             // 0x48C - called KING_1/2/3
+ INT32 unk1;                    // 0x490 - Max traversed cells before hitting?
+ INT32 counterstrike_effect;    // 0x494
+ FLOAT frenzyMultiplier;        // 0x498
+ INT32 blind_effect;            // 0x49C - for calculating damage retaliation damage?
+ FLOAT fire_shield_effect;      // 0x4A0
+ INT32 unk2;                    // 0x4A4
+ FLOAT protection_air_effect;   // 0x4A8 - in % as below
+ FLOAT protection_fire_effect;  // 0x4AC
+ FLOAT protection_water_effect; // 0x4B0
+ FLOAT protection_earth_effect; // 0x4B4
+ INT32 shield_effect;           // 0x4B8
+ INT32 air_shield_effect;       // 0x4BC
+ INT8 blinded;                  // 0x4C0 - to reduce damage?
+ INT8 paralyzed;                // 0x4C1 - to reduce damage?
+ INT8 unk3[2];                  // 0x4C2-0x4C3
+ INT32 forgetfulness_level;     // 0x4C4
+ FLOAT slow_effect;             // 0x4C8
+ INT32 haste_effect;            // 0x4CC - value added/removed
+ INT32 disease_attack_effect;   // 0x4D0
+ INT32 disease_defense_effect;  // 0x4D4
+ INT8 unk4[8];                  // 0x4D8-0x4DC
+ INT32 faerie_dragon_spell;     // 0x4E0
+ INT32 magic_mirror_effect;     // 0x4E4
+ INT32 morale;                  // 0x4E8
+ INT32 luck;                    // 0x4EC
+ INT8 unk5[4];                  // 0x4F0
+ H3Array<H3CombatMonster*> dendroidBinder;  // +4F4 which dendroids have binded the current target (used for animation requirement)
+ H3Array<H3CombatMonster*> dendroidBinds;   // +504 a list of H3CombatMonsters binded by this dendroid
+ INT8 unk6[20];                 // 0x514
+ INT32 Hypnotize_528;           // 0x528
+ INT32 Hypnotize_52C;           // 0x52C
+ INT8 unk7[24];                 // 0x530
+};
+
+// monster on battlefield
+struct H3CombatMonster
+{
+ INT8 unk1[52];             // 0
+ INT32 type; 		       // 0x34
+ INT32 position; 		   // 0x38 position on battlefield
+ INT32 animation;           // 0x3C
+ INT32 animationFrame;      // 0x40
+ INT32 secondHexOrientation; // 0x44 left or right
+ INT8 unk2[4];
+ INT32 numberAlive;          // 0x4C the number of creatures that are currently alive
+ INT32 previousNumber; 		// 0x50
+ INT8 unk3[4];           // 0x54
+ INT32 healthLost; 		// 0x58 the number of lost hitpoints of top creature in stack
+ INT32 slotIndex; // 0x5C ?reference to position on side?
+ INT32 numberAtStart; 	// 0x60 the number of creatures in this stack to compare against resurrection
+ INT8 unk4[8];
+ INT32 baseHP; 		// 0x6C maximum hit points
+ INT32 isLucky;      		// 0x70	
+ INT8 H3CreatureInformation[116]; 		// 0x74 a copy of H3CreatureInformation using combat values in some places
+ INT8 unk5[4];               // 0xE8
+ INT32 spellToApply; 		// 0xEC set in After-Hit spell subroutine 0x440220
+ INT8 unk6[4];
+ INT32 side; 		// 0xF4 left or right
+ INT32 sideIndex; // 0xF8 reference to position on side
+ UINT32 last_animation_time; // 0xFC
+ INT32 yOffset; 		// 0x100
+ INT32 xOffset;      		// 0x104
+ INT8 unk7[8];               // 0x108
+ INT8 H3MonsterAnimation[84]; 		// 0x110 from cranim
+ INT32 def;               		// 0x164
+ INT32 shootingDef; 		// 0x168
+ INT8 unk8[4];          // 0x16C
+ UINT32 moveSound; 		// 0x170
+ UINT32 attackSound; 		// 0x174
+ UINT32 getHitSound; 		// 0x178
+ UINT32 shotSound; 		// 0x17C
+ UINT32 deathSound; 		// 0x180
+ UINT32 defendSound;     // 0x184
+ UINT32 extraSound1;     // 0x188
+ UINT32 extraSound2;     // 0x18C
+ INT8 unk9[4];
+ INT32 activeSpellsNumber; 		// 0x194 the number of spells currently active
+ INT32 activeSpellsDuration[81]; 		// 0x198 the remaining number of turns of any spells
+ INT32 activeSpellsLevel[81]; 		// 0x2DC the secondary skill level of applied spells
+ INT8 unk10[52];
+ INT32 retaliations; 		// 0x454 number of retaliations left
+ H3CombatMonsterSpellsData spellsData; // 0x458 information about some spell effects
 };
