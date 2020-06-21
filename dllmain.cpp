@@ -178,7 +178,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x478365;
-		_PI->WriteLoHook(0x47835B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47835B, fixHarpyBinds);
+		
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x534621+3, 0xFFFEFBF);
 		       
             }
 
