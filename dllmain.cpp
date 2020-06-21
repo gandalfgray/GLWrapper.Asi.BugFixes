@@ -10,8 +10,8 @@ static _bool_ plugin_On = 0;
 bool bukaComplete = false;
 
 // Prevents AI from casting Fly if they don't have it.
-DWORD Ai_WaterwalkFlyReturnAddress_Cast;
-DWORD Ai_WaterwalkFlyReturnAddress_Skip;
+int Ai_WaterwalkFlyReturnAddress_Cast;
+int Ai_WaterwalkFlyReturnAddress_Skip;
 int __stdcall Ai_WaterwalkFly(LoHook *h, HookContext *c)
 {
     if (c->eax == 0) // no angel wings
@@ -33,7 +33,7 @@ int __stdcall Ai_WaterwalkFly(LoHook *h, HookContext *c)
 }
 
 // The Castle's Lighthouse building bonus
-DWORD castleOwnerCheckReturnAddress;
+int castleOwnerCheckReturnAddress;
 int __stdcall castleOwnerCheck(LoHook *h, HookContext *c)
 {
    H3Town *town = (H3Town*)(c->ecx);
@@ -46,8 +46,8 @@ int __stdcall castleOwnerCheck(LoHook *h, HookContext *c)
    return NO_EXEC_DEFAULT;
 }
 
-DWORD refugeCampReturnAddress_Skip;
-DWORD refugeCampReturnAddress_Write;
+int refugeCampReturnAddress_Skip;
+int refugeCampReturnAddress_Write;
 int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 {
 	if ((BYTE)c->eax == 0)
@@ -62,33 +62,13 @@ int __stdcall fixRefugeCamp(LoHook* hook, HookContext* c)
 	}
 }
 
-/*
-void __stdcall ghostHeroFix(HiHook* hook, H3Army* army, int cell, H3Army* destArmy, int destCell, bool isHero,  bool destIsHero)
-{
-	if(isHero && army != destArmy)
-	{
-		int creaturesCount = 0;
-		for(int i=0; i<7; i++)
-		{
-			if(army->type[i] >= 0)
-				creaturesCount += army->count[i];
-		}
-
-		if(creaturesCount <= 1 && destArmy->type[destCell] < 0)
-			return;
-	}
-	
-	CALL_6(void, __thiscall, hook->GetDefaultFunc(), army, cell, destArmy, destCell, isHero, destIsHero);
-}
-*/
-
 // fix ghost hero (without army)
 int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
 {
-	H3Army* army = (H3Army*)(*(DWORD*)(c->esi + 4 * *(DWORD*)(c->esi + 72) + 64) + 145);
-	DWORD cell = *(DWORD*)(c->esi + 80);
-	H3Army* destArmy = (H3Army*)(*(DWORD*)(c->esi + 4 * *(DWORD*)(c->esi + 76) + 64) + 145);
-	DWORD destCell = *(DWORD*)(c->esi + 84);
+	H3Army* army = (H3Army*)(*(int*)(c->esi + 4 * *(int*)(c->esi + 72) + 64) + 145);
+	int cell = *(int*)(c->esi + 80);
+	H3Army* destArmy = (H3Army*)(*(int*)(c->esi + 4 * *(int*)(c->esi + 76) + 64) + 145);
+	int destCell = *(int*)(c->esi + 84);
 
 	if(army != destArmy)
 	{
@@ -111,7 +91,7 @@ int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
 }
 
 // fix Harpy fly after Dendroid bind
-DWORD fixHarpyBindsReturnAddress;
+int fixHarpyBindsReturnAddress;
 int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 {
     int offsetRoots = 696;
@@ -128,7 +108,7 @@ int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 }
 
 // fix double cast during 1 round in battle
-DWORD fixDoubleCastReturnAddress;
+int fixDoubleCastReturnAddress;
 int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 {
 	if(*(int*)(c->esi + c->eax * 4 + 0x54B4) && !(*(BYTE*)(c->esi + 0x13D74)))
@@ -150,17 +130,17 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             _P = GetPatcher();
             _PI = _P->CreateInstance("GLWrapper.Asi.BugFixes");
 
-            DWORD check1, check2;
+            int check1, check2;
 
             // for HoMM SoD 3.2 (eng)
-            check1 = *(DWORD*)(0x004F8193+1);
-            check2 = *(DWORD*)(0x00602149+1);
+            check1 = *(int*)(0x4F8193+1);
+            check2 = *(int*)(0x602149+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E3A3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E4DF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465943+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E4DF+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465943+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck 6 NOP
                 //_PI->WriteCodePatch(0x441524, "%n", 6);
@@ -203,14 +183,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
 
             // Heroes III Armageddon - v2.1 Buka
-            check1 = *(DWORD*)(0x004F2533+1);
-            check2 = *(DWORD*)(0x005F9649+1);
+            check1 = *(int*)(0x4F2533+1);
+            check2 = *(int*)(0x5F9649+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041D5B3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041D6F1+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x004640FD+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D6F1+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x4640FD+1, 0x4D); // fdiv -> fmul
 		    
                 // Neutral creatures luck 6 NOP
                 _PI->WriteHexPatch(0x440545, "90 90 90 90 90 90");
@@ -254,14 +234,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Armageddon - v2.2 Buka
-            check1 = *(DWORD*)(0x004F2863+1);
-            check2 = *(DWORD*)(0x005F9609+1);
+            check1 = *(int*)(0x4F2863+1);
+            check2 = *(int*)(0x5F9609+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041D553+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041D691+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00463D9D+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D691+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x463D9D+1, 0x4D); // fdiv -> fmul
 		    
                 // Neutral creatures luck 6 NOP
                 _PI->WriteHexPatch(0x440045, "90 90 90 90 90 90");
@@ -301,14 +281,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Shadow - v3.1 Buka
-            check1 = *(DWORD*)(0x004F7EB3+1);
-            check2 = *(DWORD*)(0x00602379+1);
+            check1 = *(int*)(0x4F7EB3+1);
+            check2 = *(int*)(0x602379+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E2D3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E40F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465EF3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E40F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465EF3+1, 0x4D); // fdiv -> fmul
 		    
                 // Neutral creatures luck 6 NOP
                 _PI->WriteHexPatch(0x441DA4, "90 90 90 90 90 90");
@@ -349,16 +329,16 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Complete - v4.0 Buka
-            check1 = *(DWORD*)(0x004F7EB3+1);
-            check2 = *(DWORD*)(0x006021A9+1);
+            check1 = *(int*)(0x4F7EB3+1);
+            check2 = *(int*)(0x6021A9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		bukaComplete = true;
 		    
                 // Armorer fix
-                _PI->WriteByte(0x0041E456+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E595+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0046592C+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E595+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x46592C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441626, "90 90 90 90 90 90");
@@ -395,14 +375,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles Warlords & Underworld & Elements & Dragons - v1.0
-            check1 = *(DWORD*)(0x004EBA34+1);
-            check2 = *(DWORD*)(0x005AF329+1);
+            check1 = *(int*)(0x4EBA34+1);
+            check2 = *(int*)(0x5AF329+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041D5F3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041D731+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00461206+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D731+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x461206+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x43E0F6, "90 90 90 90 90 90");
@@ -437,14 +417,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
-            check1 = *(DWORD*)(0x004EB494+1);
-            check2 = *(DWORD*)(0x005AF2D9+1);
+            check1 = *(int*)(0x4EB494+1);
+            check2 = *(int*)(0x5AF2D9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041D6A3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041D7E1+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00461126+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41D7E1+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x461126+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x43FD05, "90 90 90 90 90 90");
@@ -483,14 +463,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
 
             // Heroes III Erathia - v1.4
-            check1 = *(DWORD*)(0x004F5583+1);
-            check2 = *(DWORD*)(0x005D8F69+1);
+            check1 = *(int*)(0x4F5583+1);
+            check2 = *(int*)(0x5D8F69+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E343+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E47F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x004653D3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E47F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x4653D3+1, 0x4D); // fdiv -> fmul
 
 		// Neutral creatures luck - не нужен
 
@@ -528,14 +508,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Armageddon - v2.2
-            check1 = *(DWORD*)(0x004F5963+1);
-            check2 = *(DWORD*)(0x005FFBF9+1);
+            check1 = *(int*)(0x4F5963+1);
+            check2 = *(int*)(0x5FFBF9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E033+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E16F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465A53+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E16F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465A53+1, 0x4D); // fdiv -> fmul
 		    
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441904, "90 90 90 90 90 90");
@@ -575,14 +555,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Complete - v4.0
-            check1 = *(DWORD*)(0x004F7B03+1);
-            check2 = *(DWORD*)(0x00601B89+1);
+            check1 = *(int*)(0x4F7B03+1);
+            check2 = *(int*)(0x601B89+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E223+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E35F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465D63+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E35F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465D63+1, 0x4D); // fdiv -> fmul
 		    
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441804, "90 90 90 90 90 90");
@@ -619,14 +599,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles Warlords & Underworld - v1.0
-            check1 = *(DWORD*)(0x004F0033+1);
-            check2 = *(DWORD*)(0x005B5129+1);
+            check1 = *(int*)(0x4F0033+1);
+            check2 = *(int*)(0x5B5129+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E1A3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E2DF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0046364C+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E2DF+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x46364C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441D34, "90 90 90 90 90 90");
@@ -659,14 +639,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles Elements & Dragons - v1.0
-            check1 = *(DWORD*)(0x004EFE04+1);
-            check2 = *(DWORD*)(0x005B5469+1);
+            check1 = *(int*)(0x4EFE04+1);
+            check2 = *(int*)(0x5B5469+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E1C3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E2FF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x004632CC+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E1C3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E2FF+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x4632CC+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441744, "90 90 90 90 90 90");
@@ -699,14 +679,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles WorldTree - v1.0
-            check1 = *(DWORD*)(0x004EFA84+1);
-            check2 = *(DWORD*)(0x005B51B9+1);
+            check1 = *(int*)(0x4EFA84+1);
+            check2 = *(int*)(0x5B51B9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E163+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E29F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0046326C+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E163+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E29F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x46326C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x4418F4, "90 90 90 90 90 90");
@@ -739,14 +719,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles FieryMoon - v1.0
-            check1 = *(DWORD*)(0x004EF824+1);
-            check2 = *(DWORD*)(0x005B5249+1);
+            check1 = *(int*)(0x4EF824+1);
+            check2 = *(int*)(0x5B5249+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E183+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E2BF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00462CDC+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E183+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E2BF+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x462CDC+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441424, "90 90 90 90 90 90");
@@ -779,14 +759,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
-            check1 = *(DWORD*)(0x004EF874+1);
-            check2 = *(DWORD*)(0x005B4C09+1);
+            check1 = *(int*)(0x4EF874+1);
+            check2 = *(int*)(0x5B4C09+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E213+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E34F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00462E5C+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E213+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E34F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x462E5C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441514, "90 90 90 90 90 90");
@@ -823,14 +803,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
-            check1 = *(DWORD*)(0x004EF914+1);
-            check2 = *(DWORD*)(0x005B51B9+1);
+            check1 = *(int*)(0x4EF914+1);
+            check2 = *(int*)(0x5B51B9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E433+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E56F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0046345C+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E433+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E56F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x46345C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x4419E4, "90 90 90 90 90 90");
@@ -867,14 +847,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
 
             // Heroes Chronicles Dragons - GOG - v1.0
-            check1 = *(DWORD*)(0x004EFA04+1);
-            check2 = *(DWORD*)(0x005B51C9+1);
+            check1 = *(int*)(0x4EFA04+1);
+            check2 = *(int*)(0x5B51C9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E0F3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E22F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00462C0C+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E0F3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E22F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x462C0C+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck
                 _PI->WriteHexPatch(0x441354, "90 90 90 90 90 90");
@@ -911,14 +891,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
 
             // Heroes III Armageddon - v2.1
-            check1 = *(DWORD*)(0x004F61C3+1);
-            check2 = *(DWORD*)(0x006003D9+1);
+            check1 = *(int*)(0x4F61C3+1);
+            check2 = *(int*)(0x6003D9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E143+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E27F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465CB3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E27F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465CB3+1, 0x4D); // fdiv -> fmul
 		    
 		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441914, "90 90 90 90 90 90");
@@ -962,14 +942,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Shadow - v3.1
-            check1 = *(DWORD*)(0x004F8163+1);
-            check2 = *(DWORD*)(0x006028F9+1);
+            check1 = *(int*)(0x4F8163+1);
+            check2 = *(int*)(0x6028F9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E413+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E54F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x004661B3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E54F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x4661B3+1, 0x4D); // fdiv -> fmul
 		    
 		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441CF4, "90 90 90 90 90 90");
@@ -1014,14 +994,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             // ------------------------------
 
             // Heroes III Shadow - v3.2
-            check1 = *(DWORD*)(0x004F78D3+1);
-            check2 = *(DWORD*)(0x00602179+1);
+            check1 = *(int*)(0x4F78D3+1);
+            check2 = *(int*)(0x602179+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E353+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E48F+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465973+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E48F+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465973+1, 0x4D); // fdiv -> fmul
 		   
 		// Neutral creatures luck
                 _PI->WriteHexPatch(0x4414E4, "90 90 90 90 90 90");
@@ -1058,14 +1038,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             }
 
             // Heroes III Shadow - v3.2 / Armageddon - v2.2
-            check1 = *(DWORD*)(0x004F5993+1);
-            check2 = *(DWORD*)(0x005FE337+1);
+            check1 = *(int*)(0x4F5993+1);
+            check2 = *(int*)(0x5FE337+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
                 // Armorer fix
-                _PI->WriteByte(0x0041E1A3+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x0041E2DF+1, 0x4D); // fdiv -> fmul
-                _PI->WriteByte(0x00465903+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x41E2DF+1, 0x4D); // fdiv -> fmul
+                _PI->WriteByte(0x465903+1, 0x4D); // fdiv -> fmul
 		    
 		// Neutral creatures luck
                 _PI->WriteHexPatch(0x441764, "90 90 90 90 90 90");
