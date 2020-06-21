@@ -128,11 +128,12 @@ int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 }
 
 // fix double cast during 1 round in battle
+DWORD fixDoubleCastReturnAddress;
 int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 {
 	if(*(int*)(c->esi + c->eax * 4 + 0x54B4) && !(*(BYTE*)(c->esi + 0x13D74)))
 	{
-		c->return_address = 0x59761C;
+		c->return_address = fixDoubleCastReturnAddress;
 		return NO_EXEC_DEFAULT;
 	}
 
