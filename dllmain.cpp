@@ -127,6 +127,18 @@ int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
     return EXEC_DEFAULT;
 }
 
+// fix double cast during 1 round in battle
+int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
+{
+	if(*(int*)(c->esi + c->eax * 4 + 0x54B4) && !(*(BYTE*)(c->esi + 0x13D74)))
+	{
+		c->return_address = 0x59761C;
+		return NO_EXEC_DEFAULT;
+	}
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -232,7 +244,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4766A4, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x52D661+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x52D661+3, 0x0FFFEFBF);
+		
+		// fix double cast
+		fixDoubleCastReturnAddress = 0x59761C;
+		_PI->WriteLoHook(0x597367, fixDoubleCast);		    
 		    		    
             }
 
@@ -323,7 +339,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4789BB, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x534471+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x534471+3, 0x0FFFEFBF);
+		    
+		// fix double cast
+		fixDoubleCastReturnAddress = 0x59EE0F;
+		_PI->WriteLoHook(0x59EDD8, fixDoubleCast);		    
 		    		    
             }
 
@@ -932,7 +952,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47898B, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x532691+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x532691+3, 0x0FFFEFBF);
+		    
+		// fix double cast
+		fixDoubleCastReturnAddress = 0x59D13F;
+		_PI->WriteLoHook(0x59D108, fixDoubleCast);		    
 		    		    
             }
 
@@ -976,7 +1000,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x478BEB, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x534EA1+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x534EA1+3, 0x0FFFEFBF);
+		    
+		// fix double cast
+		fixDoubleCastReturnAddress = 0x59F72F;
+		_PI->WriteLoHook(0x59F6F8, fixDoubleCast);		    
 		    		    
             }
 
