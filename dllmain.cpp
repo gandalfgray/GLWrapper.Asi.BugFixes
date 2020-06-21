@@ -229,7 +229,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x4766AD;
-		_PI->WriteLoHook(0x4766A4, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x4766A4, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x52D661+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -273,7 +276,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x47636D;
-		_PI->WriteLoHook(0x476364, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x476364, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);		    
 		    	    
             }
 
@@ -314,7 +320,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x4789C5;
-		_PI->WriteLoHook(0x4789BB, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x4789BB, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x534471+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -357,7 +366,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind    
 		fixHarpyBindsReturnAddress = 0x478568;
-		_PI->WriteLoHook(0x47855E, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47855E, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);		    
 		    
             }
 
@@ -487,7 +499,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x4780C5;
-		_PI->WriteLoHook(0x4780BB, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x4780BB, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -531,7 +546,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x4789D5;
-		_PI->WriteLoHook(0x4789CB, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x4789CB, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x531DC1+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -572,7 +590,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x478A35;
-		_PI->WriteLoHook(0x478A2B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x478A2B, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x534141+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -609,7 +630,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x476445;
-		_PI->WriteLoHook(0x47643B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47643B, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -646,7 +670,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x475F05;
-		_PI->WriteLoHook(0x475EFB, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x475EFB, fixHarpyBinds);	
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -683,7 +710,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x475D95;
-		_PI->WriteLoHook(0x475D8B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x475D8B, fixHarpyBinds);	
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -720,7 +750,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x4758A5;
-		_PI->WriteLoHook(0x47589B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47589B, fixHarpyBinds);	
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		   
             }
 
@@ -757,7 +790,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x475B25;
-		_PI->WriteLoHook(0x475B1B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x475B1B, fixHarpyBinds);	
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -798,7 +834,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x476035;
-		_PI->WriteLoHook(0x47602B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47602B, fixHarpyBinds);	
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -839,7 +878,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x475795;
-		_PI->WriteLoHook(0x47578B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47578B, fixHarpyBinds);	
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		// не нужен		    
 		    		    
             }
 
@@ -887,7 +929,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x478995;
-		_PI->WriteLoHook(0x47898B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47898B, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x532691+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -928,7 +973,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x478BF5;
-		_PI->WriteLoHook(0x478BEB, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x478BEB, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x534EA1+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -973,7 +1021,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x478215;
-		_PI->WriteLoHook(0x47820B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47820B, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x533D71+3, 0x0FFFEFBF);		    
 		    		    
             }
 
@@ -1014,7 +1065,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x478275;
-		_PI->WriteLoHook(0x47826B, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47826B, fixHarpyBinds);
+		    
+		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
+		_PI->WriteDword(0x5317A1+3, 0x0FFFEFBF);		    
 		    		    
             }
 
