@@ -139,7 +139,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
-		o_H3HeroProperties = 0x67DCEC;		    
+		o_H3HeroProperties = *(H3HeroProperties**)0x67DCEC;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -191,6 +191,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5F9649+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		o_H3HeroProperties = *(H3HeroProperties**)0x673AFC;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41D6F1+1, 0x4D); // fdiv -> fmul
@@ -242,6 +245,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5F9609+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		o_H3HeroProperties = *(H3HeroProperties**)0x673AFC;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41D691+1, 0x4D); // fdiv -> fmul
@@ -291,7 +297,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
-		o_H3HeroProperties = 0x67CD0C;	
+		o_H3HeroProperties = *(H3HeroProperties**)0x67CD0C;	
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -343,6 +349,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		bukaComplete = true;
 		    
+		// Global structures addresses
+		o_H3HeroProperties = *(H3HeroProperties**)0x67EFDC;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E595+1, 0x4D); // fdiv -> fmul
@@ -387,6 +396,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5AF329+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		o_H3HeroProperties = *(H3HeroProperties**)0x61C194;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41D731+1, 0x4D); // fdiv -> fmul
@@ -429,6 +441,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5AF2D9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		o_H3HeroProperties = *(H3HeroProperties**)0x61C1BC;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41D7E1+1, 0x4D); // fdiv -> fmul
