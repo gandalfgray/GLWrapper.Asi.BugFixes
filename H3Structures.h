@@ -11,6 +11,7 @@ struct H3String;
 struct H3Army;
 struct H3Artifact;
 struct H3Town;
+struct H3HeroProperties;
 struct H3Hero;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
@@ -66,6 +67,30 @@ struct H3Town
  DWORD built_bits[2]; // +336
  DWORD built_bits2[2]; // +344
  DWORD buildable_bits[2]; // +352   
+};
+
+// Read from HCTRAITS.txt
+// size 64 (0x40)
+struct H3HeroProperties
+{
+ INT32 town_type;
+ PCHAR class_name;
+ FLOAT agression;
+ BYTE attack_start;
+ BYTE defense_start;
+ BYTE power_start;
+ BYTE knowl_start;
+ BYTE attack_prob_to9Lvl;
+ BYTE defense_prob_to9Lvl;
+ BYTE power_prob_to9Lvl;
+ BYTE knowl_prob_to9Lvl;
+ BYTE attack_prob_after10Lvl;
+ BYTE defense_prob_after10Lvl;
+ BYTE power_prob_after10Lvl;
+ BYTE knowl_prob_after10Lvl;
+ BYTE sec_skill_prob[28];
+ BYTE town_tavern_prob[9];
+ INT8 unk1[3];
 };
 
 struct H3Hero
