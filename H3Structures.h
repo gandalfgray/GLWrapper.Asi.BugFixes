@@ -17,7 +17,7 @@ struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
 //H3HeroClassProperties* o_H3HeroClassProperties;
-#define o_H3HeroClassProperties (*(H3HeroClassProperties**)aH3HeroClassProperties)
+#define o_H3HeroClass (*(H3HeroClassProperties**)aH3HeroClass)
 
 struct H3String
 {
@@ -74,7 +74,7 @@ struct H3Town
 
 // Read from HCTRAITS.txt
 // size 64 (0x40)
-struct H3HeroClassProperties
+struct H3HeroClass
 {
  INT32 town_type;
  PCHAR class_name;
