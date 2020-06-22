@@ -120,6 +120,31 @@ int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+int __stdcall fixRusHeroAgression(LoHook* h, HookContext* c)
+{
+	int i=0;
+	o_H3HeroProperties[i++].agression = (float)1.0; // Knight
+	o_H3HeroProperties[i++].agression = (float)0.8; // Cleric
+	o_H3HeroProperties[i++].agression = (float)1.0; // Ranger
+	o_H3HeroProperties[i++].agression = (float)0.8; // Druid
+	o_H3HeroProperties[i++].agression = (float)1.0; // Alchemist
+	o_H3HeroProperties[i++].agression = (float)1.0; // Wizard
+	o_H3HeroProperties[i++].agression = (float)1.2; // Demoniac
+	o_H3HeroProperties[i++].agression = (float)1.1; // Heretic
+	o_H3HeroProperties[i++].agression = (float)1.2; // Death Knight	
+	o_H3HeroProperties[i++].agression = (float)1.0; // Necromancer
+	o_H3HeroProperties[i++].agression = (float)1.0; // Overlord
+	o_H3HeroProperties[i++].agression = (float)1.0; // Warlock
+	o_H3HeroProperties[i++].agression = (float)1.1; // Barbarian
+	o_H3HeroProperties[i++].agression = (float)1.1; // Battle Mage
+	o_H3HeroProperties[i++].agression = (float)0.9; // Beastmaster
+	o_H3HeroProperties[i++].agression = (float)1.0; // Witch
+	o_H3HeroProperties[i++].agression = (float)0.9; // Planeswalker
+	o_H3HeroProperties[i++].agression = (float)1.0; // Elementalist	
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
