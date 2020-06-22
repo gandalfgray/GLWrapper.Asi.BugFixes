@@ -16,6 +16,8 @@ struct H3Hero;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
+H3HeroProperties** o_H3HeroProperties;
+
 struct H3String
 {
  BOOL _init; // useless
