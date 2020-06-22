@@ -2,6 +2,8 @@
 #include "H3Structures.h"
 #include "H3Numerations.h"
 
+int aH3HeroClassProperties;
+
 Patcher* _P;
 PatcherInstance* _PI;
 
@@ -164,7 +166,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67DCEC;		    
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67DCEC;
+		aH3HeroClassProperties = 0x67DCEC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -217,7 +220,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
+		aH3HeroClassProperties = 0x673AFC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -274,7 +278,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
+		aH3HeroClassProperties = 0x673AFC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -328,7 +333,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67CD0C;	
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67CD0C;
+		aH3HeroClassProperties = 0x67CD0C;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -384,7 +390,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		bukaComplete = true;
 		    
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67EFDC;		    
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67EFDC;
+		aH3HeroClassProperties = 0x67EFDC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
@@ -434,7 +441,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C194;
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C194;
+		aH3HeroClassProperties = 0x61C194;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
@@ -482,7 +490,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C1BC;
+		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C1BC;
+		aH3HeroClassProperties = 0x61C1BC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
