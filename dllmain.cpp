@@ -137,6 +137,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x602149+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		    
+		// Global structures addresses
+		o_H3HeroProperties = 0x67DCEC;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E4DF+1, 0x4D); // fdiv -> fmul
@@ -285,6 +289,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x602379+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		    
+		// Global structures addresses
+		o_H3HeroProperties = 0x67CD0C;	
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E40F+1, 0x4D); // fdiv -> fmul
