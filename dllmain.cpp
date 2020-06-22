@@ -260,7 +260,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		
 		// fix double cast
 		fixDoubleCastReturnAddress = 0x59761C;
-		_PI->WriteLoHook(0x597367, fixDoubleCast);		    
+		_PI->WriteLoHook(0x597367, fixDoubleCast);
+		   
+		// fix bug with delimiter in Russian versions
+		_PI->WriteLoHook(0x4E8981, fixRusHeroAgression);
 		    		    
             }
 
@@ -310,7 +313,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x476364, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);
+		    
+		// fix bug with delimiter in Russian versions
+		_PI->WriteLoHook(0x4E8C91, fixRusHeroAgression);		    
 		    	    
             }
 
@@ -362,7 +368,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix double cast
 		fixDoubleCastReturnAddress = 0x59EE0F;
-		_PI->WriteLoHook(0x59EDD8, fixDoubleCast);		    
+		_PI->WriteLoHook(0x59EDD8, fixDoubleCast);
+		    
+		// fix bug with delimiter in Russian versions
+		_PI->WriteLoHook(0x4EDBCE, fixRusHeroAgression);		    
 		    		    
             }
 
@@ -411,7 +420,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47855E, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);
+		    
+		// fix bug with delimiter in Russian versions
+		_PI->WriteLoHook(0x4EDA9E, fixRusHeroAgression);		    
 		    
             }
 
@@ -456,7 +468,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x47367D;
-		_PI->WriteLoHook(0x47855E, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x47855E, fixHarpyBinds);
+		    
+		// fix bug with delimiter in Russian versions
+		_PI->WriteLoHook(0x4E296C, fixRusHeroAgression);		    
 		    
             }
 
@@ -501,7 +516,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind
 		fixHarpyBindsReturnAddress = 0x47363D;
-		_PI->WriteLoHook(0x473634, fixHarpyBinds);		    
+		_PI->WriteLoHook(0x473634, fixHarpyBinds);
+		    
+		// fix bug with delimiter in Russian versions
+		_PI->WriteLoHook(0x4E24BC, fixRusHeroAgression);		    
 		    
             }
 
