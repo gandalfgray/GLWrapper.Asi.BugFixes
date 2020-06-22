@@ -120,6 +120,7 @@ int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+// fix bug with delimiter in Russian versions ( , instead of . )
 int __stdcall fixRusHeroAgression(LoHook* h, HookContext* c)
 {
 	o_H3HeroProperties[HC_KNIGHT].agression = (float)1.0; // Knight
@@ -262,7 +263,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixDoubleCastReturnAddress = 0x59761C;
 		_PI->WriteLoHook(0x597367, fixDoubleCast);
 		   
-		// fix bug with delimiter in Russian versions
+		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4E8981, fixRusHeroAgression);
 		    		    
             }
@@ -315,7 +316,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
 		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);
 		    
-		// fix bug with delimiter in Russian versions
+		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4E8C91, fixRusHeroAgression);		    
 		    	    
             }
@@ -370,7 +371,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixDoubleCastReturnAddress = 0x59EE0F;
 		_PI->WriteLoHook(0x59EDD8, fixDoubleCast);
 		    
-		// fix bug with delimiter in Russian versions
+		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4EDBCE, fixRusHeroAgression);		    
 		    		    
             }
@@ -422,7 +423,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
 		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);
 		    
-		// fix bug with delimiter in Russian versions
+		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4EDA9E, fixRusHeroAgression);		    
 		    
             }
@@ -470,7 +471,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixHarpyBindsReturnAddress = 0x47367D;
 		_PI->WriteLoHook(0x47855E, fixHarpyBinds);
 		    
-		// fix bug with delimiter in Russian versions
+		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4E296C, fixRusHeroAgression);		    
 		    
             }
@@ -518,7 +519,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixHarpyBindsReturnAddress = 0x47363D;
 		_PI->WriteLoHook(0x473634, fixHarpyBinds);
 		    
-		// fix bug with delimiter in Russian versions
+		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4E24BC, fixRusHeroAgression);		    
 		    
             }
