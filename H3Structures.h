@@ -16,7 +16,7 @@ struct H3Hero;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
-#define o_H3HeroClassProperties (*(H3HeroClassProperties**)0x67DCEC)
+H3HeroClassProperties* o_H3HeroClassProperties;
 
 struct H3String
 {
