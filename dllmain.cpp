@@ -2,7 +2,7 @@
 #include "H3Structures.h"
 #include "H3Numerations.h"
 
-int aH3HeroClassProperties;
+int aH3HeroClass;
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -125,24 +125,24 @@ int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 // fix bug with delimiter in Russian versions ( , instead of . )
 int __stdcall fixRusHeroAgression(LoHook* h, HookContext* c)
 {
-	o_H3HeroClassProperties[HC_KNIGHT].agression = (float)1.0; // Knight
-	o_H3HeroClassProperties[HC_CLERIC].agression = (float)0.8; // Cleric
-	o_H3HeroClassProperties[HC_RANGER].agression = (float)1.0; // Ranger
-	o_H3HeroClassProperties[HC_DRUID].agression = (float)0.8; // Druid
-	o_H3HeroClassProperties[HC_ALCHEMIST].agression = (float)1.0; // Alchemist
-	o_H3HeroClassProperties[HC_WIZARD].agression = (float)1.0; // Wizard
-	o_H3HeroClassProperties[HC_DEMONIAC].agression = (float)1.2; // Demoniac
-	o_H3HeroClassProperties[HC_HERETIC].agression = (float)1.1; // Heretic
-	o_H3HeroClassProperties[HC_DEATH_KNIGHT].agression = (float)1.2; // Death Knight	
-	o_H3HeroClassProperties[HC_NECROMANCER].agression = (float)1.0; // Necromancer
-	o_H3HeroClassProperties[HC_OVERLORD].agression = (float)1.0; // Overlord
-	o_H3HeroClassProperties[HC_WARLOCK].agression = (float)1.0; // Warlock
-	o_H3HeroClassProperties[HC_BARBARIAN].agression = (float)1.1; // Barbarian
-	o_H3HeroClassProperties[HC_BATTLE_MAGE].agression = (float)1.1; // Battle Mage
-	o_H3HeroClassProperties[HC_BEASTMASTER].agression = (float)0.9; // Beastmaster
-	o_H3HeroClassProperties[HC_WITCH].agression = (float)1.0; // Witch
-	o_H3HeroClassProperties[HC_PLANESWALKER].agression = (float)0.9; // Planeswalker
-	o_H3HeroClassProperties[HC_ELEMENTALIST].agression = (float)1.0; // Elementalist	
+	o_H3HeroClass[HC_KNIGHT].agression = (float)1.0; // Knight
+	o_H3HeroClass[HC_CLERIC].agression = (float)0.8; // Cleric
+	o_H3HeroClass[HC_RANGER].agression = (float)1.0; // Ranger
+	o_H3HeroClass[HC_DRUID].agression = (float)0.8; // Druid
+	o_H3HeroClass[HC_ALCHEMIST].agression = (float)1.0; // Alchemist
+	o_H3HeroClass[HC_WIZARD].agression = (float)1.0; // Wizard
+	o_H3HeroClass[HC_DEMONIAC].agression = (float)1.2; // Demoniac
+	o_H3HeroClass[HC_HERETIC].agression = (float)1.1; // Heretic
+	o_H3HeroClass[HC_DEATH_KNIGHT].agression = (float)1.2; // Death Knight	
+	o_H3HeroClass[HC_NECROMANCER].agression = (float)1.0; // Necromancer
+	o_H3HeroClass[HC_OVERLORD].agression = (float)1.0; // Overlord
+	o_H3HeroClass[HC_WARLOCK].agression = (float)1.0; // Warlock
+	o_H3HeroClass[HC_BARBARIAN].agression = (float)1.1; // Barbarian
+	o_H3HeroClass[HC_BATTLE_MAGE].agression = (float)1.1; // Battle Mage
+	o_H3HeroClass[HC_BEASTMASTER].agression = (float)0.9; // Beastmaster
+	o_H3HeroClass[HC_WITCH].agression = (float)1.0; // Witch
+	o_H3HeroClass[HC_PLANESWALKER].agression = (float)0.9; // Planeswalker
+	o_H3HeroClass[HC_ELEMENTALIST].agression = (float)1.0; // Elementalist	
 
 	return EXEC_DEFAULT;
 }
@@ -167,7 +167,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67DCEC;
-		aH3HeroClassProperties = 0x67DCEC;
+		aH3HeroClass = 0x67DCEC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -221,7 +221,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
-		aH3HeroClassProperties = 0x673AFC;
+		aH3HeroClass = 0x673AFC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -279,7 +279,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
-		aH3HeroClassProperties = 0x673AFC;
+		aH3HeroClass = 0x673AFC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -334,7 +334,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67CD0C;
-		aH3HeroClassProperties = 0x67CD0C;
+		aH3HeroClass = 0x67CD0C;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -391,7 +391,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67EFDC;
-		aH3HeroClassProperties = 0x67EFDC;
+		aH3HeroClass = 0x67EFDC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
@@ -442,7 +442,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C194;
-		aH3HeroClassProperties = 0x61C194;
+		aH3HeroClass = 0x61C194;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
@@ -491,7 +491,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C1BC;
-		aH3HeroClassProperties = 0x61C1BC;
+		aH3HeroClass = 0x61C1BC;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
