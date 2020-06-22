@@ -122,25 +122,24 @@ int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 
 int __stdcall fixRusHeroAgression(LoHook* h, HookContext* c)
 {
-	int i=0;
-	o_H3HeroProperties[i++].agression = (float)1.0; // Knight
-	o_H3HeroProperties[i++].agression = (float)0.8; // Cleric
-	o_H3HeroProperties[i++].agression = (float)1.0; // Ranger
-	o_H3HeroProperties[i++].agression = (float)0.8; // Druid
-	o_H3HeroProperties[i++].agression = (float)1.0; // Alchemist
-	o_H3HeroProperties[i++].agression = (float)1.0; // Wizard
-	o_H3HeroProperties[i++].agression = (float)1.2; // Demoniac
-	o_H3HeroProperties[i++].agression = (float)1.1; // Heretic
-	o_H3HeroProperties[i++].agression = (float)1.2; // Death Knight	
-	o_H3HeroProperties[i++].agression = (float)1.0; // Necromancer
-	o_H3HeroProperties[i++].agression = (float)1.0; // Overlord
-	o_H3HeroProperties[i++].agression = (float)1.0; // Warlock
-	o_H3HeroProperties[i++].agression = (float)1.1; // Barbarian
-	o_H3HeroProperties[i++].agression = (float)1.1; // Battle Mage
-	o_H3HeroProperties[i++].agression = (float)0.9; // Beastmaster
-	o_H3HeroProperties[i++].agression = (float)1.0; // Witch
-	o_H3HeroProperties[i++].agression = (float)0.9; // Planeswalker
-	o_H3HeroProperties[i++].agression = (float)1.0; // Elementalist	
+	o_H3HeroProperties[HC_KNIGHT].agression = (float)1.0; // Knight
+	o_H3HeroProperties[HC_CLERIC].agression = (float)0.8; // Cleric
+	o_H3HeroProperties[HC_RANGER].agression = (float)1.0; // Ranger
+	o_H3HeroProperties[HC_DRUID].agression = (float)0.8; // Druid
+	o_H3HeroProperties[HC_ALCHEMIST].agression = (float)1.0; // Alchemist
+	o_H3HeroProperties[HC_WIZARD].agression = (float)1.0; // Wizard
+	o_H3HeroProperties[HC_DEMONIAC].agression = (float)1.2; // Demoniac
+	o_H3HeroProperties[HC_HERETIC].agression = (float)1.1; // Heretic
+	o_H3HeroProperties[HC_DEATH_KNIGHT].agression = (float)1.2; // Death Knight	
+	o_H3HeroProperties[HC_NECROMANCER].agression = (float)1.0; // Necromancer
+	o_H3HeroProperties[HC_OVERLORD].agression = (float)1.0; // Overlord
+	o_H3HeroProperties[HC_WARLOCK].agression = (float)1.0; // Warlock
+	o_H3HeroProperties[HC_BARBARIAN].agression = (float)1.1; // Barbarian
+	o_H3HeroProperties[HC_BATTLE_MAGE].agression = (float)1.1; // Battle Mage
+	o_H3HeroProperties[HC_BEASTMASTER].agression = (float)0.9; // Beastmaster
+	o_H3HeroProperties[HC_WITCH].agression = (float)1.0; // Witch
+	o_H3HeroProperties[HC_PLANESWALKER].agression = (float)0.9; // Planeswalker
+	o_H3HeroProperties[HC_ELEMENTALIST].agression = (float)1.0; // Elementalist	
 
 	return EXEC_DEFAULT;
 }
