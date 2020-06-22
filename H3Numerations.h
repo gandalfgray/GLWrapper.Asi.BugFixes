@@ -85,3 +85,23 @@
 #define SPL_DISPEL_HELPFUL  78
 #define SPL_DEATH_STARE  79
 #define SPL_ACID_BREATH  80
+
+// Hero Classes
+#define HC_KNIGHT 0
+#define HC_CLERIC 1
+#define HC_RANGER 2
+#define HC_DRUID 3
+#define HC_ALCHEMIST 4
+#define HC_WIZARD 5
+#define HC_DEMONIAC 6
+#define HC_HERETIC 7
+#define HC_DEATH_KNIGHT 8
+#define HC_NECROMANCER 9
+#define HC_OVERLORD 10
+#define HC_WARLOCK 11
+#define HC_BARBARIAN 12
+#define HC_BATTLE_MAGE 13
+#define HC_BEASTMASTER 14
+#define HC_WITCH 15
+#define HC_PLANESWALKER 16
+#define HC_ELEMENTALIST 17
