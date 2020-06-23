@@ -10,6 +10,7 @@ template <typename _Type> struct H3Array
 typedef DWORD BitMaskDword;
 
 struct H3String;
+
 struct H3Army;
 struct H3Artifact;
 struct H3Town;
@@ -342,47 +343,48 @@ struct H3CombatMonster
 {
  INT8 unk1[52];             // 0
  INT32 type; 		       // 0x34
- INT32 position; 		   // 0x38 position on battlefield
- INT32 animation;           // 0x3C
- INT32 animationFrame;      // 0x40
- INT32 secondHexOrientation; // 0x44 left or right
+ INT32 hex_index; 		   // 0x38 position on battlefield
+ INT32 animation_group;           // 0x3C
+ INT32 animation_frame;      // 0x40
+ INT32 second_hex_shift; // 0x44 left or right
  INT8 unk2[4];
- INT32 numberAlive;          // 0x4C the number of creatures that are currently alive
- INT32 previousNumber; 		// 0x50
+ DWORD count_current;          // 0x4C the number of creatures that are currently alive
+ DWORD count_before_attack; 		// 0x50
  INT8 unk3[4];           // 0x54
- INT32 healthLost; 		// 0x58 the number of lost hitpoints of top creature in stack
- INT32 slotIndex; // 0x5C ?reference to position on side?
- INT32 numberAtStart; 	// 0x60 the number of creatures in this stack to compare against resurrection
- INT8 unk4[8];
- INT32 baseHP; 		// 0x6C maximum hit points
- INT32 isLucky;      		// 0x70	
- INT8 H3CreatureInformation[116]; 		// 0x74 a copy of H3CreatureInformation using combat values in some places
+ INT32 health_lost; 		// 0x58 the number of lost hitpoints of top creature in stack
+ INT32 army_slot_index; // 0x5C ?reference to position on side?
+ DWORD count_before_battle; 	// 0x60 the number of creatures in this stack to compare against resurrection
+ INT8 unk4[4];
+ DWORD anim_value;
+ INT32 health_maximum; 		// 0x6C maximum hit points
+ BOOL is_lucky;      		// 0x70	
+ H3CreatureInfo combat_monster_info; 		// 0x74 a copy of H3CreatureInfo using combat values in some places
  INT8 unk5[4];               // 0xE8
- INT32 spellToApply; 		// 0xEC set in After-Hit spell subroutine 0x440220
+ INT32 spell_to_apply; 		// 0xEC set in After-Hit spell subroutine 0x440220
  INT8 unk6[4];
- INT32 side; 		// 0xF4 left or right
- INT32 sideIndex; // 0xF8 reference to position on side
+ INT32 side_bf; 		// 0xF4 left or right
+ INT32 index_on_side; // 0xF8 reference to position on side
  UINT32 last_animation_time; // 0xFC
  INT32 yOffset; 		// 0x100
  INT32 xOffset;      		// 0x104
  INT8 unk7[8];               // 0x108
  INT8 H3MonsterAnimation[84]; 		// 0x110 from cranim
  INT32 def;               		// 0x164
- INT32 shootingDef; 		// 0x168
+ INT32 def_shoot; 		// 0x168
  INT8 unk8[4];          // 0x16C
- UINT32 moveSound; 		// 0x170
- UINT32 attackSound; 		// 0x174
- UINT32 getHitSound; 		// 0x178
- UINT32 shotSound; 		// 0x17C
- UINT32 deathSound; 		// 0x180
- UINT32 defendSound;     // 0x184
- UINT32 extraSound1;     // 0x188
- UINT32 extraSound2;     // 0x18C
+ UINT32 sound_move; 		// 0x170
+ UINT32 sound_attack; 		// 0x174
+ UINT32 sound_get_hit; 		// 0x178
+ UINT32 sound_shoot; 		// 0x17C
+ UINT32 sound_killed; 		// 0x180
+ UINT32 sound_defend;     // 0x184
+ UINT32 sound_extra1;     // 0x188
+ UINT32 sound_extra2;     // 0x18C
  INT8 unk9[4];
- INT32 activeSpellsNumber; 		// 0x194 the number of spells currently active
- INT32 activeSpellsDuration[81]; 		// 0x198 the remaining number of turns of any spells
- INT32 activeSpellsLevel[81]; 		// 0x2DC the secondary skill level of applied spells
+ INT32 count_active_spells; 		// 0x194 the number of spells currently active
+ INT32 spell_duration[81]; 		// 0x198 the remaining number of turns of any spells
+ INT32 spell_secSkill_level[81]; 		// 0x2DC the secondary skill level of applied spells
  INT8 unk10[52];
- INT32 retaliations; 		// 0x454 number of retaliations left
+ INT32 count_retaliations; 		// 0x454 number of retaliations left
  H3CombatMonsterSpellsData spellsData; // 0x458 information about some spell effects
 };
