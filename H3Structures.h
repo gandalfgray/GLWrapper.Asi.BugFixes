@@ -89,14 +89,14 @@ struct H3HeroClass
  BYTE defense_start;
  BYTE power_start;
  BYTE knowl_start;
- BYTE attack_prob_toLvl9;
- BYTE defense_prob_toLvl9;
- BYTE power_prob_toLvl9;
- BYTE knowl_prob_toLvl9;
- BYTE attack_prob_afterLvl10;
- BYTE defense_prob_afterLvl10;
- BYTE power_prob_afterLvl10;
- BYTE knowl_prob_afterLvl10;
+ BYTE attack_early_prob;
+ BYTE defense_early_prob;
+ BYTE power_early_prob;
+ BYTE knowl_early_prob;
+ BYTE attack_mature_prob;
+ BYTE defense_mature_prob;
+ BYTE power_mature_prob;
+ BYTE knowl_mature_prob;
  BYTE sec_skill_prob[28];
  BYTE town_tavern_prob[9];
  BYTE _align[3];
@@ -364,8 +364,8 @@ struct H3CombatMonsterSpellsData
  INT32 morale;                  // 0x4E8
  INT32 luck;                    // 0x4EC
  INT8 unk5[4];                  // 0x4F0
- H3Array<H3CombatMonster*> dendroidBinder;  // +4F4 which dendroids have binded the current target (used for animation requirement)
- H3Array<H3CombatMonster*> dendroidBinds;   // +504 a list of H3CombatMonsters binded by this dendroid
+ H3Array<H3CombatMonster*> dendroid_binder;  // +4F4 which dendroids have binded the current target (used for animation requirement)
+ H3Array<H3CombatMonster*> dendroid_binds;   // +504 a list of H3CombatMonsters binded by this dendroid
  INT8 unk6[20];                 // 0x514
  INT32 Hypnotize_528;           // 0x528
  INT32 Hypnotize_52C;           // 0x52C
@@ -392,7 +392,7 @@ struct H3CombatMonster
  DWORD anim_value;
  INT32 health_maximum; 		// 0x6C maximum hit points
  BOOL is_lucky;      		// 0x70	
- H3CreatureInfo combat_monster_info; 		// 0x74 a copy of H3CreatureInfo using combat values in some places
+ H3CreatureInfo info; 		// 0x74 a copy of H3CreatureInfo using combat values in some places
  INT8 unk5[4];               // 0xE8
  INT32 spell_to_apply; 		// 0xEC set in After-Hit spell subroutine 0x440220
  INT8 unk6[4];
@@ -417,8 +417,8 @@ struct H3CombatMonster
  INT8 unk9[4];
  INT32 count_active_spells; 		// 0x194 the number of spells currently active
  INT32 spell_duration[81]; 		// 0x198 the remaining number of turns of any spells
- INT32 spell_secSkill_level[81]; 		// 0x2DC the secondary skill level of applied spells
+ INT32 spell_sskill_level[81]; 		// 0x2DC the secondary skill level of applied spells
  INT8 unk10[52];
  INT32 count_retaliations; 		// 0x454 number of retaliations left
- H3CombatMonsterSpellsData spellsData; // 0x458 information about some spell effects
+ H3CombatMonsterSpellsData spells_data; // 0x458 information about some spell effects
 };
