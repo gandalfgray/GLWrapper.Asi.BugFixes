@@ -18,6 +18,7 @@ struct H3HeroClass;
 struct H3HeroVisited;
 struct H3HeroFlags;
 struct H3Hero;
+struct H3CreatureInfo;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
@@ -284,6 +285,39 @@ struct H3Hero
  DWORD ai_knowl_effectivness; // KnowledgeEffectivness +1158
  DWORD ai_dmana_effectivness; // DoubleManaEffectivness +1162
  DWORD ai_mana_effectivness; // ManaEffectivness +1166
+};
+
+struct HCreatureInfo
+{
+ INT32 town; // 0
+ INT32 level; // +4
+ PCHAR sound_name; // +8
+ PCHAR def_name; // +12
+ INT32 flags;  // +16
+ PCHAR name_single; // +20
+ PCHAR name_plural; // + 24
+ PCHAR description; // +28
+ INT32 cost_wood; // +32
+ INT32 cost_mercury; // + 36
+ INT32 cost_ore; // + 40
+ INT32 cost_sulfur; // +44
+ INT32 cost_crystal; // +48
+ INT32 cost_jems; // + 52
+ INT32 cost_gold; // +56
+ INT32 fight_value; // +60
+ INT32 AI_value; // +64
+ INT32 grow; // + 68
+ INT32 horde_grow; // +72
+ INT32 hit_points; // + 76
+ INT32 speed; // + 80
+ INT32 attack; // +84
+ INT32 defence; // +88
+ INT32 damage_min; // +92
+ INT32 damage_max; // +96
+ INT32 shots_count; // +100
+ INT32 spell_charge; // +104
+ INT32 advmap_min; // +108
+ INT32 advmap_max; // +112
 };
 
 // a substructure of H3CombatMonster related to spells
