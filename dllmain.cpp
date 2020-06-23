@@ -269,6 +269,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		   
 		// fix bug with delimiter in Russian versions ( , instead of . )
 		_PI->WriteLoHook(0x4E8981, fixRusHeroAgression);
+		    
+		// fix size for Hero creature labels (adv. map right click)
+		_PI->WriteByte(0x52895C+1, 12);
+		_PI->WriteByte(0x5289E5+1, 12);		    
 		    		    
             }
 
@@ -322,7 +326,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);
 		    
 		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4E8C91, fixRusHeroAgression);		    
+		_PI->WriteLoHook(0x4E8C91, fixRusHeroAgression);
+		    
+		// fix size for Hero creature labels (adv. map right click)
+		_PI->WriteByte(0x528C4C+1, 12);
+		_PI->WriteByte(0x528CD5+1, 12);			    
 		    	    
             }
 
