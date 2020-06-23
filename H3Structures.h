@@ -287,7 +287,7 @@ struct H3Hero
  DWORD ai_mana_effectivness; // ManaEffectivness +1166
 };
 
-struct HCreatureInfo
+struct H3CreatureInfo
 {
  INT32 town; // 0
  INT32 level; // +4
