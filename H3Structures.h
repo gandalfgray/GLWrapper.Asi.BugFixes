@@ -7,11 +7,15 @@ template <typename _Type> struct H3Array
  _Type* EndMemory; // +12 end of allocated memory
 };
 
+typedef DWORD BitMaskDword;
+
 struct H3String;
 struct H3Army;
 struct H3Artifact;
 struct H3Town;
-struct H3HeroProperties;
+struct H3HeroClass;
+struct H3HeroVisited;
+struct H3HeroFlags;
 struct H3Hero;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
@@ -35,8 +39,8 @@ struct H3Army
 
 struct H3Artifact
 {
- INT32 id;
- INT32 mod;
+ INT32 type;
+ INT32 subtype; // used for spell scrolls, otherwise -1
 };
 
 struct H3Town
@@ -67,9 +71,9 @@ struct H3Town
  INT8 unk7[12]; // +212
  H3Army guards; // +224
  H3Army guards_unused; // +280
- DWORD built_bits[2]; // +336
- DWORD built_bits2[2]; // +344
- DWORD buildable_bits[2]; // +352   
+ BitMaskDword built_bits[2]; // +336
+ BitMaskDword built_bits2[2]; // +344
+ BitMaskDword buildable_bits[2]; // +352   
 };
 
 // Read from HCTRAITS.txt
@@ -93,7 +97,120 @@ struct H3HeroClass
  BYTE knowl_prob_afterLvl10;
  BYTE sec_skill_prob[28];
  BYTE town_tavern_prob[9];
- INT8 unk1[3];
+ BYTE _align[3];
+};
+
+// visited objects on map
+struct H3HeroVisited
+{
+	BitMaskDword learningStones;  // 0x57
+	BitMaskDword marlettoTower; // 0x5B
+	BitMaskDword gardenRevelation;  //0x5F
+	BitMaskDword mercenaryCamp; 	// 0x63
+	BitMaskDword starAxis;		// 0x67
+	BitMaskDword treeKnowldge;  // 0x6B
+	BitMaskDword libraryEnlightenment; // 0x6F
+	BitMaskDword arena; 		// 0x73
+	BitMaskDword schoolMagic; // 0x77
+ BitMaskDword schoolWar; 	// 0x7B
+};
+
+// * the bitfield flags for heroes
+struct H3HeroFlags
+{
+	// * 0x1
+	// * Visited Well
+	unsigned well : 1;
+	// * 0x2
+	// * Visited Stables
+	unsigned stables : 1;
+	// * 0x4
+	// * Visited Buoy
+	unsigned buoy : 1; // 0x4
+	// * 0x8
+	// * Visited Swan Pond
+	unsigned swan_pond : 1;
+	// * 0x10
+	// * Visited idol of fortune on days 1~6, morale bonys
+	unsigned idol_fortune_morale : 1;
+	// * 0x20
+	// * -1 luck from fountain of fortune
+	unsigned fountain_fortune1 : 1;
+	// * 0x40
+	// * visited watering hole
+	unsigned watering_hole : 1;
+	// * 0x80
+	// * visited oasis
+	unsigned oasis : 1;
+	// * 0x100
+	// * visited temple on days 1~6
+	unsigned temple : 1;
+	// * 0x200
+	// * shipwreck morale penalty
+	unsigned shipwreck : 1;
+	// * 0x400
+	// * crypt morale penalty
+	unsigned crypt : 1;
+	// * 0x800
+	// * derelict ship morale penalty
+	unsigned derelect_ship : 1;
+	// * 0x1000
+	// * pyramid morale penalty
+	unsigned pyramid : 1;
+	// * 0x2000
+	// * visited faerie ring
+	unsigned faerie_ring : 1;
+	// * 0x4000
+	// * visited fountain of youth
+	unsigned fountain_of_youth : 1;
+	// * 0x8000
+	// * visited mermaids
+	unsigned mermaids : 1;
+	// * 0x10000
+	// * visited rally flag
+	unsigned rally_flag : 1;
+	// * 0x20000
+	// * hero is in tavern
+	// * see 0x4DA4D1
+	unsigned in_tavern : 1;
+	// * 0x40000
+	// * hero is in a boat
+	unsigned in_boat : 1;
+	// * 0x80000
+	unsigned unk1 : 1;
+	// * 0x100000
+	// * visited sirens
+	unsigned sirens : 1;
+	// * 0x200000
+	// * warrior's tomb morale penalty
+	unsigned warrior_tomb : 1;
+	// * 0x400000
+	// * typed luck cheat
+	unsigned luck_cheat : 1;
+	// * 0x800000
+	// * typed morale cheat
+	unsigned morale_cheat : 1;
+	// * 0x01000000
+	// * typed speed cheat
+	unsigned speed_cheat : 1;
+	// * 0x02000000
+	// * luck bonus from idol of fortune
+	unsigned idol_fortune_luck : 1;
+	// * 0x04000000
+	// * visited temple on day 7, +2 morale
+	unsigned temple2 : 1;
+	// * 0x08000000
+	// * +1 luck from fountain of fortune
+	unsigned fountain_fortune2 : 1;
+	// * 0x10000000
+	// * +2 luck from fountain of fortune
+	unsigned fountain_fortune3 : 1;
+	// * 0x20000000
+	// * +3 luck from fountain of fortune
+	unsigned fountain_fortune4 : 1;
+	// * 0x40000000
+	// * 0x80000000
+	unsigned unk4 : 2;
 };
 
 struct H3Hero
@@ -122,12 +239,12 @@ struct H3Hero
  BYTE patrol_y; // +69
  BYTE patrol_radius; // +70
  INT8 unk3; // +71
- BYTE flags; // +72
+ BYTE flags_unk; // +72
  DWORD movement_points_max; // +73
  DWORD movement_points; // +77
  DWORD experience; // +81
  WORD level; // +85
- DWORD visited_objects[10]; // +87
+ H3HeroVisited visited_objects; // +87
  INT8 unk4[16]; // +127
  BYTE skill_tree_seed; // +143
  INT8 unk5; // +144
@@ -135,7 +252,7 @@ struct H3Hero
  BYTE second_skill[28]; // +201
  BYTE second_skill_show_position[28]; // +229
  DWORD second_skill_count; // +257
- DWORD temp_mod_flags; // + 261	
+ H3HeroFlags temp_mod_flags; // + 261	
  FLOAT ai_experience_effectivness;
  BYTE dimdoor_cast_count; // +269
  INT32 disguise_power; // +270
