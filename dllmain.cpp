@@ -3,6 +3,9 @@
 #include "H3Numerations.h"
 
 int aH3HeroClass;
+int aMarketHero;
+int aMarketBackpackIndexOfFirstSlot;
+int aMarketSelectedSlotIndex;
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -168,6 +171,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67DCEC;
 		aH3HeroClass = 0x67DCEC;
+		aMarketHero = 0x6AAAE0;
+		aMarketBackpackIndexOfFirstSlot = 0x6AAAD8;
+		aMarketSelectedSlotIndex= 0x6AAAF8;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -400,6 +406,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Global structures addresses
 		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67EFDC;
 		aH3HeroClass = 0x67EFDC;
+		aMarketHero = 0x6AE2A0;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
