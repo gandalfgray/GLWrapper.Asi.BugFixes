@@ -240,9 +240,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3HeroClass = 0x673AFC;
-		aMarketHero = 6A2450;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;		    
+		aMarketHero = 0x6A2450;
+		aMarketBackpackIndexOfFirstSlot = 0x6A2448;
+		aMarketSelectedSlotIndex= 0x6A2468;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -311,9 +311,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3HeroClass = 0x673AFC;
-		aMarketHero = 6A27B8;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;		    
+		aMarketHero = 0x6A27B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6A27B0;
+		aMarketSelectedSlotIndex= 0x6A27D0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -379,9 +379,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		aH3HeroClass = 0x67CD0C;
-		aMarketHero = 6A9B20;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;		    
+		aMarketHero = 0x6A9B20;
+		aMarketBackpackIndexOfFirstSlot = 0x6A9B18;
+		aMarketSelectedSlotIndex= 0x6A9B38;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -506,8 +506,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Global structures addresses
 		aH3HeroClass = 0x61C194;
 		aMarketHero = 0x647F18;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;		    
+		aMarketBackpackIndexOfFirstSlot = 0x647F10;
+		aMarketSelectedSlotIndex= 0x647F30;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
@@ -568,8 +568,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Global structures addresses
 	    	aH3HeroClass = 0x61C1BC;
 		aMarketHero = 0x647F38;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;		    
+		aMarketBackpackIndexOfFirstSlot = 0x647F30;
+		aMarketSelectedSlotIndex= 0x647F50;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
@@ -634,8 +634,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		aMarketHero = 0x67CA20;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x67CA18;
+		aMarketSelectedSlotIndex= 0x67CA38;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
@@ -691,8 +691,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {		    
 		// Global structures addresses
 		aMarketHero = 0x6A7958;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;	
+		aMarketBackpackIndexOfFirstSlot = 0x6A7950;
+		aMarketSelectedSlotIndex= 0x6A7970;	
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
@@ -750,8 +750,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {    
 		// Global structures addresses
 		aMarketHero = 0x6AAA78;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6AAA70;
+		aMarketSelectedSlotIndex= 0x6AAA90;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
@@ -806,8 +806,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64AD18;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64AD10;
+		aMarketSelectedSlotIndex= 0x64AD30;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
@@ -858,8 +858,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64AD30;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64AD28;
+		aMarketSelectedSlotIndex= 0x64AD48;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1C3+1, 0x4D); // fdiv -> fmul
@@ -910,8 +910,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64AD30;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64AD28;
+		aMarketSelectedSlotIndex= 0x64AD48;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E163+1, 0x4D); // fdiv -> fmul
@@ -962,8 +962,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64D130;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64D128;
+		aMarketSelectedSlotIndex= 0x64D148;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E183+1, 0x4D); // fdiv -> fmul
@@ -1014,8 +1014,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64E1A8;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64E1A0;
+		aMarketSelectedSlotIndex= 0x64E1C0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E213+1, 0x4D); // fdiv -> fmul
@@ -1070,8 +1070,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64F190;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64F188;
+		aMarketSelectedSlotIndex= 0x64F1A8;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E433+1, 0x4D); // fdiv -> fmul
@@ -1126,8 +1126,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x64D180;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x64D178;
+		aMarketSelectedSlotIndex= 0x64D198;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E0F3+1, 0x4D); // fdiv -> fmul
@@ -1182,8 +1182,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x6A7A90;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6A7A88;
+		aMarketSelectedSlotIndex= 0x6A7AA8;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
@@ -1245,8 +1245,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x6ABBB0;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6ABBA8;
+		aMarketSelectedSlotIndex= 0x6ABBC8;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
@@ -1309,8 +1309,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x6ADB18;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6ADB10;
+		aMarketSelectedSlotIndex= 0x6ADB30;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
@@ -1365,8 +1365,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aMarketHero = 0x6A9998;
-		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6A9990;
+		aMarketSelectedSlotIndex= 0x6A99B0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
