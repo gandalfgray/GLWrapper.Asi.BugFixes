@@ -661,7 +661,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4780BB, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5C6669, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5C67A6, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5C6910, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5C4845, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5C5237, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -708,7 +715,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4789CB, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x531DC1+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x531DC1+3, 0x0FFFEFBF);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EC299, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EC3D6, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EC540, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EA475, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EAE67, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -752,7 +766,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x478A2B, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x534141+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x534141+3, 0x0FFFEFBF);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EE219, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EE356, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EE4C0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EC3F5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ECDE7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -792,7 +813,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47643B, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A35B9, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A36F6, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3860, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A1795, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A2187, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -832,7 +860,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x475EFB, fixHarpyBinds);	
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A38E9, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3A26, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3B90, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A1AC5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A24B7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -872,7 +907,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x475D8B, fixHarpyBinds);	
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен	
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A3629, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3766, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A38D0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A1805, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A21F7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -912,7 +954,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47589B, fixHarpyBinds);	
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен	
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A3869, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A39A6, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3B10, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A1A45, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A2437, fixArtMerchantPrice);		    
 		    		   
             }
 
@@ -952,7 +1001,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x475B1B, fixHarpyBinds);	
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен	
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A3229, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3366, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A34D0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A1405, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A1DF7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -996,7 +1052,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47602B, fixHarpyBinds);	
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A37D9, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3916, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3A80, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A19B5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A23A7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -1040,7 +1103,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47578B, fixHarpyBinds);	
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		// не нужен		    
+		// не нужен
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5A37E9, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3926, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A3A90, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A19C5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5A23B7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -1095,7 +1165,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix double cast
 		fixDoubleCastReturnAddress = 0x59D13F;
-		_PI->WriteLoHook(0x59D108, fixDoubleCast);		    
+		_PI->WriteLoHook(0x59D108, fixDoubleCast);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5ECA19, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ECB56, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ECCC0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EABF5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EB5E7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -1143,7 +1220,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix double cast
 		fixDoubleCastReturnAddress = 0x59F72F;
-		_PI->WriteLoHook(0x59F6F8, fixDoubleCast);		    
+		_PI->WriteLoHook(0x59F6F8, fixDoubleCast);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EEFD9, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EF116, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EF280, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ED1B5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EDBA7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -1191,7 +1275,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47820B, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x533D71+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x533D71+3, 0x0FFFEFBF);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EE879, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EE9B6, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EEB20, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ECA55, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ED447, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -1235,7 +1326,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x47826B, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x5317A1+3, 0x0FFFEFBF);		    
+		_PI->WriteDword(0x5317A1+3, 0x0FFFEFBF);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EC069, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EC1A6, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EC310, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EA245, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EAC37, fixArtMerchantPrice);		    
 		    		    
             }
 
