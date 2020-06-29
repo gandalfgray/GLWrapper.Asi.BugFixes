@@ -150,6 +150,15 @@ int __stdcall fixRusHeroAgression(LoHook* h, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+int __stdcall fixArtMerchantPrice(LoHook* hook, HookContext* c)
+{
+	int i = (o_Market_BackpackIndexOfFirstSlot + o_Market_SelectedBackpackSlotIndex) % o_Market_Hero->backpack_arts_count;
+	c->ecx = o_Market_Hero->backpack_art[i].type;
+	c->eax = c->edx = o_Market_Hero->backpack_art[i].subtype;
+	c->return_address += 7;
+	return NO_EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -213,6 +222,13 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
 		_PI->WriteDword(0x534621+3, 0x0FFFEFBF);
+		 
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EE619, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EE756, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EE8C0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EC7F5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ED1E7, fixArtMerchantPrice);		    
 		       
             }
 
@@ -448,7 +464,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);
 		    
 		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4EDA9E, fixRusHeroAgression);		    
+		_PI->WriteLoHook(0x4EDA9E, fixRusHeroAgression);
+		
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EE909, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EEA46, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EEBB0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ECB15, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ED4F7, fixArtMerchantPrice);		    
 		    
             }
 
