@@ -422,7 +422,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x59EDD8, fixDoubleCast);
 		    
 		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4EDBCE, fixRusHeroAgression);		    
+		_PI->WriteLoHook(0x4EDBCE, fixRusHeroAgression);
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5EE9F9, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EEB36, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5EECA0, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ECBD5, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5ED5C7, fixArtMerchantPrice);		    
 		    		    
             }
 
@@ -540,6 +547,13 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteByte(0x51C4E3+1, 12);
 		_PI->WriteByte(0x51C56C+1, 12);
 		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x59D89D, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59D9B7, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59DB21, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59BB84, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59C557, fixArtMerchantPrice);		    
+		    
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -591,7 +605,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix size for Hero creature labels in Russian versions (adv. map right click)
 		_PI->WriteByte(0x51C303+1, 12);
-		_PI->WriteByte(0x51C38C+1, 12);		    
+		_PI->WriteByte(0x51C38C+1, 12);	
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x59D81D, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59D937, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59DAA1, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59BB04, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x59C4D7, fixArtMerchantPrice);		    
 		    
             }
 
