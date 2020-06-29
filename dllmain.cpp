@@ -178,7 +178,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67DCEC;
 		aH3HeroClass = 0x67DCEC;
 		aMarketHero = 0x6AAAE0;
 		aMarketBackpackIndexOfFirstSlot = 0x6AAAD8;
@@ -190,8 +189,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
                 _PI->WriteByte(0x465943+1, 0x4D); // fdiv -> fmul
 
                 // Neutral creatures luck 6 NOP
-                //_PI->WriteCodePatch(0x441524, "%n", 6);
-                //_PI->WriteCodePatch(0x43F642, "%n", 6);
                 _PI->WriteHexPatch(0x441524, "90 90 90 90 90 90");
                 _PI->WriteHexPatch(0x43F642, "90 90 90 90 90 90");
 		    
@@ -242,8 +239,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
 		aH3HeroClass = 0x673AFC;
+		aMarketHero = 6A2450;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -311,8 +310,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x673AFC;
 		aH3HeroClass = 0x673AFC;
+		aMarketHero = 6A27B8;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -377,8 +378,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67CD0C;
 		aH3HeroClass = 0x67CD0C;
+		aMarketHero = 6A9B20;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -441,7 +444,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		bukaComplete = true;
 		    
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x67EFDC;
 		aH3HeroClass = 0x67EFDC;
 		aMarketHero = 0x6AE2A0;
 		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
@@ -502,8 +504,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C194;
 		aH3HeroClass = 0x61C194;
+		aMarketHero = 0x647F18;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
@@ -562,8 +566,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
-		//o_H3HeroClassProperties = *(H3HeroClassProperties**)0x61C1BC;
-		aH3HeroClass = 0x61C1BC;
+	    	aH3HeroClass = 0x61C1BC;
+		aMarketHero = 0x647F38;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
@@ -625,6 +631,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5D8F69+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		    
+		// Global structures addresses
+		aMarketHero = 0x67CA20;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E47F+1, 0x4D); // fdiv -> fmul
@@ -676,7 +688,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check1 = *(int*)(0x4F5963+1);
             check2 = *(int*)(0x5FFBF9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
+            {		    
+		// Global structures addresses
+		aMarketHero = 0x6A7958;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;	
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E16F+1, 0x4D); // fdiv -> fmul
@@ -730,7 +747,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check1 = *(int*)(0x4F7B03+1);
             check2 = *(int*)(0x601B89+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
+            {    
+		// Global structures addresses
+		aMarketHero = 0x6AAA78;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E35F+1, 0x4D); // fdiv -> fmul
@@ -782,6 +804,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B5129+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64AD18;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E2DF+1, 0x4D); // fdiv -> fmul
@@ -829,6 +856,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B5469+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64AD30;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1C3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E2FF+1, 0x4D); // fdiv -> fmul
@@ -876,6 +908,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B51B9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64AD30;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E163+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E29F+1, 0x4D); // fdiv -> fmul
@@ -923,6 +960,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B5249+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64D130;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E183+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E2BF+1, 0x4D); // fdiv -> fmul
@@ -970,6 +1012,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B4C09+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64E1A8;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E213+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E34F+1, 0x4D); // fdiv -> fmul
@@ -1021,6 +1068,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B51B9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64F190;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E433+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E56F+1, 0x4D); // fdiv -> fmul
@@ -1072,6 +1124,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5B51C9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x64D180;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E0F3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E22F+1, 0x4D); // fdiv -> fmul
@@ -1123,6 +1180,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x6003D9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x6A7A90;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E27F+1, 0x4D); // fdiv -> fmul
@@ -1181,6 +1243,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x6028F9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x6ABBB0;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E54F+1, 0x4D); // fdiv -> fmul
@@ -1240,6 +1307,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x602179+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x6ADB18;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E48F+1, 0x4D); // fdiv -> fmul
@@ -1291,6 +1363,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check2 = *(int*)(0x5FE337+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
+		// Global structures addresses
+		aMarketHero = 0x6A9998;
+		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E2DF+1, 0x4D); // fdiv -> fmul
@@ -1333,7 +1410,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EC1A6, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EC310, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EA245, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5EAC37, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5EAC37, fixArtMerchantPrice);
 		    		    
             }
 
