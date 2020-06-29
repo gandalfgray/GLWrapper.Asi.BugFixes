@@ -22,8 +22,11 @@ struct H3CreatureInfo;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
-//H3HeroClassProperties* o_H3HeroClassProperties;
 #define o_H3HeroClass (*(H3HeroClass**)aH3HeroClass)
+#define o_Market_Hero (*(H3Hero**)aMarketHero)
+#define o_Market_BackpackIndexOfFirstSlot (char)(*(INT32*)aMarketBackpackIndexOfFirstSlot)
+#define o_Market_SelectedSlotIndex *(INT32*)aMarketSelectedSlotIndex
+#define o_Market_SelectedBackpackSlotIndex (o_Market_SelectedSlotIndex - 18)
 
 struct H3String
 {
