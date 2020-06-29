@@ -294,7 +294,14 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix size for Hero creature labels in Russian versions (adv. map right click)
 		_PI->WriteByte(0x52895C+1, 12);
-		_PI->WriteByte(0x5289E5+1, 12);		    
+		_PI->WriteByte(0x5289E5+1, 12);	
+		    
+		// fix art merchants price bug
+		_PI->WriteLoHook(0x5E5E7D, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5E5F97, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5E6101, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5E4164, fixArtMerchantPrice);
+		_PI->WriteLoHook(0x5E4B37, fixArtMerchantPrice);		    
 		    		    
             }
 
