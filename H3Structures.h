@@ -296,7 +296,7 @@ struct H3CreatureInfo
  INT32 level; // +4
  PCHAR sound_name; // +8
  PCHAR def_name; // +12
- INT32 flags;  // +16
+ BitMaskDword flags;  // +16
  PCHAR name_single; // +20
  PCHAR name_plural; // + 24
  PCHAR description; // +28
@@ -329,7 +329,7 @@ struct H3BukaCompleteCreatureInfo
  INT32 level; // +4
  PCHAR sound_name; // +8
  PCHAR def_name; // +12
- INT32 flags;  // +16
+ BitMaskDword flags;  // +16
  PCHAR name_single; // +20
  PCHAR name_plural; // + 24
  PCHAR name_plural2; // + 24
