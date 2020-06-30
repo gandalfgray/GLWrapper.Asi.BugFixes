@@ -159,6 +159,34 @@ int __stdcall fixArtMerchantPrice(LoHook* hook, HookContext* c)
 	return NO_EXEC_DEFAULT;
 }
 
+BOOL __stdcall disableCloneOverlay(HiHook* h, H3CombatMonster* battleStack, INT32 newHexIndex, BOOL tryAnotherHex, INT32* anotherHexIndex)
+{
+	if(newHexIndex == battleStack->hex_index)
+		return false;
+
+	if(battleStack->info.flags & BCF_DOUBLE_WIDE)
+	{
+		if(battleStack->orient_to_right)
+		{
+			if(battleStack->hex_index - 1 == newHexIndex)
+				return false;
+
+			if(battleStack->hex_index == newHexIndex - 1)
+				return false;
+		}
+		else
+		{
+			if(battleStack->hex_index + 1 == newHexIndex)
+				return false;
+
+			if(battleStack->hex_index == newHexIndex + 1)
+				return false;
+		}
+	}
+
+	return CALL_4(BOOL, __thiscall, h->GetDefaultFunc(), battleStack, newHexIndex, tryAnotherHex, anotherHexIndex);
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -225,7 +253,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EE756, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EE8C0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EC7F5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5ED1E7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5ED1E7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A70C1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		       
             }
 
