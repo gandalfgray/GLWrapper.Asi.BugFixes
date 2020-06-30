@@ -225,6 +225,16 @@ BOOL __stdcall disableCloneOverlayBukaComplete(HiHook* h, H3BukaCompleteCombatMo
 	return CALL_4(BOOL, __thiscall, h->GetDefaultFunc(), battleStack, newHexIndex, tryAnotherHex, anotherHexIndex);
 }
 
+// fix AI + Angelic Alliance + neutral creatures
+int __stdcall fixAngelicAllianceAI(LoHook* h, HookContext* c)
+{
+	if (c->edi == -1)
+	    c->edi = 8;
+	
+	return EXEC_DEFAULT;
+}
+
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -295,6 +305,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Clone bug fix
 		_PI->WriteHiHook(0x5A70C1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);		    
 		       
             }
 
@@ -372,7 +385,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5E4B37, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x59F6EE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x59F6EE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// не нужно		    
 		    		    
             }
 
@@ -442,7 +458,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5E4B17, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x59F6FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x59F6FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// не нужно		    
 		    	    
             }
 
@@ -510,7 +529,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5ED5C7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A7201, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
+		_PI->WriteHiHook(0x5A7201, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C76E, fixAngelicAllianceAI);		    
 		    		    
             }
 
@@ -573,7 +595,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5ED4F7, fixArtMerchantPrice);
 		
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A71F1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlayBukaComplete);		    
+		_PI->WriteHiHook(0x5A71F1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlayBukaComplete);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C8E7, fixAngelicAllianceAI);	    
 		    
             }
 
@@ -638,7 +663,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x59C557, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x55C91E, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x55C91E, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету		    
 		    
             }
 
@@ -703,7 +731,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x59C4D7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x55C8FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x55C8FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету		    
 		    
             }
 
@@ -768,7 +799,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5C5237, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x583E41, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x583E41, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// не нужен			    
 		    		    
             }
 
@@ -830,7 +864,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EAE67, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A4DD1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
+		_PI->WriteHiHook(0x5A4DD1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// не нужен			    
 		    		    
             }
 
@@ -889,7 +926,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5ECDE7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A6DB1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x5A6DB1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);		    
 		    		    
             }
 
@@ -944,7 +984,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A2187, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x561771, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
+		_PI->WriteHiHook(0x561771, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету		    
 		    		    
             }
 
@@ -999,7 +1042,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A24B7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x561A11, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x561A11, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		    
             }
 
@@ -1054,7 +1100,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A21F7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x561751, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
+		_PI->WriteHiHook(0x561751, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		    
             }
 
@@ -1109,7 +1158,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A2437, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5619E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x5619E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		   
             }
 
@@ -1164,7 +1216,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A1DF7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5612E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
+		_PI->WriteHiHook(0x5612E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		    
             }
 
@@ -1223,7 +1278,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A23A7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5619B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x5619B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		    
             }
 
@@ -1282,7 +1340,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A23B7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x561961, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x561961, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		    
             }
 
@@ -1352,7 +1413,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EB5E7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A5521, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
+		_PI->WriteHiHook(0x5A5521, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		// нету			    
 		    		    
             }
 
@@ -1415,7 +1479,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EDBA7, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A7B21, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x5A7B21, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C8BE, fixAngelicAllianceAI);		    
 		    		    
             }
 
@@ -1478,7 +1545,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5ED447, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A70B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x5A70B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C7EE, fixAngelicAllianceAI);		    
 		    		    
             }
 
@@ -1537,7 +1607,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EAC37, fixArtMerchantPrice);
 		    
 		// Clone bug fix
-		_PI->WriteHiHook(0x5A4831, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
+		_PI->WriteHiHook(0x5A4831, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
+		    
+		// fix AI + Angelic Alliance + neutral creatures
+		_PI->WriteLoHook(0x42C63E, fixAngelicAllianceAI);		    
 		    		    
             }
 
