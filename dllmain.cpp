@@ -111,7 +111,7 @@ int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 
 int __stdcall fixHarpyBindsBukaComplete(LoHook* h, HookContext* c)
 {
-    H3CombatMonsterBukaComplete* battleStack = (H3CombatMonsterBukaComplete*)c->ebx;
+    H3BukaCompleteCombatMonster* battleStack = (H3BukaCompleteCombatMonster*)c->ebx;
 
     if (battleStack->spell_duration[SPL_BIND])
     {
