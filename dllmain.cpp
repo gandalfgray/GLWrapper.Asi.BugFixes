@@ -187,6 +187,34 @@ BOOL __stdcall disableCloneOverlay(HiHook* h, H3CombatMonster* battleStack, INT3
 	return CALL_4(BOOL, __thiscall, h->GetDefaultFunc(), battleStack, newHexIndex, tryAnotherHex, anotherHexIndex);
 }
 
+BOOL __stdcall disableCloneOverlayBukaComplete(HiHook* h, H3BukaCompleteCombatMonster* battleStack, INT32 newHexIndex, BOOL tryAnotherHex, INT32* anotherHexIndex)
+{
+	if(newHexIndex == battleStack->hex_index)
+		return false;
+
+	if(battleStack->info.flags & BCF_DOUBLE_WIDE)
+	{
+		if(battleStack->orient_to_right)
+		{
+			if(battleStack->hex_index - 1 == newHexIndex)
+				return false;
+
+			if(battleStack->hex_index == newHexIndex - 1)
+				return false;
+		}
+		else
+		{
+			if(battleStack->hex_index + 1 == newHexIndex)
+				return false;
+
+			if(battleStack->hex_index == newHexIndex + 1)
+				return false;
+		}
+	}
+
+	return CALL_4(BOOL, __thiscall, h->GetDefaultFunc(), battleStack, newHexIndex, tryAnotherHex, anotherHexIndex);
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -331,7 +359,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5E5F97, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5E6101, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5E4164, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5E4B37, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5E4B37, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x59F6EE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -398,7 +429,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5E5F77, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5E60E1, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5E4144, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5E4B17, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5E4B17, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x59F6FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    	    
             }
 
@@ -463,7 +497,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EEB36, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EECA0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5ECBD5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5ED5C7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5ED5C7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A7201, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
 		    		    
             }
 
@@ -525,7 +562,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EEA46, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EEBB0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5ECB15, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5ED4F7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5ED4F7, fixArtMerchantPrice);
+		
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A71F1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlayBukaComplete);		    
 		    
             }
 
@@ -587,7 +627,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x59D9B7, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x59DB21, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x59BB84, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x59C557, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x59C557, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x55C91E, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    
             }
 
@@ -649,7 +692,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x59D937, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x59DAA1, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x59BB04, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x59C4D7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x59C4D7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x55C8FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    
             }
 
@@ -711,7 +757,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5C67A6, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5C6910, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5C4845, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5C5237, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5C5237, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x583E41, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -770,7 +819,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EC3D6, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EC540, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EA475, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5EAE67, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5EAE67, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A4DD1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
 		    		    
             }
 
@@ -826,7 +878,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EE356, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EE4C0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EC3F5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5ECDE7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5ECDE7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A6DB1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -878,7 +933,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A36F6, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A3860, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A1795, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A2187, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A2187, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x561771, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
 		    		    
             }
 
@@ -930,7 +988,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A3A26, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A3B90, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A1AC5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A24B7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A24B7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x561A11, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -982,7 +1043,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A3766, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A38D0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A1805, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A21F7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A21F7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x561751, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
 		    		    
             }
 
@@ -1034,7 +1098,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A39A6, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A3B10, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A1A45, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A2437, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A2437, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5619E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		   
             }
 
@@ -1086,7 +1153,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A3366, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A34D0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A1405, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A1DF7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A1DF7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5612E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
 		    		    
             }
 
@@ -1142,7 +1212,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A3916, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A3A80, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A19B5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A23A7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A23A7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5619B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -1198,7 +1271,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5A3926, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A3A90, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5A19C5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5A23B7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5A23B7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x561961, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -1265,7 +1341,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5ECB56, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5ECCC0, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EABF5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5EB5E7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5EB5E7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A5521, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);			    
 		    		    
             }
 
@@ -1325,7 +1404,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EF116, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EF280, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5ED1B5, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5EDBA7, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5EDBA7, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A7B21, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -1385,7 +1467,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EE9B6, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EEB20, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5ECA55, fixArtMerchantPrice);
-		_PI->WriteLoHook(0x5ED447, fixArtMerchantPrice);		    
+		_PI->WriteLoHook(0x5ED447, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A70B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
@@ -1442,6 +1527,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x5EC310, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EA245, fixArtMerchantPrice);
 		_PI->WriteLoHook(0x5EAC37, fixArtMerchantPrice);
+		    
+		// Clone bug fix
+		_PI->WriteHiHook(0x5A4831, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);		    
 		    		    
             }
 
