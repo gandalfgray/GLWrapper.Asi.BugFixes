@@ -12,7 +12,6 @@ PatcherInstance* _PI;
 
 static _bool_ plugin_On = 0;
 
-bool bukaComplete = false;
 
 // Prevents AI from casting Fly if they don't have it.
 int Ai_WaterwalkFlyReturnAddress_Cast;
@@ -99,11 +98,22 @@ int __stdcall ghostHeroFix(LoHook* h, HookContext* c)
 int fixHarpyBindsReturnAddress;
 int __stdcall fixHarpyBinds(LoHook* h, HookContext* c)
 {
-    int offsetRoots = 696;
-    if(bukaComplete)
-	offsetRoots += 4;
+    H3CombatMonster* battleStack = (H3CombatMonster*)c->ebx;
 
-    if (*(int*)(c->ebx + offsetRoots))
+    if (battleStack->spell_duration[SPL_BIND])
+    {
+        c->return_address = fixHarpyBindsReturnAddress;
+        return NO_EXEC_DEFAULT;
+    }
+	
+    return EXEC_DEFAULT;
+}
+
+int __stdcall fixHarpyBindsBukaComplete(LoHook* h, HookContext* c)
+{
+    H3CombatMonsterBukaComplete* battleStack = (H3CombatMonsterBukaComplete*)c->ebx;
+
+    if (battleStack->spell_duration[SPL_BIND])
     {
         c->return_address = fixHarpyBindsReturnAddress;
         return NO_EXEC_DEFAULT;
@@ -508,9 +518,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             check1 = *(int*)(0x4F7EB3+1);
             check2 = *(int*)(0x6021A9+1);
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
-            {
-		bukaComplete = true;
-		    
+            {    
 		// Global structures addresses
 		aH3HeroClass = 0x67EFDC;
 		aMarketHero = 0x6AE2A0;
@@ -549,7 +557,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix Harpy fly after Dendroid bind    
 		fixHarpyBindsReturnAddress = 0x478568;
-		_PI->WriteLoHook(0x47855E, fixHarpyBinds);
+		_PI->WriteLoHook(0x47855E, fixHarpyBindsBukaComplete);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
 		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);
