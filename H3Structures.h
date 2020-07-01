@@ -328,4 +328,3 @@ struct H3CombatMonster
  H3CombatMonsterSpellsData spells_data; // 0x458 information about some spell effects
 };
 
-#include H3BukaCompleteStructures.h
