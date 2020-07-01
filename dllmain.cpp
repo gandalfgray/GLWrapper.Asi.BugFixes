@@ -1,5 +1,6 @@
 #include "..\..\include\patcher_x86.hpp"
 #include "H3Structures.h"
+#include "H3BukaCompleteStructures.h"
 #include "H3Numerations.h"
 
 int aH3HeroClass;
