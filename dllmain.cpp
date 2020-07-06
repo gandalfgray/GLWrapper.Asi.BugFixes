@@ -241,7 +241,7 @@ int isHiddenBattleProcAddress;
 int removeStackFromHexProcAddress;
 void __stdcall fixQuickBattleStackFly(HiHook* h, void* battleManager, H3CombatMonster* stack, INT32 newHexIndex)
 {
-	if (CALL_1(BOOLEAN, __thiscall, isHiddenBattleProcAddress, battleManager))
+	if (CALL_1(bool, __thiscall, isHiddenBattleProcAddress, battleManager))
 	{
 		CALL_2(void, __thiscall, removeStackFromHexProcAddress, battleManager, stack);
 	}
@@ -414,6 +414,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x468740;
 		removeStackFromHexProcAddress = 0x466A20;
+		_PI->WriteHiHook(0x4B2BC7, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -492,6 +493,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x4683C0;
 		removeStackFromHexProcAddress = 0x4666A0;
+		_PI->WriteHiHook(0x4B2637, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    	    
             }
 
@@ -568,6 +570,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A630;
 		removeStackFromHexProcAddress = 0x4688C0;
+		_PI->WriteHiHook(0x4B4C54, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -639,6 +642,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A080;
 		removeStackFromHexProcAddress = 0x4682D0;
+		_PI->WriteHiHook(0x4B45F4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    
             }
 
@@ -712,6 +716,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x4657A0;
 		removeStackFromHexProcAddress = 0x463A90;
+		_PI->WriteHiHook(0x4AA957, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    
             }
 
@@ -785,6 +790,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x4656C0;
 		removeStackFromHexProcAddress = 0x4639B0;
+		_PI->WriteHiHook(0x4AAC27, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    
             }
 
@@ -858,6 +864,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x469AF0;
 		removeStackFromHexProcAddress = 0x467DA0;
+		_PI->WriteHiHook(0x4B4424, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -927,7 +934,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A170;
-		removeStackFromHexProcAddress = 0x468420; 
+		removeStackFromHexProcAddress = 0x468420;
+		_PI->WriteHiHook(0x4B4D44, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		  		    		    
             }
 
@@ -995,6 +1003,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A4A0;
 		removeStackFromHexProcAddress = 0x468730;
+		_PI->WriteHiHook(0x4B4E24, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    	    		    
             }
 
@@ -1058,6 +1067,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x467CA0;
 		removeStackFromHexProcAddress = 0x465F70;
+		_PI->WriteHiHook(0x4ADDE4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1121,6 +1131,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x467920;
 		removeStackFromHexProcAddress = 0x465BF0;
+		_PI->WriteHiHook(0x4AD854, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1184,6 +1195,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x4678C0;
 		removeStackFromHexProcAddress = 0x465B90;
+		_PI->WriteHiHook(0x4AD7E4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1247,6 +1259,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x467330;
 		removeStackFromHexProcAddress = 0x465600;
+		_PI->WriteHiHook(0x4AD494, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		   
             }
 
@@ -1310,6 +1323,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x4674E0;
 		removeStackFromHexProcAddress = 0x465780;
+		_PI->WriteHiHook(0x4AD614, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    	    		    		    
             }
 
@@ -1377,6 +1391,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x467AB0;
 		removeStackFromHexProcAddress = 0x465D80;
+		_PI->WriteHiHook(0x4AD764, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1444,6 +1459,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x467260;
 		removeStackFromHexProcAddress = 0x465530;
+		_PI->WriteHiHook(0x4AD044, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1522,6 +1538,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A3D0;
 		removeStackFromHexProcAddress = 0x468680;
+		_PI->WriteHiHook(0x4B4E84, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1593,6 +1610,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A8F0;
 		removeStackFromHexProcAddress = 0x468B80;
+		_PI->WriteHiHook(0x4B4F24, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1664,6 +1682,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A0E0;
 		removeStackFromHexProcAddress = 0x468340;
+		_PI->WriteHiHook(0x4B4794, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
@@ -1731,6 +1750,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x46A050;
 		removeStackFromHexProcAddress = 0x4682D0;
+		_PI->WriteHiHook(0x4B47C4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    		    
             }
 
