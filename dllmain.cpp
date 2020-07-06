@@ -412,7 +412,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужно
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x468740;		    
+		isHiddenBattleProcAddress = 0x468740;
+		removeStackFromHexProcAddress = 0x466A20;
 		    		    
             }
 
@@ -489,7 +490,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужно		
 		
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x4683C0;		    
+		isHiddenBattleProcAddress = 0x4683C0;
+		removeStackFromHexProcAddress = 0x4666A0;
 		    	    
             }
 
@@ -564,7 +566,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42C76E, fixAngelicAllianceAI);
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A630;		    
+		isHiddenBattleProcAddress = 0x46A630;
+		removeStackFromHexProcAddress = 0x4688C0;
 		    		    
             }
 
@@ -634,7 +637,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42C8E7, fixAngelicAllianceAI);
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A080;		    
+		isHiddenBattleProcAddress = 0x46A080;
+		removeStackFromHexProcAddress = 0x4682D0;
 		    
             }
 
@@ -706,7 +710,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету	
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x4657A0;			    
+		isHiddenBattleProcAddress = 0x4657A0;
+		removeStackFromHexProcAddress = 0x463A90;
 		    
             }
 
@@ -778,7 +783,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x4656C0;		    
+		isHiddenBattleProcAddress = 0x4656C0;
+		removeStackFromHexProcAddress = 0x4639B0;
 		    
             }
 
@@ -850,7 +856,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x469AF0;		    
+		isHiddenBattleProcAddress = 0x469AF0;
+		removeStackFromHexProcAddress = 0x467DA0;
 		    		    
             }
 
@@ -919,8 +926,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A170;		    
-		    		    
+		isHiddenBattleProcAddress = 0x46A170;
+		removeStackFromHexProcAddress = 0x468420; 
+		  		    		    
             }
 
             // Heroes III Complete - v4.0
@@ -985,9 +993,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A4A0;	    
-		    
-		    		    
+		isHiddenBattleProcAddress = 0x46A4A0;
+		removeStackFromHexProcAddress = 0x468730;
+		    	    		    
             }
 
             // Heroes Chronicles Warlords & Underworld - v1.0
@@ -1048,7 +1056,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету	
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x467CA0;			    
+		isHiddenBattleProcAddress = 0x467CA0;
+		removeStackFromHexProcAddress = 0x465F70;
 		    		    
             }
 
@@ -1110,7 +1119,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x467920;		    
+		isHiddenBattleProcAddress = 0x467920;
+		removeStackFromHexProcAddress = 0x465BF0;
 		    		    
             }
 
@@ -1172,7 +1182,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету	
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x4678C0;		    
+		isHiddenBattleProcAddress = 0x4678C0;
+		removeStackFromHexProcAddress = 0x465B90;
 		    		    
             }
 
@@ -1234,7 +1245,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x467330;		    
+		isHiddenBattleProcAddress = 0x467330;
+		removeStackFromHexProcAddress = 0x465600;
 		    		   
             }
 
@@ -1297,6 +1309,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix of terrible bug in QuickBattle
 		isHiddenBattleProcAddress = 0x4674E0;
+		removeStackFromHexProcAddress = 0x465780;
 		    	    		    		    
             }
 
@@ -1362,7 +1375,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x467AB0;		    
+		isHiddenBattleProcAddress = 0x467AB0;
+		removeStackFromHexProcAddress = 0x465D80;
 		    		    
             }
 
@@ -1428,7 +1442,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x467260;		    
+		isHiddenBattleProcAddress = 0x467260;
+		removeStackFromHexProcAddress = 0x465530;
 		    		    
             }
 
@@ -1505,7 +1520,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// нету
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A3D0;		    
+		isHiddenBattleProcAddress = 0x46A3D0;
+		removeStackFromHexProcAddress = 0x468680;
 		    		    
             }
 
@@ -1575,7 +1591,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42C8BE, fixAngelicAllianceAI);
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A8F0;		    
+		isHiddenBattleProcAddress = 0x46A8F0;
+		removeStackFromHexProcAddress = 0x468B80;
 		    		    
             }
 
@@ -1645,7 +1662,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42C7EE, fixAngelicAllianceAI);
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A0E0;		    
+		isHiddenBattleProcAddress = 0x46A0E0;
+		removeStackFromHexProcAddress = 0x468340;
 		    		    
             }
 
@@ -1711,7 +1729,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x42C63E, fixAngelicAllianceAI);
 		    
 		// fix of terrible bug in QuickBattle
-		isHiddenBattleProcAddress = 0x46A050;			    
+		isHiddenBattleProcAddress = 0x46A050;
+		removeStackFromHexProcAddress = 0x4682D0;
 		    		    
             }
 
