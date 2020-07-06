@@ -236,6 +236,18 @@ int __stdcall fixAngelicAllianceAI(LoHook* h, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+// fix of terrible bug in QuickBattle
+int isHiddenBattleProcAddress;
+int removeStackFromHexProcAddress;
+void __stdcall fixQuickBattleStackFly(HiHook* h, void* battleManager, H3CombatMonster* stack, INT32 newHexIndex)
+{
+	if (CALL_1(BOOLEAN, __thiscall, isHiddenBattleProcAddress, battleManager))
+	{
+		CALL_2(void, __thiscall, removeStackFromHexProcAddress, battleManager, stack);
+	}
+
+	CALL_3(void, __thiscall, h->GetDefaultFunc(), battleManager, stack, newHexIndex);
+}
 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
@@ -310,7 +322,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A70C1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);		    
+		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A080;
+		removeStackFromHexProcAddress = 0x468310;
+		_PI->WriteHiHook(0x4B4B84, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		       
             }
 
@@ -392,7 +409,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59F6EE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// не нужно		    
+		// не нужно
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x468740;		    
 		    		    
             }
 
@@ -466,7 +486,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59F6FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// не нужно		    
+		// не нужно		
+		
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x4683C0;		    
 		    	    
             }
 
@@ -538,7 +561,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A7201, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C76E, fixAngelicAllianceAI);		    
+		_PI->WriteLoHook(0x42C76E, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A630;		    
 		    		    
             }
 
@@ -605,7 +631,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A71F1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlayBukaComplete);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C8E7, fixAngelicAllianceAI);	    
+		_PI->WriteLoHook(0x42C8E7, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A080;		    
 		    
             }
 
@@ -674,7 +703,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x55C91E, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету		    
+		// нету	
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x4657A0;			    
 		    
             }
 
@@ -743,7 +775,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x55C8FE, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету		    
+		// нету
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x4656C0;		    
 		    
             }
 
@@ -812,7 +847,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x583E41, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// не нужен			    
+		// не нужен
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x469AF0;		    
 		    		    
             }
 
@@ -878,7 +916,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A4DD1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// не нужен			    
+		// не нужен
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A170;		    
 		    		    
             }
 
@@ -941,7 +982,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A6DB1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);		    
+		_PI->WriteLoHook(0x42C89E, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A4A0;	    
+		    
 		    		    
             }
 
@@ -1000,7 +1045,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x561771, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету		    
+		// нету	
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x467CA0;			    
 		    		    
             }
 
@@ -1059,7 +1107,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x561A11, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
+		// нету
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x467920;		    
 		    		    
             }
 
@@ -1118,7 +1169,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x561751, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
+		// нету	
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x4678C0;		    
 		    		    
             }
 
@@ -1177,7 +1231,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5619E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
+		// нету
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x467330;		    
 		    		   
             }
 
@@ -1236,8 +1293,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5612E1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
-		    		    
+		// нету	
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x4674E0;
+		    	    		    		    
             }
 
             // ------------------------------
@@ -1299,7 +1359,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5619B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
+		// нету
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x467AB0;		    
 		    		    
             }
 
@@ -1362,7 +1425,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x561961, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
+		// нету
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x467260;		    
 		    		    
             }
 
@@ -1436,7 +1502,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A5521, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		// нету			    
+		// нету
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A3D0;		    
 		    		    
             }
 
@@ -1503,7 +1572,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A7B21, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C8BE, fixAngelicAllianceAI);		    
+		_PI->WriteLoHook(0x42C8BE, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A8F0;		    
 		    		    
             }
 
@@ -1570,7 +1642,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A70B1, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C7EE, fixAngelicAllianceAI);		    
+		_PI->WriteLoHook(0x42C7EE, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A0E0;		    
 		    		    
             }
 
@@ -1633,7 +1708,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5A4831, CALL_, EXTENDED_, THISCALL_, disableCloneOverlay);
 		    
 		// fix AI + Angelic Alliance + neutral creatures
-		_PI->WriteLoHook(0x42C63E, fixAngelicAllianceAI);		    
+		_PI->WriteLoHook(0x42C63E, fixAngelicAllianceAI);
+		    
+		// fix of terrible bug in QuickBattle
+		isHiddenBattleProcAddress = 0x46A050;			    
 		    		    
             }
 
