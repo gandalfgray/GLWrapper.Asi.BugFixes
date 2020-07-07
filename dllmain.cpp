@@ -331,7 +331,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426F9E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426F9E+3, 0xDA89); // MOV EDX,EBX		
+		_PI->WriteWord(0x426F9E+3, 0xDA89);  // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426FE4, 0x07EB); // doesn't delete loser army
 		       
             }
 
@@ -422,7 +425,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x425D6E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x425D6E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x425D6E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x425DB4, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -505,7 +511,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x425D0E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x425D0E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x425D0E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x425D54, 0x07EB); // doesn't delete loser army		    
 		    	    
             }
 
@@ -586,7 +595,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426E6E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426E6E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426E6E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426EB4, 0x07EB); // doesn't delete loser army			    
 		    		    
             }
 
@@ -662,7 +674,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x42705E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x42705E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x42705E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x4270A4, 0x07EB); // doesn't delete loser army		    
 		    
             }
 
@@ -740,7 +755,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x425D8E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x425D8E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x425D8E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x425DD4, 0x07EB); // doesn't delete loser army			    
 		    
             }
 
@@ -818,7 +836,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x425E9E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x425E9E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x425E9E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x425EE4, 0x07EB); // doesn't delete loser army		    
 		    
             }
 
@@ -896,7 +917,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426F0E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426F0E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426F0E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426F54, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -971,7 +995,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426BFE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426BFE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426BFE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426C44, 0x07EB); // doesn't delete loser army			    
 		  		    		    
             }
 
@@ -1043,7 +1070,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426F9E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426F9E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426F9E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426FE4, 0x07EB); // doesn't delete loser army		    
 		    	    		    
             }
 
@@ -1111,7 +1141,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426D1E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426D1E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426D1E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426D64, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -1179,7 +1212,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426DFE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426DFE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426DFE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426E44, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -1247,7 +1283,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426CDE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426D24, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -1315,7 +1354,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426CFE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426CFE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426CFE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426D44, 0x07EB); // doesn't delete loser army			    
 		    		   
             }
 
@@ -1383,7 +1425,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426D8E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426D8E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426D8E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426DD4, 0x07EB); // doesn't delete loser army		    
 		    	    		    		    
             }
 
@@ -1455,7 +1500,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426FAE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426FF4, 0x07EB); // doesn't delete loser army			    
 		    		    
             }
 
@@ -1527,7 +1575,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426C6E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426C6E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426C6E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426CB4, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -1610,7 +1661,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426CDE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426D24, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -1686,7 +1740,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426FAE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426FF4, 0x07EB); // doesn't delete loser army			    
 		    		    
             }
 
@@ -1762,7 +1819,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426EEE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426EEE+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426EEE+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426F34, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
@@ -1834,7 +1894,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifacts transfer from loser to winner after AI vs AI battle
 		_PI->WriteByte(0x426D3E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
-		_PI->WriteWord(0x426D3E+3, 0xDA89); // MOV EDX,EBX		    
+		_PI->WriteWord(0x426D3E+3, 0xDA89); // MOV EDX,EBX
+		    
+		// fix necromancy bug AI vs AI battle
+		_PI->WriteWord(0x426D84, 0x07EB); // doesn't delete loser army		    
 		    		    
             }
 
