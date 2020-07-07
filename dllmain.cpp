@@ -328,6 +328,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A080;
 		removeStackFromHexProcAddress = 0x468310;
 		_PI->WriteHiHook(0x4B4B84, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426F9E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426F9E+3, 0xDA89); // MOV EDX,EBX		
 		       
             }
 
@@ -415,6 +419,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x468740;
 		removeStackFromHexProcAddress = 0x466A20;
 		_PI->WriteHiHook(0x4B2BC7, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x425D6E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x425D6E+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -494,6 +502,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x4683C0;
 		removeStackFromHexProcAddress = 0x4666A0;
 		_PI->WriteHiHook(0x4B2637, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x425D0E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x425D0E+3, 0xDA89); // MOV EDX,EBX		    
 		    	    
             }
 
@@ -571,6 +583,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A630;
 		removeStackFromHexProcAddress = 0x4688C0;
 		_PI->WriteHiHook(0x4B4C54, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426E6E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426E6E+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -643,6 +659,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A080;
 		removeStackFromHexProcAddress = 0x4682D0;
 		_PI->WriteHiHook(0x4B45F4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x42705E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x42705E+3, 0xDA89); // MOV EDX,EBX		    
 		    
             }
 
@@ -718,6 +738,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		removeStackFromHexProcAddress = 0x463A90;
 		_PI->WriteHiHook(0x4AA957, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x425D8E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x425D8E+3, 0xDA89); // MOV EDX,EBX		    
+		    
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -792,6 +816,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		removeStackFromHexProcAddress = 0x4639B0;
 		_PI->WriteHiHook(0x4AAC27, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
 		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x425E9E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x425E9E+3, 0xDA89); // MOV EDX,EBX		    
+		    
             }
 
             // ------------------------------
@@ -865,6 +893,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x469AF0;
 		removeStackFromHexProcAddress = 0x467DA0;
 		_PI->WriteHiHook(0x4B4424, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426F0E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426F0E+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -936,6 +968,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A170;
 		removeStackFromHexProcAddress = 0x468420;
 		_PI->WriteHiHook(0x4B4D44, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426BFE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426BFE+3, 0xDA89); // MOV EDX,EBX		    
 		  		    		    
             }
 
@@ -1004,6 +1040,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A4A0;
 		removeStackFromHexProcAddress = 0x468730;
 		_PI->WriteHiHook(0x4B4E24, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426F9E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426F9E+3, 0xDA89); // MOV EDX,EBX		    
 		    	    		    
             }
 
@@ -1068,6 +1108,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x467CA0;
 		removeStackFromHexProcAddress = 0x465F70;
 		_PI->WriteHiHook(0x4ADDE4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426D1E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426D1E+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1132,6 +1176,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x467920;
 		removeStackFromHexProcAddress = 0x465BF0;
 		_PI->WriteHiHook(0x4AD854, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426DFE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426DFE+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1196,6 +1244,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x4678C0;
 		removeStackFromHexProcAddress = 0x465B90;
 		_PI->WriteHiHook(0x4AD7E4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426CDE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1260,6 +1312,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x467330;
 		removeStackFromHexProcAddress = 0x465600;
 		_PI->WriteHiHook(0x4AD494, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426CFE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426CFE+3, 0xDA89); // MOV EDX,EBX		    
 		    		   
             }
 
@@ -1324,6 +1380,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x4674E0;
 		removeStackFromHexProcAddress = 0x465780;
 		_PI->WriteHiHook(0x4AD614, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426D8E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426D8E+3, 0xDA89); // MOV EDX,EBX		    
 		    	    		    		    
             }
 
@@ -1392,6 +1452,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x467AB0;
 		removeStackFromHexProcAddress = 0x465D80;
 		_PI->WriteHiHook(0x4AD764, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426FAE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1460,6 +1524,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x467260;
 		removeStackFromHexProcAddress = 0x465530;
 		_PI->WriteHiHook(0x4AD044, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426C6E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426C6E+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1539,6 +1607,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A3D0;
 		removeStackFromHexProcAddress = 0x468680;
 		_PI->WriteHiHook(0x4B4E84, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426CDE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1611,6 +1683,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A8F0;
 		removeStackFromHexProcAddress = 0x468B80;
 		_PI->WriteHiHook(0x4B4F24, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426FAE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1683,6 +1759,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A0E0;
 		removeStackFromHexProcAddress = 0x468340;
 		_PI->WriteHiHook(0x4B4794, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426EEE+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426EEE+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
@@ -1751,6 +1831,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHiddenBattleProcAddress = 0x46A050;
 		removeStackFromHexProcAddress = 0x4682D0;
 		_PI->WriteHiHook(0x4B47C4, CALL_, EXTENDED_, THISCALL_, fixQuickBattleStackFly);
+		    
+		// fix artifacts transfer from loser to winner after AI vs AI battle
+		_PI->WriteByte(0x426D3E+1, 0x4E); // MOV ECX,DWORD PTR DS:[ESI+24]
+		_PI->WriteWord(0x426D3E+3, 0xDA89); // MOV EDX,EBX		    
 		    		    
             }
 
