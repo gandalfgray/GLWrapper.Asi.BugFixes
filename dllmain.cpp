@@ -249,6 +249,14 @@ void __stdcall fixQuickBattleStackFly(HiHook* h, void* battleManager, H3CombatMo
 	CALL_3(void, __thiscall, h->GetDefaultFunc(), battleManager, stack, newHexIndex);
 }
 
+// fix AI Necromancy
+int afterTheorBattleProcAddress;
+void fixAINecromancy(HiHook *h, void* winner, void* loser, void* town)
+{
+        CALL_3(void, __thiscall, h->GetDefaultFunc(), winner, loser, town);
+        CALL_2(void, __thiscall, afterTheorBattleProcAddress, loser, 1); // delete army after
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -334,8 +342,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426F9E+3, 0xDA89);  // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424880;
 		_PI->WriteWord(0x426FE4, 0x07EB); // doesn't delete loser army
-		_PI->WriteHiHook(0x426EE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);	    
+		_PI->WriteHiHook(0x426EE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    	       
             }
 
@@ -429,6 +438,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425D6E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x423750;
 		_PI->WriteWord(0x425DB4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425CB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -516,6 +526,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425D0E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4236F0;
 		_PI->WriteWord(0x425D54, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425C50, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    	    
@@ -601,6 +612,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426E6E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424750;
 		_PI->WriteWord(0x426EB4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426DB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -681,6 +693,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x42705E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424950;
 		_PI->WriteWord(0x4270A4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426FA0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
@@ -763,6 +776,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425D8E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x423770;
 		_PI->WriteWord(0x425DD4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425CD0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
@@ -845,6 +859,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425E9E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x423880;
 		_PI->WriteWord(0x425EE4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425DE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
@@ -927,6 +942,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426F0E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4247F0;
 		_PI->WriteWord(0x426F54, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426E50, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1006,6 +1022,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426BFE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4244E0;
 		_PI->WriteWord(0x426C44, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426B40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		  		    		    
@@ -1082,6 +1099,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426F9E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424880;
 		_PI->WriteWord(0x426FE4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    	    		    
@@ -1154,8 +1172,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D1E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424880;
 		_PI->WriteWord(0x426D64, 0x07EB); // doesn't delete loser army
-		_PI->WriteHiHook(0x426C60, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
+		_PI->WriteHiHook(0x424600, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
             }
 
@@ -1226,6 +1245,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426DFE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4246E0;
 		_PI->WriteWord(0x426E44, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426D40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1298,6 +1318,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4245C0;
 		_PI->WriteWord(0x426D24, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C20, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1370,6 +1391,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426CFE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4245E0;
 		_PI->WriteWord(0x426D44, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		   
@@ -1442,6 +1464,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D8E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424670;
 		_PI->WriteWord(0x426DD4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426CD0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    	    		    		    
@@ -1518,6 +1541,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424890;
 		_PI->WriteWord(0x426FF4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EF0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1594,6 +1618,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426C6E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424550;
 		_PI->WriteWord(0x426CB4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426BB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1681,6 +1706,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426CDE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4245C0;
 		_PI->WriteWord(0x426D24, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C20, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1761,6 +1787,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426FAE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424890;
 		_PI->WriteWord(0x426FF4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EF0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1841,6 +1868,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426EEE+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x4247D0;
 		_PI->WriteWord(0x426F34, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426E30, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
@@ -1917,6 +1945,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D3E+3, 0xDA89); // MOV EDX,EBX
 		    
 		// fix necromancy bug AI vs AI battle
+		afterTheorBattleProcAddress = 0x424620;
 		_PI->WriteWord(0x426D84, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C80, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    		    
