@@ -346,7 +346,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426FE4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53C47F, 0x1874);
 		    	       
             }
@@ -445,7 +445,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425DB4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425CB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x5352C5, 0x1874);	    
 		    		    
             }
@@ -536,7 +536,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425D54, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425C50, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x535595, 0x1874);		    
 		    	    
             }
@@ -625,7 +625,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426EB4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426DB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53C2DF, 0x1874);		    
 		    		    
             }
@@ -709,7 +709,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x4270A4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426FA0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53BE3F, 0x1874);		    
 		    
             }
@@ -795,7 +795,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425DD4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425CD0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    
             }
@@ -881,7 +881,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x425EE4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x425DE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    
             }
@@ -967,7 +967,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426F54, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426E50, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		    
             }
@@ -1050,7 +1050,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426C44, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426B40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x539C0F, 0x1874);		    
 		  		    		    
             }
@@ -1130,7 +1130,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426FE4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53BF8F, 0x1874);		    
 		    	    		    
             }
@@ -1206,7 +1206,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D64, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x424600, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		    
             }
@@ -1282,7 +1282,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426E44, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426D40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		    
             }
@@ -1358,7 +1358,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D24, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C20, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		    
             }
@@ -1434,7 +1434,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D44, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		   
             }
@@ -1510,7 +1510,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426DD4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426CD0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    	    		    		    
             }
@@ -1590,7 +1590,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426FF4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EF0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		    
             }
@@ -1670,7 +1670,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426CB4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426BB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		// не нужен		    
 		    		    
             }
@@ -1761,7 +1761,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D24, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C20, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53A4CF, 0x1874);		    
 		    		    
             }
@@ -1845,7 +1845,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426FF4, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426EF0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53CCEF, 0x1874);		    
 		    		    
             }
@@ -1929,7 +1929,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426F34, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426E30, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53BBCF, 0x1874);		    
 		    		    
             }
@@ -2009,7 +2009,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteWord(0x426D84, 0x07EB); // doesn't delete loser army
 		_PI->WriteHiHook(0x426C80, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
-		// RMG neutral zones bug fix
+		// RMG zone type bug fix
 		_PI->WriteWord(0x53960F, 0x1874);		    
 		    		    
             }
