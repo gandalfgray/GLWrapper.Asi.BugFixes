@@ -267,6 +267,14 @@ int __stdcall updateMaxSeaMovement(LoHook* hook, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+int __stdcall updateMaxLandMovement(LoHook* hook, HookContext* c)
+{
+	H3Hero* hero = (H3Hero*)c->esi;
+	hero->movement_points_max = CALL_2(INT32, __thiscall, calcMovementProcAddress, hero, 0);
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -362,6 +370,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E4C00;
 		_PI->WriteLoHook(0x4A0D08, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49E340, updateMaxLandMovement);
 		    	       
             }
 
@@ -465,6 +474,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DFCF0;
 		_PI->WriteLoHook(0x49F068, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49C821, updateMaxLandMovement);
 		    		    
             }
 
@@ -559,7 +569,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E01B0;
-		_PI->WriteLoHook(0x49EA58, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x49EA58, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49C211, updateMaxLandMovement);
 		    	    
             }
 
@@ -652,7 +663,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E48E0;
-		_PI->WriteLoHook(0x4A0E38, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A0E38, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49E470, updateMaxLandMovement);
 		    		    		    		    
             }
 
@@ -740,7 +752,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E4D90;
-		_PI->WriteLoHook(0x4A08A8, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A08A8, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49DF10, updateMaxLandMovement);
 		    
             }
 
@@ -830,7 +843,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4D8FD0;
-		_PI->WriteLoHook(0x497438, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x497438, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x494BF1, updateMaxLandMovement);
 		    
             }
 
@@ -920,7 +934,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4D8D90;
-		_PI->WriteLoHook(0x497748, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x497748, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x494F01, updateMaxLandMovement);
 		    
             }
 
@@ -1010,7 +1025,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E24B0;
-		_PI->WriteLoHook(0x4A0608, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A0608, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49DC40, updateMaxLandMovement);
 		    		    
             }
 
@@ -1097,7 +1113,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E2800;
-		_PI->WriteLoHook(0x4A0F78, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A0F78, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49E5B0, updateMaxLandMovement);
 		  		    		    
             }
 
@@ -1181,7 +1198,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E4990;
-		_PI->WriteLoHook(0x4A1098, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A1098, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49E6D0, updateMaxLandMovement);
 		    	    		    
             }
 
@@ -1261,7 +1279,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DCA30;
-		_PI->WriteLoHook(0x49A4D8, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x49A4D8, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x497B10, updateMaxLandMovement);
 		    		    
             }
 
@@ -1341,7 +1360,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DC9F0;
-		_PI->WriteLoHook(0x499FF8, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x499FF8, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x497630, updateMaxLandMovement);
 		    		    
             }
 
@@ -1421,7 +1441,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DC4A0;
-		_PI->WriteLoHook(0x499D88, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x499D88, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x4973C0, updateMaxLandMovement);
 		    		    
             }
 
@@ -1501,7 +1522,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DC620;
-		_PI->WriteLoHook(0x4997A8, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4997A8, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x496DE0, updateMaxLandMovement);
 		    		   
             }
 
@@ -1581,7 +1603,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DC530;
-		_PI->WriteLoHook(0x499908, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x499908, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x496F40, updateMaxLandMovement);
 		    	    		    		    
             }
 
@@ -1665,7 +1688,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DC710;
-		_PI->WriteLoHook(0x499C78, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x499C78, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x4972B0, updateMaxLandMovement);
 		    		    
             }
 
@@ -1749,7 +1773,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4DC800;
-		_PI->WriteLoHook(0x499768, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x499768, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x496DA0, updateMaxLandMovement);
 		    		    
             }
 
@@ -1844,7 +1869,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E2F10;
-		_PI->WriteLoHook(0x4A0F48, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A0F48, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49E580, updateMaxLandMovement);
 		    		    
             }
 
@@ -1932,7 +1958,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E48E0;
-		_PI->WriteLoHook(0x4A11D8, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A11D8, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49E810, updateMaxLandMovement);
 		    		    
             }
 
@@ -2020,7 +2047,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E4340;
-		_PI->WriteLoHook(0x4A0968, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A0968, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49DF90, updateMaxLandMovement);
 		    		    
             }
 
@@ -2104,7 +2132,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Update sea max. movement points
 		calcMovementProcAddress = 0x4E29E0;
-		_PI->WriteLoHook(0x4A0928, updateMaxSeaMovement);		    
+		_PI->WriteLoHook(0x4A0928, updateMaxSeaMovement);
+		_PI->WriteLoHook(0x49DF60, updateMaxLandMovement);
 		    		    
             }
 
