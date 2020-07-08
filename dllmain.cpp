@@ -251,10 +251,20 @@ void __stdcall fixQuickBattleStackFly(HiHook* h, void* battleManager, H3CombatMo
 
 // fix AI Necromancy
 int afterTheorBattleProcAddress;
-void fixAINecromancy(HiHook *h, void* winner, void* loser, void* town)
+void __stdcall fixAINecromancy(HiHook *h, void* winner, void* loser, void* town)
 {
         CALL_3(void, __thiscall, h->GetDefaultFunc(), winner, loser, town);
         CALL_2(void, __thiscall, afterTheorBattleProcAddress, loser, 1); // delete army after
+}
+
+// Update max. MP
+int calcMovementProcAddress;
+int __stdcall updateMaxSeaMovement(LoHook* hook, HookContext* c)
+{
+	H3Hero* hero = (H3Hero*)c->esi;
+	hero->movement_points_max = CALL_2(INT32, __thiscall, calcMovementProcAddress, hero, 1);
+
+	return EXEC_DEFAULT;
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
@@ -348,6 +358,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// RMG zone type bug fix
 		_PI->WriteWord(0x53C47F, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E4C00;
+		_PI->WriteLoHook(0x4A0D08, updateMaxSeaMovement);
 		    	       
             }
 
@@ -446,7 +460,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x425CB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x5352C5, 0x1874);	    
+		_PI->WriteWord(0x5352C5, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DFCF0;
+		_PI->WriteLoHook(0x49F068, updateMaxSeaMovement);
 		    		    
             }
 
@@ -537,7 +555,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x425C50, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x535595, 0x1874);		    
+		_PI->WriteWord(0x535595, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E01B0;
+		_PI->WriteLoHook(0x49EA58, updateMaxSeaMovement);		    
 		    	    
             }
 
@@ -626,8 +648,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426DB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53C2DF, 0x1874);		    
-		    		    
+		_PI->WriteWord(0x53C2DF, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E48E0;
+		_PI->WriteLoHook(0x4A0E38, updateMaxSeaMovement);		    
+		    		    		    		    
             }
 
             // Heroes III Complete - v4.0 Buka
@@ -710,7 +736,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426FA0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53BE3F, 0x1874);		    
+		_PI->WriteWord(0x53BE3F, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E4D90;
+		_PI->WriteLoHook(0x4A08A8, updateMaxSeaMovement);		    
 		    
             }
 
@@ -796,7 +826,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x425CD0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4D8FD0;
+		_PI->WriteLoHook(0x497438, updateMaxSeaMovement);		    
 		    
             }
 
@@ -882,7 +916,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x425DE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4D8D90;
+		_PI->WriteLoHook(0x497748, updateMaxSeaMovement);		    
 		    
             }
 
@@ -968,7 +1006,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426E50, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E24B0;
+		_PI->WriteLoHook(0x4A0608, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1051,7 +1093,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426B40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x539C0F, 0x1874);		    
+		_PI->WriteWord(0x539C0F, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E2800;
+		_PI->WriteLoHook(0x4A0F78, updateMaxSeaMovement);		    
 		  		    		    
             }
 
@@ -1131,7 +1177,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426EE0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53BF8F, 0x1874);		    
+		_PI->WriteWord(0x53BF8F, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E4990;
+		_PI->WriteLoHook(0x4A1098, updateMaxSeaMovement);		    
 		    	    		    
             }
 
@@ -1207,7 +1257,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x424600, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DCA30;
+		_PI->WriteLoHook(0x49A4D8, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1283,7 +1337,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426D40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DC9F0;
+		_PI->WriteLoHook(0x499FF8, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1359,7 +1417,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426C20, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DC4A0;
+		_PI->WriteLoHook(0x499D88, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1435,7 +1497,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426C40, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DC620;
+		_PI->WriteLoHook(0x4997A8, updateMaxSeaMovement);		    
 		    		   
             }
 
@@ -1511,7 +1577,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426CD0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DC530;
+		_PI->WriteLoHook(0x499908, updateMaxSeaMovement);		    
 		    	    		    		    
             }
 
@@ -1591,7 +1661,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426EF0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DC710;
+		_PI->WriteLoHook(0x499C78, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1671,7 +1745,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426BB0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		// не нужен		    
+		// не нужен
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4DC800;
+		_PI->WriteLoHook(0x499768, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1762,7 +1840,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426C20, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53A4CF, 0x1874);		    
+		_PI->WriteWord(0x53A4CF, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E2F10;
+		_PI->WriteLoHook(0x4A0F48, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1846,7 +1928,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426EF0, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53CCEF, 0x1874);		    
+		_PI->WriteWord(0x53CCEF, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E48E0;
+		_PI->WriteLoHook(0x4A11D8, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -1930,7 +2016,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426E30, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53BBCF, 0x1874);		    
+		_PI->WriteWord(0x53BBCF, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E4340;
+		_PI->WriteLoHook(0x4A0968, updateMaxSeaMovement);		    
 		    		    
             }
 
@@ -2010,7 +2100,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x426C80, SPLICE_, EXTENDED_, THISCALL_, fixAINecromancy);
 		    
 		// RMG zone type bug fix
-		_PI->WriteWord(0x53960F, 0x1874);		    
+		_PI->WriteWord(0x53960F, 0x1874);
+		    
+		// Update sea max. movement points
+		calcMovementProcAddress = 0x4E29E0;
+		_PI->WriteLoHook(0x4A0928, updateMaxSeaMovement);		    
 		    		    
             }
 
