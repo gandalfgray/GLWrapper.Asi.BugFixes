@@ -286,6 +286,37 @@ int __stdcall recalculateMovementAfterVisitObject(LoHook* hook, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+void compressHeroBackpack(H3Hero* hero)
+{
+	H3Artifact compressedBackpack[64];
+	int cb_index = 0;
+
+	for(int i = 0; i < 64; i++)
+	{
+		if (hero->backpack_art[i].type != -1)
+		{
+			compressedBackpack[cb_index].type = hero->backpack_art[i].type;
+			compressedBackpack[cb_index].subtype = hero->backpack_art[i].subtype;
+			cb_index++;
+		}
+	}
+
+	for(int i = cb_index; i < 64; i++)
+	{
+		compressedBackpack[i].type = -1;
+		compressedBackpack[i].subtype = 0;
+	}
+
+	memcpy(hero->backpack_art, compressedBackpack, sizeof(H3Artifact) * 64);
+}
+
+void* __stdcall fixBackpackArtMerchantDlg(HiHook* hook, void* dlg, int x, int y)
+{
+	compressHeroBackpack(o_Market_Hero);
+	CALL_3(void*, __thiscall, hook->GetDefaultFunc(), dlg, x, y);
+	return dlg;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -384,6 +415,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0D08, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA76B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49E340, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E5B30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    	       
             }
 
@@ -490,6 +524,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x49F068, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A884B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49C821, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5DD6B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -588,6 +625,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x49EA58, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A823B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49C211, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5DD690, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    	    
             }
 
@@ -684,6 +724,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0E38, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA89B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49E470, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E5F10, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    		    		    
             }
 
@@ -775,6 +818,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A08A8, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA2FB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49DF10, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E5E50, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    
             }
 
@@ -869,6 +915,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A0BBB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x494BF1, updateMaxLandMovement);
 		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5950D0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    		    
+		    
             }
 
             // Heroes Chronicles Beastmaster & Sword - v1.0
@@ -962,6 +1011,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A0ECB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x494F01, updateMaxLandMovement);
 		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x595050, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		    
             }
 
             // ------------------------------
@@ -1054,6 +1106,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0608, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA06B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49DC40, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5BDB80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -1144,6 +1199,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0F78, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA9DB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49E5B0, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E37B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		  		    		    
             }
 
@@ -1231,6 +1289,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A1098, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AAAFB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49E6D0, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E5730, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    	    		    
             }
 
@@ -1314,6 +1375,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x49A4D8, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A3EDB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x497B10, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59AAD0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -1397,6 +1461,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x499FF8, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A39FB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x497630, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59AE00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -1480,6 +1547,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x499D88, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A378B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x4973C0, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59AB40, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -1563,6 +1633,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4997A8, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A31AB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x496DE0, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59AD80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		   
             }
 
@@ -1646,6 +1719,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x499908, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A332B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x496F40, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59A740, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    	    		    		    
             }
 
@@ -1733,6 +1809,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x499C78, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A367B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x4972B0, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59ACF0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -1820,6 +1899,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x499768, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4A316B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x496DA0, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x59AD00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -1918,6 +2000,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0F48, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA9AB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49E580, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E3F30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -2009,6 +2094,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A11D8, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AAC3B, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49E810, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E64F0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -2100,6 +2188,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0968, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA3EB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49DF90, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E5D90, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
@@ -2187,6 +2278,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		//_PI->WriteLoHook(0x4A0928, updateMaxSeaMovement);
 		_PI->WriteLoHook(0x4AA3AB, recalculateMovementAfterVisitObject);
 		_PI->WriteLoHook(0x49DF60, updateMaxLandMovement);
+		    
+		// fix artifact merchants critical bug
+		_PI->WriteHiHook(0x5E3580, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
 		    		    
             }
 
