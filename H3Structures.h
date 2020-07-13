@@ -334,17 +334,17 @@ struct H3CombatMonster
  H3CombatMonsterSpellsData spells_data; // 0x458 information about some spell effects
 };
 
-	struct H3TownManager : public H3Manager
-	{
-	 H3Town* town; // +0x38 current town structure
+struct H3TownManager : public H3Manager
+{
+  H3Town* town; // +0x38 current town structure
   INT8 unk1[224];
-  H3GarrisonBar* bar_up; // +0x11C
-  H3GarrisonBar* bar_down; // +0x120
-  H3GarrisonBar* bar_selected; //+0x124
+  void* bar_up; // +0x11C
+  void* bar_down; // +0x120
+  void* bar_selected; //+0x124
   INT32 slot_index_bar_selected; // +0x128
-  H3GarrisonBar* bar_source; //+0x12C
+  void* bar_source; //+0x12C
   INT32 slot_index_bar_source; // +0x130
-  H3GarrisonBar* bar_dest; //+0x134
+  void* bar_dest; //+0x134
   INT32 slot_index_bar_dest; // +0x138
   INT8 unk1[100]; // +0x13C
   BitMaskDword buildings[2]; //+0x1A0
