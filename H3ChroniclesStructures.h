@@ -1,6 +1,6 @@
 struct H3CHRMain
 {
- h3unk _f_0000[4];
+ INT8 unk0[4];
  INT8 disabledShrines[70]; // * +4
  INT8 disabledSpells[70]; // * +4A
  UINT32 cs_bink; // * +90
@@ -20,7 +20,7 @@ struct H3CHRMain
  INT8 playersInfo[460]; // * +1F688
  INT8 mapInfo[720]; // * +1F86C 
  H3String mapName; // * +1FB3C
- H3String mapDescription; / * +1FB4C
+ H3String mapDescription; // * +1FB4C
  INT8 unk5[20];
  INT8 mainSetup[3932]; // * +1FB70
  INT8 unk6[4];
