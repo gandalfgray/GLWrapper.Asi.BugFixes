@@ -353,39 +353,40 @@ struct H3TownManager : public H3Manager
 
 struct H3Player
 {
- INT8 id;
- BOOLEAN has_heroes;
+ INT8 id; // 0
+ BOOLEAN has_heroes; // 1
  INT8 unk1[2];
- INT32 current_hero_id;
- INT32 adv_heroes_ids[8];
- INT32 tavern_heroL;
- INT32 tavern_heroR;
- INT32 AI_type;
- INT8 obelisksVisited;
+ INT32 current_hero_id; // 4
+ INT32 adv_heroes_ids[8]; // 8
+ INT32 tavern_heroL; // 40
+ INT32 tavern_heroR; // 44
  INT8 unk2[4];
- INT8 days_left; //сколько дней до убивания героя (может быть >7) если не FF, то всегда выдает сообщение
- INT8 towns_count;
- INT8 current_town_id;
- INT8 towns_ids[48];
+ INT32 AI_type; // 52
+ INT8 obelisksVisited; // 56
  INT8 unk3[4];
- INT32 top_hero_index;
- INT8 unk4[36];
- INT8 resourses_current[28];
- INT32 magic_gardens;
- INT32 magic_spring;
- INT8 unk5[12];
- CHAR player_name[21];
- BOOLEAN is_human;
- BOOLEAN is_human2;
- INT8 unk6[3];
- BOOLEAN human;
- INT8 unk7;
- BOOL has_combo_artifacts;
- INT8 unk8[28];
- INT8 resourses_income[28]; 
- INT8 unk9[4];
- DOUBLE AI_resource_importance[7];
- INT8 unk10[8];
+ INT8 days_left; // 61 сколько дней до убивания героя (может быть >7) если не FF, то всегда выдает сообщение
+ INT8 towns_count; // 62
+ INT8 current_town_id; // 63
+ INT8 towns_ids[48]; // 64
+ INT8 unk4[4]; // 112
+ INT32 top_hero_index; // 116
+ INT8 unk5[36];
+ INT8 resourses_current[28]; // 156
+ INT32 magic_gardens; // 184
+ INT32 magic_spring; // 188
+ INT8 unk6[12]; // 192
+ CHAR player_name[21]; // 204
+ BOOLEAN is_human; // 225
+ BOOLEAN is_human2; // 226
+ INT8 unk7[3]; // 227
+ BOOLEAN human; // 230
+ INT8 unk8; // 231
+ BOOL has_combo_artifacts; // 232
+ INT8 unk9[28]; // 236 
+ INT8 resourses_income[28]; // 264
+ INT8 unk10[4];
+ DOUBLE AI_resource_importance[7]; // 296
+ INT8 unk11[8];
 };
 
 // * doesn't follow Manager format
