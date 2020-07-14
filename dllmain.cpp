@@ -4,6 +4,7 @@
 #include "H3Numerations.h"
 
 int aH3Main;
+int aActivePlayer;
 int aH3HeroClass;
 int aMarketHero;
 int aMarketBackpackIndexOfFirstSlot;
@@ -340,6 +341,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		aH3Main = 0x699538;
+		aActivePlayer = 0x69CCFC;
 		aH3HeroClass = 0x67DCEC;
 		aMarketHero = 0x6AAAE0;
 		aMarketBackpackIndexOfFirstSlot = 0x6AAAD8;
@@ -438,6 +440,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x690ED8;
+		aActivePlayer = 0x69467C;
 		aH3HeroClass = 0x673AFC;
 		aMarketHero = 0x6A2450;
 		aMarketBackpackIndexOfFirstSlot = 0x6A2448;
@@ -546,6 +549,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x690F28;
+		aActivePlayer = 0x6946CC;
 		aH3HeroClass = 0x673AFC;
 		aMarketHero = 0x6A27B8;
 		aMarketBackpackIndexOfFirstSlot = 0x6A27B0;
@@ -651,6 +655,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		aH3Main = 0x698560;
+		aActivePlayer = 0x69BD20;
 		aH3HeroClass = 0x67CD0C;
 		aMarketHero = 0x6A9B20;
 		aMarketBackpackIndexOfFirstSlot = 0x6A9B18;
@@ -752,6 +757,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {    
 		// Global structures addresses
 		aH3Main = 0x69CC88;
+		aActivePlayer = 0x6A0448;
 		aH3HeroClass = 0x67EFDC;
 		aMarketHero = 0x6AE2A0;
 		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
@@ -849,6 +855,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x6388D8;
+		aActivePlayer = 0x63C050;
 		aH3HeroClass = 0x61C194;
 		aMarketHero = 0x647F18;
 		aMarketBackpackIndexOfFirstSlot = 0x647F10;
@@ -948,6 +955,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x6388F8;
+		aActivePlayer = 0x63C074;
 	    	aH3HeroClass = 0x61C1BC;
 		aMarketHero = 0x647F38;
 		aMarketBackpackIndexOfFirstSlot = 0x647F30;
@@ -1052,6 +1060,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Global structures addresses
 		aH3Main = 0x66B490;
+		aActivePlayer = 0x66EC44;
 		aMarketHero = 0x67CA20;
 		aMarketBackpackIndexOfFirstSlot = 0x67CA18;
 		aMarketSelectedSlotIndex= 0x67CA38;
@@ -1146,6 +1155,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {		    
 		// Global structures addresses
 		aH3Main = 0x6963C8;
+		aActivePlayer = 0x699B88;
 		aMarketHero = 0x6A7958;
 		aMarketBackpackIndexOfFirstSlot = 0x6A7950;
 		aMarketSelectedSlotIndex= 0x6A7970;	
@@ -1242,6 +1252,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {    
 		// Global structures addresses
 		aH3Main = 0x6994E8;
+		aActivePlayer = 0x69CCB0;
 		aMarketHero = 0x6AAA78;
 		aMarketBackpackIndexOfFirstSlot = 0x6AAA70;
 		aMarketSelectedSlotIndex= 0x6AAA90;
@@ -1335,6 +1346,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63B6C0;
+		aActivePlayer = 0x63EE60;
 		aMarketHero = 0x64AD18;
 		aMarketBackpackIndexOfFirstSlot = 0x64AD10;
 		aMarketSelectedSlotIndex= 0x64AD30;
@@ -1424,6 +1436,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63B6B8;
+		aActivePlayer = 0x63EE5C;
 		aMarketHero = 0x64AD30;
 		aMarketBackpackIndexOfFirstSlot = 0x64AD28;
 		aMarketSelectedSlotIndex= 0x64AD48;
@@ -1513,6 +1526,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63B6C0;
+		aActivePlayer = 0x63EE64;
 		aMarketHero = 0x64AD30;
 		aMarketBackpackIndexOfFirstSlot = 0x64AD28;
 		aMarketSelectedSlotIndex= 0x64AD48;
@@ -1602,6 +1616,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63DAC0;
+		aActivePlayer = 0x641260;
 		aMarketHero = 0x64D130;
 		aMarketBackpackIndexOfFirstSlot = 0x64D128;
 		aMarketSelectedSlotIndex= 0x64D148;
@@ -1691,6 +1706,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63EB28;
+		aActivePlayer = 0x6422CC;
 		aMarketHero = 0x64E1A8;
 		aMarketBackpackIndexOfFirstSlot = 0x64E1A0;
 		aMarketSelectedSlotIndex= 0x64E1C0;
@@ -1784,6 +1800,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63FB20;
+		aActivePlayer = 0x6432C0;
 		aMarketHero = 0x64F190;
 		aMarketBackpackIndexOfFirstSlot = 0x64F188;
 		aMarketSelectedSlotIndex= 0x64F1A8;
@@ -1877,6 +1894,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x63DB08;
+		aActivePlayer = 0x6412B0;
 		aMarketHero = 0x64D180;
 		aMarketBackpackIndexOfFirstSlot = 0x64D178;
 		aMarketSelectedSlotIndex= 0x64D198;
@@ -1970,6 +1988,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x6964E8;
+		aActivePlayer = 0x699CAC;
 		aMarketHero = 0x6A7A90;
 		aMarketBackpackIndexOfFirstSlot = 0x6A7A88;
 		aMarketSelectedSlotIndex= 0x6A7AA8;
@@ -2070,6 +2089,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x69A618;
+		aActivePlayer = 0x69DDD8;
 		aMarketHero = 0x6ABBB0;
 		aMarketBackpackIndexOfFirstSlot = 0x6ABBA8;
 		aMarketSelectedSlotIndex= 0x6ABBC8;
@@ -2171,6 +2191,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x69C570;
+		aActivePlayer = 0x69FD30;
 		aMarketHero = 0x6ADB18;
 		aMarketBackpackIndexOfFirstSlot = 0x6ADB10;
 		aMarketSelectedSlotIndex= 0x6ADB30;
@@ -2264,6 +2285,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		// Global structures addresses
 		aH3Main = 0x698410;
+		aActivePlayer = 0x69BBD0;
 		aMarketHero = 0x6A9998;
 		aMarketBackpackIndexOfFirstSlot = 0x6A9990;
 		aMarketSelectedSlotIndex= 0x6A99B0;
