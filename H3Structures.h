@@ -37,10 +37,10 @@ struct H3String
  INT32 size;
 };
 
-	struct H3Manager
-	{
-  INT8 unk1[56];
- };
+struct H3Manager
+{
+ INT8 unk1[56];
+};
 
 struct H3Army
 {
@@ -351,6 +351,7 @@ struct H3TownManager : public H3Manager
  INT8 unk3[48];
 };
 
+// size 360 (0x168)
 struct H3Player
 {
  INT8 id; // 0
