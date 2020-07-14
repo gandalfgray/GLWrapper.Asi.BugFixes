@@ -346,9 +346,9 @@ struct H3TownManager : public H3Manager
  INT32 slot_index_bar_source; // +0x130
  void* bar_dest; //+0x134
  INT32 slot_index_bar_dest; // +0x138
- INT8 unk1[100]; // +0x13C
+ INT8 unk2[100]; // +0x13C
  BitMaskDword buildings[2]; //+0x1A0
- INT8 unk2[48];
+ INT8 unk3[48];
 };
 
 struct H3Player
@@ -393,7 +393,7 @@ struct H3Player
 // * most entries are self-explanatory
 struct H3Main
 {
- h3unk _f_0000[4];
+ INT8 unk0[4];
  INT8 disabledShrines[70]; // * +4
  INT8 disabledSpells[70]; // * +4A
  UINT32 cs_bink; // * +90
@@ -417,7 +417,7 @@ struct H3Main
  INT8 playersInfo[460]; // * +1F6A0
  INT8 mapInfo[720]; // * +1F86C
  H3String mapName; // * +1FB3C
- H3String mapDescription; / * +1FB4C
+ H3String mapDescription; // * +1FB4C
  INT8 unk5[20];
  INT8 mainSetup[3932]; // * +1FB70
  INT8 unk6[4];
