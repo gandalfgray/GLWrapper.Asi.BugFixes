@@ -23,6 +23,7 @@ struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
 #define o_H3Main (*(H3Main**)aH3Main)
+#define o_ActivePlayer (*(H3Player**)aActivePlayer)
 #define o_H3HeroClass (*(H3HeroClass**)aH3HeroClass)
 #define o_Market_Hero (*(H3Hero**)aMarketHero)
 #define o_Market_BackpackIndexOfFirstSlot (char)(*(INT32*)aMarketBackpackIndexOfFirstSlot)
