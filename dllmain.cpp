@@ -317,6 +317,9 @@ void* __stdcall fixBackpackArtMerchantDlg(HiHook* hook, void* dlg, int x, int y)
 	return dlg;
 }
 
+int getMeProcAddress;
+
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -418,6 +421,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix artifact merchants critical bug
 		_PI->WriteHiHook(0x5E5B30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CE670;
 		    	       
             }
 
@@ -526,7 +532,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49C821, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5DD6B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5DD6B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);	
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4C9F40;		    
 		    		    
             }
 
@@ -627,7 +636,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49C211, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5DD690, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5DD690, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CA1D0;		    
 		    	    
             }
 
@@ -726,7 +738,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49E470, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E5F10, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E5F10, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CE776;		    
 		    		    		    		    
             }
 
@@ -820,7 +835,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49DF10, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E5E50, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E5E50, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CEA20;		    		    		    
 		    
             }
 
@@ -916,7 +934,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x494BF1, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5950D0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    		    
+		_PI->WriteHiHook(0x5950D0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужно		    
 		    
             }
 
@@ -1012,7 +1033,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x494F01, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x595050, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x595050, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужно		    
 		    
             }
 
@@ -1108,7 +1132,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49DC40, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5BDB80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5BDB80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);	
+		
+		// alliance town fixes
+		getMeProcAddress = 0x4CC116;
 		    		    
             }
 
@@ -1201,7 +1228,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49E5B0, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E37B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E37B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CCA70;		    
 		  		    		    
             }
 
@@ -1291,7 +1321,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49E6D0, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E5730, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E5730, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CE9B0;		    
 		    	    		    
             }
 
@@ -1377,7 +1410,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x497B10, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59AAD0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59AAD0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    		    
             }
 
@@ -1463,7 +1499,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x497630, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59AE00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59AE00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    		    
             }
 
@@ -1549,7 +1588,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4973C0, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59AB40, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59AB40, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    		    
             }
 
@@ -1635,7 +1677,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x496DE0, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59AD80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59AD80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    		   
             }
 
@@ -1721,7 +1766,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x496F40, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59A740, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59A740, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    	    		    		    
             }
 
@@ -1811,7 +1859,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4972B0, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59ACF0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59ACF0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    		    
             }
 
@@ -1901,7 +1952,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x496DA0, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x59AD00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x59AD00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		// не нужен		    
 		    		    
             }
 
@@ -2002,7 +2056,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49E580, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E3F30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E3F30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CCBC0;		    
 		    		    
             }
 
@@ -2096,7 +2153,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49E810, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E64F0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E64F0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CEA70;		    
 		    		    
             }
 
@@ -2190,7 +2250,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49DF90, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E5D90, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E5D90, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CE050;		    
 		    		    
             }
 
@@ -2280,7 +2343,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x49DF60, updateMaxLandMovement);
 		    
 		// fix artifact merchants critical bug
-		_PI->WriteHiHook(0x5E3580, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);		    
+		_PI->WriteHiHook(0x5E3580, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
+		    
+		// alliance town fixes
+		getMeProcAddress = 0x4CC530;		    
 		    		    
             }
 
