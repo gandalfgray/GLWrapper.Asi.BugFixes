@@ -351,6 +351,43 @@ struct H3TownManager : public H3Manager
  INT8 unk2[48];
 };
 
+struct H3Player
+{
+ INT8 id;
+ BOOLEAN has_heroes;
+ INT8 unk1[2];
+ INT32 current_hero_id;
+ INT32 adv_heroes_ids[8];
+ INT32 tavern_heroL;
+ INT32 tavern_heroR;
+ INT32 AI_type;
+ INT8 obelisksVisited;
+ INT8 unk2[4];
+ INT8 days_left; //сколько дней до убивания героя (может быть >7) если не FF, то всегда выдает сообщение
+ INT8 towns_count;
+ INT8 current_town_id;
+ INT8 towns_ids[48];
+ INT8 unk3[4];
+ INT32 top_hero_index;
+ INT8 unk4[36];
+ INT8 resourses_current[28];
+ INT32 magic_gardens;
+ INT32 magic_spring;
+ INT8 unk5[12];
+ CHAR player_name[21];
+ BOOLEAN is_human;
+ BOOLEAN is_human2;
+ INT8 unk6[3];
+ BOOLEAN human;
+ INT8 unk7;
+ BOOL has_combo_artifacts;
+ INT8 unk8[28];
+ INT8 resourses_income[28]; 
+ INT8 unk9[4];
+ DOUBLE AI_resource_importance[7];
+ INT8 unk10[8];
+};
+
 // * doesn't follow Manager format
 // * most of the game data is stored here
 // * most entries are self-explanatory
