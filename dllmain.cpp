@@ -328,6 +328,24 @@ int __stdcall fixAllianceTown(HiHook* hook, H3TownManager* townMgr, H3EventMsg* 
 	return CALL_2(int, __thiscall, hook->GetDefaultFunc(), townMgr, msg);
 }
 
+// disguise bug fix
+struct heroSharedFieldStruct
+{
+	char duration : 4;
+	char spellLevel : 4;
+    	unsigned short groundMaxMP;
+	char unusedByte;
+} *heroSharedField;
+
+int __stdcall setDisguise(LoHook* h, HookContext* c)
+{
+    H3Hero* hero = (H3Hero*)c->esi;
+    heroSharedField = (heroSharedFieldStruct*)&hero->disguise_power;
+    heroSharedField->spellLevel = c->edi;
+    heroSharedField->duration = 1;
+	
+    return NO_EXEC_DEFAULT;
+}
 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
@@ -441,6 +459,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5D3640, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    
 		// disguise bug fix
+		_PI->WriteLoHook(0x41C7C6, setDisguise);		    
 		    	       
             }
 
@@ -559,7 +578,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5CB840, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    
 		// disguise bug fix	    
-		    		    
+		_PI->WriteLoHook(0x41B9D9, setDisguise);
+		    
             }
 
             // Heroes III Armageddon - v2.2 Buka
@@ -667,7 +687,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		_PI->WriteHiHook(0x5CB800, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    
-		// disguise bug fix	    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41B979, setDisguise);
 		    	    
             }
 
@@ -775,7 +796,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D3A20, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    
-		// disguise bug fix			    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C6F6, setDisguise);
 		    		    		    		    
             }
 
@@ -878,7 +900,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D39C0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    
-		// disguise bug fix			    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C876, setDisguise);
 		    
             }
 
@@ -1188,6 +1211,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		
 		// alliance town fixes
 		_PI->WriteHiHook(0x5AB690, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C766, setDisguise);		
 		    		    
             }
 
@@ -1290,6 +1316,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D12C0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C456, setDisguise);		    
 		  		    		    
             }
 
@@ -1389,6 +1418,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D3240, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C643, setDisguise);		    
 		    	    		    
             }
 
@@ -2165,6 +2197,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D1A40, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C566, setDisguise);		    
 		    		    
             }
 
@@ -2268,6 +2303,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D4000, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C836, setDisguise);		    
 		    		    
             }
 
@@ -2371,6 +2409,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D38A0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C776, setDisguise);		    
 		    		    
             }
 
@@ -2470,6 +2511,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		_PI->WriteHiHook(0x5D1090, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
+		_PI->WriteLoHook(0x41C5C6, setDisguise);		    
 		    		    
             }
 
