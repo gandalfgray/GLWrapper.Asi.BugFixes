@@ -21,6 +21,9 @@ struct H3Hero;
 struct H3CreatureInfo;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
+struct H3TownManager;
+struct H3Player;
+struct H3Main;
 
 #define o_H3Main (*(H3Main**)aH3Main)
 #define o_ActivePlayer (*(H3Player**)aActivePlayer)
@@ -68,8 +71,8 @@ struct H3Town
  BYTE placed_boat_x; // +8
  BYTE placed_boat_y; // +9
  INT8 unk2[2]; // +10
- INT32 garrison_hero; // +12
- INT32 visiting_hero; // +16
+ INT32 garrison_hero_id; // +12
+ INT32 visiting_hero_id; // +16
  INT8 mag_level; // +20
  INT8 unk3; // +21
  WORD recruitable_creatures[2][7]; // +22
