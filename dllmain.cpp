@@ -319,7 +319,31 @@ void* __stdcall fixBackpackArtMerchantDlg(HiHook* hook, void* dlg, int x, int y)
 }
 
 int getMeProcAddress;
+int __stdcall fixAllianceTown(HiHook* hook, H3TownManager* townMgr, H3EventMsg* msg)
+{
+	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
+	if(mePlayer->id != townMgr->town->owner_id || mePlayer != o_ActivePlayer)
+	{
+		if (msg->type == MT_MOUSEBUTTON)
+		{
+			int item_id = msg->item_id;
+			if (msg->subtype == MST_LBUTTONDOWN)
+				if ((item_id == 17) || (item_id == 14)) // art merchants || market
+					return 1;
+		}
+	}
 
+	if (((msg->type == 1) || (msg->type == 2)) && (msg->subtype == 57)) //SPACE key pressed
+	{
+		if (townMgr->town->garrison_hero_id != -1 && townMgr->town->visiting_hero_id != -1)
+		{
+			if(o_H3Main->heroes[townMgr->town->garrison_hero_id].owner_id != o_H3Main->heroes[townMgr->town->visiting_hero_id].owner_id)
+				return 1;
+		}
+	}
+
+	return CALL_2(int, __thiscall, hook->GetDefaultFunc(), townMgr, msg);
+}
 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
@@ -426,6 +450,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		getMeProcAddress = 0x4CE670;
+		_PI->WriteHiHook(0x5D3640, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    	       
             }
 
