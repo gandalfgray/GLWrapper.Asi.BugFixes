@@ -25,6 +25,7 @@ struct H3TownManager;
 struct H3Player;
 struct H3Main;
 
+#define o_HEROES_COUNT (*(INT32*)aHeroesCount)
 #define o_H3Main (*(H3Main**)aH3Main)
 #define o_ActivePlayer (*(H3Player**)aActivePlayer)
 #define o_H3HeroClass (*(H3HeroClass**)aH3HeroClass)
