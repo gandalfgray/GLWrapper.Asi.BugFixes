@@ -5,6 +5,7 @@
 #include "H3ChroniclesStructures.h"
 #include "H3GUI.h"
 
+// Global structures
 int aHeroesCount;
 int aH3Main;
 int aActivePlayer;
@@ -12,6 +13,10 @@ int aH3HeroClass;
 int aMarketHero;
 int aMarketBackpackIndexOfFirstSlot;
 int aMarketSelectedSlotIndex;
+
+// Important proc addresses
+int isHumanProcAddress;
+int getMeProcAddress;
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -297,7 +302,6 @@ void* __stdcall fixBackpackArtMerchantDlg(HiHook* hook, void* dlg, int x, int y)
 	return dlg;
 }
 
-int getMeProcAddress;
 int __stdcall fixAllianceTown(HiHook* hook, H3TownManager* townMgr, H3EventMsg* msg)
 {
 	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
@@ -323,6 +327,7 @@ int __stdcall fixAllianceTown(HiHook* hook, H3TownManager* townMgr, H3EventMsg* 
 
 	return CALL_2(int, __thiscall, hook->GetDefaultFunc(), townMgr, msg);
 }
+
 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
@@ -350,6 +355,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x6AAAE0;
 		aMarketBackpackIndexOfFirstSlot = 0x6AAAD8;
 		aMarketSelectedSlotIndex= 0x6AAAF8;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4BAA60;
+		getMeProcAddress = 0x4CE670;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -429,8 +438,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5B30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE670;
 		_PI->WriteHiHook(0x5D3640, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix
 		    	       
             }
 
@@ -450,7 +460,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aH3HeroClass = 0x673AFC;
 		aMarketHero = 0x6A2450;
 		aMarketBackpackIndexOfFirstSlot = 0x6A2448;
-		aMarketSelectedSlotIndex= 0x6A2468;		    
+		aMarketSelectedSlotIndex= 0x6A2468;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B6BE0;
+		getMeProcAddress = 0x4C9F40;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -542,8 +556,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5DD6B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);	
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4C9F40;
 		_PI->WriteHiHook(0x5CB840, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix	    
 		    		    
             }
 
@@ -559,7 +574,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aH3HeroClass = 0x673AFC;
 		aMarketHero = 0x6A27B8;
 		aMarketBackpackIndexOfFirstSlot = 0x6A27B0;
-		aMarketSelectedSlotIndex= 0x6A27D0;		    
+		aMarketSelectedSlotIndex= 0x6A27D0;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B6E40;
+		getMeProcAddress = 0x4CA1D0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -646,8 +665,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5DD690, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CA1D0;
 		_PI->WriteHiHook(0x5CB800, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix	    
 		    	    
             }
 
@@ -664,7 +684,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aH3HeroClass = 0x67CD0C;
 		aMarketHero = 0x6A9B20;
 		aMarketBackpackIndexOfFirstSlot = 0x6A9B18;
-		aMarketSelectedSlotIndex= 0x6A9B38;		    
+		aMarketSelectedSlotIndex= 0x6A9B38;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4BAB70;
+		getMeProcAddress = 0x4CE776;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -749,8 +773,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5F10, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE776;
 		_PI->WriteHiHook(0x5D3A20, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix			    
 		    		    		    		    
             }
 
@@ -766,7 +791,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aH3HeroClass = 0x67EFDC;
 		aMarketHero = 0x6AE2A0;
 		aMarketBackpackIndexOfFirstSlot = 0x6AE298;
-		aMarketSelectedSlotIndex= 0x6AE2B8;		    
+		aMarketSelectedSlotIndex= 0x6AE2B8;
+		   
+		// Important proc addresses
+		isHumanProcAddress = 0x4BADB0;
+		getMeProcAddress = 0x4CEA20;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
@@ -847,8 +876,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5E50, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CEA20;
 		_PI->WriteHiHook(0x5D39C0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
+		    
+		// disguise bug fix			    
 		    
             }
 
@@ -864,7 +894,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aH3HeroClass = 0x61C194;
 		aMarketHero = 0x647F18;
 		aMarketBackpackIndexOfFirstSlot = 0x647F10;
-		aMarketSelectedSlotIndex= 0x647F30;		    
+		aMarketSelectedSlotIndex= 0x647F30;	
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B0220;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
@@ -963,7 +996,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 	    	aH3HeroClass = 0x61C1BC;
 		aMarketHero = 0x647F38;
 		aMarketBackpackIndexOfFirstSlot = 0x647F30;
-		aMarketSelectedSlotIndex= 0x647F50;		    
+		aMarketSelectedSlotIndex= 0x647F50;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B04A0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
@@ -1068,6 +1104,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketBackpackIndexOfFirstSlot = 0x67CA18;
 		aMarketSelectedSlotIndex= 0x67CA38;
 		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B8510;
+		getMeProcAddress = 0x4CC116;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E47F+1, 0x4D); // fdiv -> fmul
@@ -1147,7 +1187,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5BDB80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);	
 		
 		// alliance town fixes
-		getMeProcAddress = 0x4CC116;
 		_PI->WriteHiHook(0x5AB690, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
@@ -1164,6 +1203,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x6A7958;
 		aMarketBackpackIndexOfFirstSlot = 0x6A7950;
 		aMarketSelectedSlotIndex= 0x6A7970;	
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B8E30;
+		getMeProcAddress = 0x4CCA70;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
@@ -1246,7 +1289,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E37B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CCA70;
 		_PI->WriteHiHook(0x5D12C0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		  		    		    
             }
@@ -1263,6 +1305,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x6AAA78;
 		aMarketBackpackIndexOfFirstSlot = 0x6AAA70;
 		aMarketSelectedSlotIndex= 0x6AAA90;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4BADA0;
+		getMeProcAddress = 0x4CE9B0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
@@ -1342,7 +1388,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5730, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE9B0;
 		_PI->WriteHiHook(0x5D3240, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    	    		    
             }
@@ -1359,6 +1404,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x64AD18;
 		aMarketBackpackIndexOfFirstSlot = 0x64AD10;
 		aMarketSelectedSlotIndex= 0x64AD30;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B3B10;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
@@ -1451,6 +1499,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketBackpackIndexOfFirstSlot = 0x64AD28;
 		aMarketSelectedSlotIndex= 0x64AD48;
 		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B3540;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1C3+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E2FF+1, 0x4D); // fdiv -> fmul
@@ -1541,6 +1592,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x64AD30;
 		aMarketBackpackIndexOfFirstSlot = 0x64AD28;
 		aMarketSelectedSlotIndex= 0x64AD48;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B3460;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E163+1, 0x4D); // fdiv -> fmul
@@ -1633,6 +1687,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketBackpackIndexOfFirstSlot = 0x64D128;
 		aMarketSelectedSlotIndex= 0x64D148;
 		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B3150;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E183+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E2BF+1, 0x4D); // fdiv -> fmul
@@ -1723,6 +1780,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x64E1A8;
 		aMarketBackpackIndexOfFirstSlot = 0x64E1A0;
 		aMarketSelectedSlotIndex= 0x64E1C0;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B2F90;	    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E213+1, 0x4D); // fdiv -> fmul
@@ -1819,6 +1879,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketBackpackIndexOfFirstSlot = 0x64F188;
 		aMarketSelectedSlotIndex= 0x64F1A8;
 		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B3480;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E433+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E56F+1, 0x4D); // fdiv -> fmul
@@ -1913,6 +1976,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x64D180;
 		aMarketBackpackIndexOfFirstSlot = 0x64D178;
 		aMarketSelectedSlotIndex= 0x64D198;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B2D00;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E0F3+1, 0x4D); // fdiv -> fmul
@@ -2009,6 +2075,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketBackpackIndexOfFirstSlot = 0x6A7A88;
 		aMarketSelectedSlotIndex= 0x6A7AA8;
 		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B8F90;
+		getMeProcAddress = 0x4CCBC0;		    
+		    
                 // Armorer fix
                 _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
                 _PI->WriteByte(0x41E27F+1, 0x4D); // fdiv -> fmul
@@ -2094,7 +2164,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E3F30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CCBC0;
 		_PI->WriteHiHook(0x5D1A40, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
@@ -2111,6 +2180,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x6ABBB0;
 		aMarketBackpackIndexOfFirstSlot = 0x6ABBA8;
 		aMarketSelectedSlotIndex= 0x6ABBC8;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4BAE70;
+		getMeProcAddress = 0x4CEA70;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
@@ -2194,7 +2267,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E64F0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CEA70;
 		_PI->WriteHiHook(0x5D4000, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
@@ -2215,6 +2287,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x6ADB18;
 		aMarketBackpackIndexOfFirstSlot = 0x6ADB10;
 		aMarketSelectedSlotIndex= 0x6ADB30;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4BA360;
+		getMeProcAddress = 0x4CE050;		   
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
@@ -2294,7 +2370,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5D90, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE050;
 		_PI->WriteHiHook(0x5D38A0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
@@ -2311,6 +2386,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		aMarketHero = 0x6A9998;
 		aMarketBackpackIndexOfFirstSlot = 0x6A9990;
 		aMarketSelectedSlotIndex= 0x6A99B0;
+		    
+		// Important proc addresses
+		isHumanProcAddress = 0x4B8870;
+		getMeProcAddress = 0x4CC530;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
@@ -2390,7 +2469,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E3580, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CC530;
 		_PI->WriteHiHook(0x5D1090, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
