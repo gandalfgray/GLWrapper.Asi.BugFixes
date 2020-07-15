@@ -139,30 +139,6 @@ int __stdcall fixDoubleCast(LoHook* hook, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
-// fix bug with delimiter in Russian versions ( , instead of . )
-int __stdcall fixRusHeroAgression(LoHook* h, HookContext* c)
-{
-	o_H3HeroClass[HC_KNIGHT].agression = (float)1.0; // Knight
-	o_H3HeroClass[HC_CLERIC].agression = (float)0.8; // Cleric
-	o_H3HeroClass[HC_RANGER].agression = (float)1.0; // Ranger
-	o_H3HeroClass[HC_DRUID].agression = (float)0.8; // Druid
-	o_H3HeroClass[HC_ALCHEMIST].agression = (float)1.0; // Alchemist
-	o_H3HeroClass[HC_WIZARD].agression = (float)1.0; // Wizard
-	o_H3HeroClass[HC_DEMONIAC].agression = (float)1.2; // Demoniac
-	o_H3HeroClass[HC_HERETIC].agression = (float)1.1; // Heretic
-	o_H3HeroClass[HC_DEATH_KNIGHT].agression = (float)1.2; // Death Knight	
-	o_H3HeroClass[HC_NECROMANCER].agression = (float)1.0; // Necromancer
-	o_H3HeroClass[HC_OVERLORD].agression = (float)1.0; // Overlord
-	o_H3HeroClass[HC_WARLOCK].agression = (float)1.0; // Warlock
-	o_H3HeroClass[HC_BARBARIAN].agression = (float)1.1; // Barbarian
-	o_H3HeroClass[HC_BATTLE_MAGE].agression = (float)1.1; // Battle Mage
-	o_H3HeroClass[HC_BEASTMASTER].agression = (float)0.9; // Beastmaster
-	o_H3HeroClass[HC_WITCH].agression = (float)1.0; // Witch
-	o_H3HeroClass[HC_PLANESWALKER].agression = (float)0.9; // Planeswalker
-	o_H3HeroClass[HC_ELEMENTALIST].agression = (float)1.0; // Elementalist	
-
-	return EXEC_DEFAULT;
-}
 
 int __stdcall fixArtMerchantPrice(LoHook* hook, HookContext* c)
 {
@@ -518,8 +494,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixDoubleCastReturnAddress = 0x59761C;
 		_PI->WriteLoHook(0x597367, fixDoubleCast);
 		   
-		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4E8981, fixRusHeroAgression);
 		    
 		// fix size for Hero creature labels in Russian versions (adv. map right click)
 		_PI->WriteByte(0x52895C+1, 12);
@@ -623,10 +597,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x476364, fixHarpyBinds);
 		    
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
-		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);
-		    
-		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4E8C91, fixRusHeroAgression);
+		_PI->WriteDword(0x52D971+3, 0x0FFFEFBF);		    
 		    
 		// fix size for Hero creature labels in Russian versions (adv. map right click)
 		_PI->WriteByte(0x528C4C+1, 12);
@@ -734,8 +705,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixDoubleCastReturnAddress = 0x59EE0F;
 		_PI->WriteLoHook(0x59EDD8, fixDoubleCast);
 		    
-		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4EDBCE, fixRusHeroAgression);
 		    
 		// fix art merchants price bug
 		_PI->WriteLoHook(0x5EE9F9, fixArtMerchantPrice);
@@ -834,8 +803,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// fix Witch Huts for random maps (it gave only secondary skills with number 15 or lesser)
 		_PI->WriteDword(0x534031+3, 0x0FFFEFBF);
 		    
-		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4EDA9E, fixRusHeroAgression);
 		
 		// fix art merchants price bug
 		_PI->WriteLoHook(0x5EE909, fixArtMerchantPrice);
@@ -932,8 +899,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixHarpyBindsReturnAddress = 0x47367D;
 		_PI->WriteLoHook(0x47855E, fixHarpyBinds);
 		    
-		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4E296C, fixRusHeroAgression);
 		    
 		// fix size for Hero creature labels in Russian versions (adv. map right click)
 		_PI->WriteByte(0x51C4E3+1, 12);
@@ -1033,8 +998,6 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		fixHarpyBindsReturnAddress = 0x47363D;
 		_PI->WriteLoHook(0x473634, fixHarpyBinds);
 		    
-		// fix bug with delimiter in Russian versions ( , instead of . )
-		_PI->WriteLoHook(0x4E24BC, fixRusHeroAgression);
 		    
 		// fix size for Hero creature labels in Russian versions (adv. map right click)
 		_PI->WriteByte(0x51C303+1, 12);
