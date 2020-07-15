@@ -563,7 +563,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5DD6B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);	
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4C9F40;		    
+		getMeProcAddress = 0x4C9F40;
+		_PI->WriteHiHook(0x5CB840, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
 
@@ -668,7 +669,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5DD690, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CA1D0;		    
+		getMeProcAddress = 0x4CA1D0;
+		_PI->WriteHiHook(0x5CB800, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    	    
             }
 
@@ -771,7 +773,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5F10, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE776;		    
+		getMeProcAddress = 0x4CE776;
+		_PI->WriteHiHook(0x5D3A20, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    		    		    
             }
 
@@ -869,7 +872,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5E50, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CEA20;		    		    		    
+		getMeProcAddress = 0x4CEA20;
+		_PI->WriteHiHook(0x5D39C0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    
             }
 
@@ -1170,6 +1174,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		
 		// alliance town fixes
 		getMeProcAddress = 0x4CC116;
+		_PI->WriteHiHook(0x5AB690, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
 
@@ -1266,7 +1271,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E37B0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CCA70;		    
+		getMeProcAddress = 0x4CCA70;
+		_PI->WriteHiHook(0x5D12C0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		  		    		    
             }
 
@@ -1360,7 +1366,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5730, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE9B0;		    
+		getMeProcAddress = 0x4CE9B0;
+		_PI->WriteHiHook(0x5D3240, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    	    		    
             }
 
@@ -2103,7 +2110,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E3F30, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CCBC0;		    
+		getMeProcAddress = 0x4CCBC0;
+		_PI->WriteHiHook(0x5D1A40, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
 
@@ -2201,7 +2209,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E64F0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CEA70;		    
+		getMeProcAddress = 0x4CEA70;
+		_PI->WriteHiHook(0x5D4000, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
 
@@ -2299,7 +2308,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E5D90, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CE050;		    
+		getMeProcAddress = 0x4CE050;
+		_PI->WriteHiHook(0x5D38A0, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
 
@@ -2393,7 +2403,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5E3580, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		getMeProcAddress = 0x4CC530;		    
+		getMeProcAddress = 0x4CC530;
+		_PI->WriteHiHook(0x5D1090, SPLICE_, EXTENDED_, THISCALL_, fixAllianceTown); // markets
 		    		    
             }
 
