@@ -1,7 +1,9 @@
-#include "..\..\include\patcher_x86.hpp"
+#include "patcher_x86.hpp"
+#include "H3Numerations.h"
 #include "H3Structures.h"
 #include "H3BukaCompleteStructures.h"
-#include "H3Numerations.h"
+#include "H3ChroniclesStructures.h"
+#include "H3GUI.h"
 
 int aHeroesCount;
 int aH3Main;
