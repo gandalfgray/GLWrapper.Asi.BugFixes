@@ -3,6 +3,7 @@
 #include "H3BukaCompleteStructures.h"
 #include "H3Numerations.h"
 
+int aHeroesCount;
 int aH3Main;
 int aActivePlayer;
 int aH3HeroClass;
@@ -364,6 +365,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
+		aHeroesCount = 0x4BD145;
 		aH3Main = 0x699538;
 		aActivePlayer = 0x69CCFC;
 		aH3HeroClass = 0x67DCEC;
@@ -464,6 +466,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B9144;
 		aH3Main = 0x690ED8;
 		aActivePlayer = 0x69467C;
 		aH3HeroClass = 0x673AFC;
@@ -574,6 +577,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B93B4;
 		aH3Main = 0x690F28;
 		aActivePlayer = 0x6946CC;
 		aH3HeroClass = 0x673AFC;
@@ -681,6 +685,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
+		aHeroesCount = 0x4BD245;
 		aH3Main = 0x698560;
 		aActivePlayer = 0x69BD20;
 		aH3HeroClass = 0x67CD0C;
@@ -784,6 +789,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {    
 		// Global structures addresses
+		aHeroesCount = 0x4BD495;
 		aH3Main = 0x69CC88;
 		aActivePlayer = 0x6A0448;
 		aH3HeroClass = 0x67EFDC;
@@ -883,6 +889,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B26B4;
 		aH3Main = 0x6388D8;
 		aActivePlayer = 0x63C050;
 		aH3HeroClass = 0x61C194;
@@ -983,6 +990,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B2934;
 		aH3Main = 0x6388F8;
 		aActivePlayer = 0x63C074;
 	    	aH3HeroClass = 0x61C1BC;
@@ -1088,6 +1096,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             {
 		    
 		// Global structures addresses
+		aHeroesCount = 0x4BABF5;
 		aH3Main = 0x66B490;
 		aActivePlayer = 0x66EC44;
 		aMarketHero = 0x67CA20;
@@ -1184,6 +1193,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {		    
 		// Global structures addresses
+		aHeroesCount = 0x4BB535;
 		aH3Main = 0x6963C8;
 		aActivePlayer = 0x699B88;
 		aMarketHero = 0x6A7958;
@@ -1282,6 +1292,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {    
 		// Global structures addresses
+		aHeroesCount = 0x4BD485;
 		aH3Main = 0x6994E8;
 		aActivePlayer = 0x69CCB0;
 		aMarketHero = 0x6AAA78;
@@ -1377,6 +1388,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B6094;
 		aH3Main = 0x63B6C0;
 		aActivePlayer = 0x63EE60;
 		aMarketHero = 0x64AD18;
@@ -1467,6 +1479,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B5AC4;
 		aH3Main = 0x63B6B8;
 		aActivePlayer = 0x63EE5C;
 		aMarketHero = 0x64AD30;
@@ -1557,6 +1570,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B59E4;
 		aH3Main = 0x63B6C0;
 		aActivePlayer = 0x63EE64;
 		aMarketHero = 0x64AD30;
@@ -1647,6 +1661,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B56D4;
 		aH3Main = 0x63DAC0;
 		aActivePlayer = 0x641260;
 		aMarketHero = 0x64D130;
@@ -1737,6 +1752,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B5514;
 		aH3Main = 0x63EB28;
 		aActivePlayer = 0x6422CC;
 		aMarketHero = 0x64E1A8;
@@ -1831,6 +1847,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B5A44;
 		aH3Main = 0x63FB20;
 		aActivePlayer = 0x6432C0;
 		aMarketHero = 0x64F190;
@@ -1925,6 +1942,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4B5284;
 		aH3Main = 0x63DB08;
 		aActivePlayer = 0x6412B0;
 		aMarketHero = 0x64D180;
@@ -2019,6 +2037,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4BB685;
 		aH3Main = 0x6964E8;
 		aActivePlayer = 0x699CAC;
 		aMarketHero = 0x6A7A90;
@@ -2121,6 +2140,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4BD545;
 		aH3Main = 0x69A618;
 		aActivePlayer = 0x69DDD8;
 		aMarketHero = 0x6ABBB0;
@@ -2224,6 +2244,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4BCA44;
 		aH3Main = 0x69C570;
 		aActivePlayer = 0x69FD30;
 		aMarketHero = 0x6ADB18;
@@ -2319,6 +2340,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
             if(check1 == (WS_VISIBLE | WS_POPUP) && check2 == (WS_VISIBLE | WS_POPUP))
             {
 		// Global structures addresses
+		aHeroesCount = 0x4BAF75;
 		aH3Main = 0x698410;
 		aActivePlayer = 0x69BBD0;
 		aMarketHero = 0x6A9998;
