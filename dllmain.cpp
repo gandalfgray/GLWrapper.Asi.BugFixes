@@ -357,7 +357,7 @@ int __stdcall decDisguise(LoHook* h, HookContext* c)
         if (o_H3Main->heroes[i].owner_id == o_ActivePlayer->id )
         {
             if ( heroSharedField->duration != -1 ) 
-	        --heroSharedField->duration;	        
+	        heroSharedField->duration -= 1;	        
 
 	    if (heroSharedField->duration == -1)
 		o_H3Main->heroes[i].disguise_power = -1;
