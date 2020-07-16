@@ -367,6 +367,24 @@ int __stdcall decDisguise(LoHook* h, HookContext* c)
     return EXEC_DEFAULT;
 }
 
+int __stdcall makeHeroRMCopy(LoHook* h, HookContext* c)
+{
+    H3Hero* hero = *(H3Hero**)(c->ebp + 8);
+
+	heroRMCopy = *hero;
+	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
+	heroSharedField = (heroSharedFieldStruct*)&hero->disguise_power;
+
+	if(mePlayer->id == hero->owner_id && heroSharedField->duration == 0)
+		heroRMCopy.disguise_power = -1;
+	else
+		heroRMCopy.disguise_power = heroSharedField->disguisePower;
+
+	*(H3Hero**)(c->ebp + 8) = &heroRMCopy;
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -481,6 +499,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C7C6, setDisguise);
 		_PI->WriteLoHook(0x4C6CD9, decDisguise);
+		_PI->WriteLoHook(0x52EFB5, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C7DA5, "90 90 90");
 		    	       
             }
 
@@ -601,6 +621,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix	    
 		_PI->WriteLoHook(0x41B9D9, setDisguise);
 		_PI->WriteLoHook(0x4C2809, decDisguise);
+		_PI->WriteLoHook(0x5281E5, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C387F, "90 90 90");
 		    
             }
 
@@ -712,6 +734,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41B979, setDisguise);
 		_PI->WriteLoHook(0x4C2A79, decDisguise);
+		_PI->WriteLoHook(0x5284D5, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C3AEF, "90 90 90");
 		    	    
             }
 
@@ -822,6 +846,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C6F6, setDisguise);
 		_PI->WriteLoHook(0x4C6DD9, decDisguise);
+		_PI->WriteLoHook(0x52EE05, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C7EA5, "90 90 90");
 		    		    		    		    
             }
 
@@ -927,6 +953,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C876, setDisguise);
 		_PI->WriteLoHook(0x4C7079, decDisguise);
+		_PI->WriteLoHook(0x52EA25, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C8145, "90 90 90");
 		    
             }
 
@@ -1240,6 +1268,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C766, setDisguise);
 		_PI->WriteLoHook(0x4C4759, decDisguise);
+		_PI->WriteLoHook(0x52C275, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C5825, "90 90 90");
 		    		    
             }
 
@@ -1346,6 +1376,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C456, setDisguise);
 		_PI->WriteLoHook(0x4C50B9, decDisguise);
+		_PI->WriteLoHook(0x52C765, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C6185, "90 90 90");
 		  		    		    
             }
 
@@ -1449,6 +1481,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C643, setDisguise);
 		_PI->WriteLoHook(0x4C7019, decDisguise);
+		_PI->WriteLoHook(0x52EAD5, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C80E5, "90 90 90");
 		    	    		    
             }
 
@@ -2229,6 +2263,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C566, setDisguise);
 		_PI->WriteLoHook(0x4C5209, decDisguise);
+		_PI->WriteLoHook(0x52D035, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C62D5, "90 90 90");
 		    		    
             }
 
@@ -2336,6 +2372,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C836, setDisguise);
 		_PI->WriteLoHook(0x4C70D9, decDisguise);
+		_PI->WriteLoHook(0x52F835, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C81A5, "90 90 90");
 		    		    
             }
 
@@ -2443,6 +2481,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C776, setDisguise);
 		_PI->WriteLoHook(0x4C6699, decDisguise);
+		_PI->WriteLoHook(0x52E725, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C7765, "90 90 90");
 		    		    
             }
 
@@ -2546,6 +2586,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// disguise bug fix
 		_PI->WriteLoHook(0x41C5C6, setDisguise);
 		_PI->WriteLoHook(0x4C4B79, decDisguise);
+		_PI->WriteLoHook(0x52C155, makeHeroRMCopy);
+		_PI->WriteHexPatch(0x4C5C45, "90 90 90");
 		    		    
             }
 
