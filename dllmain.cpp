@@ -329,6 +329,8 @@ int __stdcall fixAllianceTown(HiHook* hook, H3TownManager* townMgr, H3EventMsg* 
 }
 
 // disguise bug fix
+H3Hero heroRMCopy;
+
 struct heroSharedFieldStruct
 {
 	char duration : 4;
