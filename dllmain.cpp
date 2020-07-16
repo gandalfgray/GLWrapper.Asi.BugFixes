@@ -371,7 +371,7 @@ int __stdcall decDisguise(LoHook* h, HookContext* c)
 
 int __stdcall makeHeroRMCopy(LoHook* h, HookContext* c)
 {
-    H3Hero* hero = *(H3Hero**)(c->ebp + 8);
+    	H3Hero* hero = *(H3Hero**)(c->ebp + 8);
 
 	heroRMCopy = *hero;
 	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
