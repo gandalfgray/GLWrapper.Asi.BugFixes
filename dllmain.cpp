@@ -413,6 +413,22 @@ int __stdcall mpGroundToSea(LoHook *h, HookContext *c)
 	return EXEC_DEFAULT;
 }
 
+int __stdcall killedHeroSeaToGround(LoHook *h, HookContext *c)
+{
+	H3Hero* hero = (H3Hero*)c->esi;
+	int currentMaxLandMovement;
+
+	heroSharedField = (heroSharedFieldStruct*)&hero->disguise_power;
+	if(heroSharedField->groundMaxMP != USHRT_MAX)
+        	currentMaxLandMovement = heroSharedField->groundMaxMP;
+	else
+        	currentMaxLandMovement = CALL_2(INT32, __thiscall, calcMovementProcAddress, hero, 0);
+	
+    	hero->movement_points = hero->movement_points * currentMaxLandMovement / CALL_2(INT32, __thiscall, calcMovementProcAddress, hero, 1);
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
