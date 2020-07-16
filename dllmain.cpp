@@ -531,7 +531,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C7DA5, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0CE6, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0CE6, mpGroundToSea);
+		_PI->WriteLoHook(0x49E334, mpSeaToGround);		    
 		    	       
             }
 
@@ -656,7 +657,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C387F, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x49F04A, mpGroundToSea);		    		    		    
+		_PI->WriteLoHook(0x49F04A, mpGroundToSea);
+		_PI->WriteLoHook(0x49C814, mpSeaToGround);		    
 		    
             }
 
@@ -772,7 +774,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C3AEF, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x49EA3A, mpGroundToSea);		    
+		_PI->WriteLoHook(0x49EA3A, mpGroundToSea);
+		_PI->WriteLoHook(0x49C204, mpSeaToGround);		    
 		    	    
             }
 
@@ -887,7 +890,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C7EA5, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0E16, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0E16, mpGroundToSea);
+		_PI->WriteLoHook(0x49E464, mpSeaToGround);		    
 		    		    		    		    
             }
 
@@ -997,7 +1001,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C8145, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0886, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0886, mpGroundToSea);
+		_PI->WriteLoHook(0x49DF04, mpSeaToGround);		    
 		    
             }
 
@@ -1315,7 +1320,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C5825, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A05E6, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A05E6, mpGroundToSea);
+		_PI->WriteLoHook(0x49DC34, mpSeaToGround);			    
 		    		    
             }
 
@@ -1426,7 +1432,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C6185, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0F56, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0F56, mpGroundToSea);
+		_PI->WriteLoHook(0x49E5A4, mpSeaToGround);		    
 		  		    		    
             }
 
@@ -1534,7 +1541,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C80E5, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A1076, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A1076, mpGroundToSea);
+		_PI->WriteLoHook(0x49E6C4, mpSeaToGround);		    
 		    	    		    
             }
 
@@ -2319,7 +2327,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C62D5, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0F26, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0F26, mpGroundToSea);
+		_PI->WriteLoHook(0x49E574, mpSeaToGround);			    
 		    		    
             }
 
@@ -2431,7 +2440,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C81A5, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A11B6, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A11B6, mpGroundToSea);
+		_PI->WriteLoHook(0x49E804, mpSeaToGround);		    
 		    		    
             }
 
@@ -2543,7 +2553,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C7765, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0946, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0946, mpGroundToSea);
+		_PI->WriteLoHook(0x49DF84, mpSeaToGround);		    
 		    		    
             }
 
@@ -2651,7 +2662,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHexPatch(0x4C5C45, "90 90 90");
 		    
 		// Admiral's hat bug fix + movement fixes
-		_PI->WriteLoHook(0x4A0906, mpGroundToSea);		    
+		_PI->WriteLoHook(0x4A0906, mpGroundToSea);
+		_PI->WriteLoHook(0x49DF54, mpSeaToGround);		    
 		    		    
             }
 
