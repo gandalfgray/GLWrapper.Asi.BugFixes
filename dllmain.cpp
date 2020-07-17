@@ -430,7 +430,7 @@ int __stdcall killedHeroSeaToGround(LoHook *h, HookContext *c)
 }
 
 // not me bugs
-int __stdcall fixNotMe_ecx(LoHook* hook, HookContext* c)
+int __stdcall fixNotMeID_ecx(LoHook* hook, HookContext* c)
 {
 	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
 	c->ecx = mePlayer->id;
@@ -438,7 +438,7 @@ int __stdcall fixNotMe_ecx(LoHook* hook, HookContext* c)
 	return NO_EXEC_DEFAULT;
 }
 
-int __stdcall fixNotMe_eax(LoHook* hook, HookContext* c)
+int __stdcall fixNotMeID_eax(LoHook* hook, HookContext* c)
 {
 	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
 	c->eax = mePlayer->id;
@@ -446,11 +446,17 @@ int __stdcall fixNotMe_eax(LoHook* hook, HookContext* c)
 	return NO_EXEC_DEFAULT;
 }
 
-int __stdcall fixNotMe_edx(LoHook* hook, HookContext* c)
+int __stdcall fixNotMePlayer_edx(LoHook* hook, HookContext* c)
 {
 	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
 	c->edx = mePlayer->id;
 	
+	return NO_EXEC_DEFAULT;
+}
+
+int __stdcall fixNotMePlayer_eax(LoHook* hook, HookContext* c)
+{
+	(H3Player*)c->eax = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
 	return NO_EXEC_DEFAULT;
 }
 
@@ -577,12 +583,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4DA268, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D883, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DC74, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DD7F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x4156C3, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x4158B0, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452989, fixNotMe_eax); 	//advmgr panel 2
+		_PI->WriteLoHook(0x40D883, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DC74, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DD7F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x4156C3, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x4158B0, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452989, fixNotMePlayer_eax); 	//advmgr panel 2
 		    	       
             }
 
@@ -712,11 +718,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D53DB, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D1C2, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40D593, fixNotMe_eax);	//witch hut
-		_PI->WriteLoHook(0x414B2C, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x414CE0, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x4515C9, fixNotMe_edx); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D1C2, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40D593, fixNotMeID_eax);	//witch hut
+		_PI->WriteLoHook(0x414B2C, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x414CE0, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x4515C9, fixNotMePlayer_edx); 	//advmgr panel 2		    
 		    
             }
 
@@ -837,11 +843,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D586B, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D162, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40D533, fixNotMe_eax);	//witch hut
-		_PI->WriteLoHook(0x414ACC, fixNotMe_eax);	//мельница
-		_PI->WriteLoHook(0x414C80, fixNotMe_eax);	//мельница
-		_PI->WriteLoHook(0x4510C9, fixNotMe_edx); 	//advmgr panel 2
+		_PI->WriteLoHook(0x40D162, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40D533, fixNotMeID_eax);	//witch hut
+		_PI->WriteLoHook(0x414ACC, fixNotMeID_eax);	//мельница
+		_PI->WriteLoHook(0x414C80, fixNotMeID_eax);	//мельница
+		_PI->WriteLoHook(0x4510C9, fixNotMePlayer_edx); 	//advmgr panel 2
 		    	    
             }
 
@@ -961,12 +967,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D983, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD74, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE7F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CE7C, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40D062, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452E79, fixNotMe_eax); 	//advmgr panel 2
+		_PI->WriteLoHook(0x40D983, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DD74, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE7F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CE7C, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40D062, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452E79, fixNotMePlayer_eax); 	//advmgr panel 2
 		    		    		    		    
             }
 
@@ -1081,12 +1087,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4DA348, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CDDC, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40CFC2, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452979, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D923, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DD14, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE1F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CDDC, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CFC2, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452979, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    
             }
 
@@ -1409,12 +1415,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D7B18, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D7B3, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DBA4, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DCAF, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CCB4, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40CE9A, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452B59, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D7B3, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DBA4, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DCAF, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CCB4, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CE9A, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452B59, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    		    
             }
 
@@ -1530,12 +1536,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D7E68, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D733, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DB24, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DC2F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CC34, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40CE1A, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452D69, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D733, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DB24, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DC2F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CC34, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CE1A, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452D69, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		  		    		    
             }
 
@@ -1648,12 +1654,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9FF8, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CDDC, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40CFC2, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452CB9, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D923, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DD14, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE1F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CDDC, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CFC2, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452CB9, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    	    		    
             }
 
@@ -2443,12 +2449,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D85A8, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D7D3, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DBC4, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DCCF, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CCD4, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40CEBA, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452DA9, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D7D3, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DBC4, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DCCF, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CCD4, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CEBA, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452DA9, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    		    
             }
 
@@ -2565,12 +2571,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D933, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD24, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE2F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CE34, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40D01A, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x453199, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D933, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DD24, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE2F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CE34, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40D01A, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x453199, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    		    
             }
 
@@ -2687,12 +2693,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9968, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40DA43, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DE34, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DF3F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CEF4, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40D0DA, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x4529B9, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40DA43, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DE34, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DF3F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CEF4, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40D0DA, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x4529B9, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    		    
             }
 
@@ -2805,12 +2811,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D8008, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D863, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DC54, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DD5F, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40CD14, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x40CEFA, fixNotMe_ecx);   	//мельница
-		_PI->WriteLoHook(0x452BA9, fixNotMe_eax); 	//advmgr panel 2		    
+		_PI->WriteLoHook(0x40D863, fixNotMeID_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DC54, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DD5F, fixNotMeID_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CD14, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CEFA, fixNotMeID_ecx);   	//мельница
+		_PI->WriteLoHook(0x452BA9, fixNotMePlayer_eax); 	//advmgr panel 2		    
 		    		    
             }
 
