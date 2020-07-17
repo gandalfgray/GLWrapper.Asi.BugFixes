@@ -438,6 +438,14 @@ int __stdcall fixNotMe_ecx(LoHook* hook, HookContext* c)
 	return NO_EXEC_DEFAULT;
 }
 
+int __stdcall fixNotMe_eax(LoHook* hook, HookContext* c)
+{
+	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
+	c->eax = mePlayer->id;
+	
+	return NO_EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -561,7 +569,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4DA268, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D883, fixNotMe_ecx);	//shrine of magic		    
+		_PI->WriteLoHook(0x40D883, fixNotMe_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40DC74, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DD7F, fixNotMe_ecx);	//witch hut		    
 		    	       
             }
 
@@ -691,7 +701,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D53DB, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D1C2, fixNotMe_ecx);	//shrine of magic		    
+		_PI->WriteLoHook(0x40D1C2, fixNotMe_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40D593, fixNotMe_eax);	//witch hut	    
 		    
             }
 
@@ -812,7 +823,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D586B, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x40D162, fixNotMe_ecx);	//shrine of magic		    
+		_PI->WriteLoHook(0x40D162, fixNotMe_ecx);	//shrine of magic
+		_PI->WriteLoHook(0x40D533, fixNotMe_eax);	//witch hut
 		    	    
             }
 
@@ -933,7 +945,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D983, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD74, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DD74, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE7F, fixNotMe_ecx);	//witch hut		    
 		    		    		    		    
             }
 
@@ -1049,7 +1062,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut		    
 		    
             }
 
@@ -1374,6 +1388,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D7B3, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DBA4, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DCAF, fixNotMe_ecx);	//witch hut		    
 		    		    
             }
 
@@ -1490,7 +1505,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D733, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DB24, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DB24, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DC2F, fixNotMe_ecx);	//witch hut		    
 		  		    		    
             }
 
@@ -1604,7 +1620,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut		    
 		    	    		    
             }
 
@@ -2395,7 +2412,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D7D3, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DBC4, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DBC4, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DCCF, fixNotMe_ecx);	//witch hut		    
 		    		    
             }
 
@@ -2513,7 +2531,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D933, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DD24, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DD24, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DE2F, fixNotMe_ecx);	//witch hut		    
 		    		    
             }
 
@@ -2631,7 +2650,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40DA43, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DE34, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DE34, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DF3F, fixNotMe_ecx);	//witch hut		    
 		    		    
             }
 
@@ -2745,7 +2765,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D863, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40DC54, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DC54, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40DD5F, fixNotMe_ecx);	//witch hut		    
 		    		    
             }
 
