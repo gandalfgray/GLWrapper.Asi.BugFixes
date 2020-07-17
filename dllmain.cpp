@@ -571,7 +571,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D883, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DC74, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DD7F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DD7F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x4156C3, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x4158B0, fixNotMe_ecx);   	//мельница		    
 		    	       
             }
 
@@ -702,7 +704,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// not me bugs
 		_PI->WriteLoHook(0x40D1C2, fixNotMe_ecx);	//shrine of magic
-		_PI->WriteLoHook(0x40D593, fixNotMe_eax);	//witch hut	    
+		_PI->WriteLoHook(0x40D593, fixNotMe_eax);	//witch hut
+		_PI->WriteLoHook(0x414B2C, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x414CE0, fixNotMe_ecx);   	//мельница
 		    
             }
 
@@ -825,6 +829,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D162, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40D533, fixNotMe_eax);	//witch hut
+		_PI->WriteLoHook(0x414ACC, fixNotMe_eax);	//мельница
+		_PI->WriteLoHook(0x414C80, fixNotMe_eax);	//мельница		    
 		    	    
             }
 
@@ -946,7 +952,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D983, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD74, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE7F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DE7F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CE7C, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40D062, fixNotMe_ecx);   	//мельница
 		    		    		    		    
             }
 
@@ -1063,7 +1071,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CDDC, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CFC2, fixNotMe_ecx);   	//мельница
 		    
             }
 
@@ -1388,7 +1398,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D7B3, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DBA4, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DCAF, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DCAF, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CCB4, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CE9A, fixNotMe_ecx);   	//мельница
 		    		    
             }
 
@@ -1506,7 +1518,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D733, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DB24, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DC2F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DC2F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CC34, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CE1A, fixNotMe_ecx);   	//мельница		    
 		  		    		    
             }
 
@@ -1621,7 +1635,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD14, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DE1F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CDDC, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CFC2, fixNotMe_ecx);   	//мельница		    
 		    	    		    
             }
 
@@ -2413,7 +2429,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D7D3, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DBC4, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DCCF, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DCCF, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CCD4, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CEBA, fixNotMe_ecx);   	//мельница		    
 		    		    
             }
 
@@ -2532,7 +2550,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D933, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD24, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DE2F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DE2F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CE34, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40D01A, fixNotMe_ecx);   	//мельница		    
 		    		    
             }
 
@@ -2651,7 +2671,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40DA43, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DE34, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DF3F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DF3F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CEF4, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40D0DA, fixNotMe_ecx);   	//мельница		    
 		    		    
             }
 
@@ -2766,7 +2788,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// not me bugs
 		_PI->WriteLoHook(0x40D863, fixNotMe_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DC54, fixNotMe_ecx);	//witch hut
-		_PI->WriteLoHook(0x40DD5F, fixNotMe_ecx);	//witch hut		    
+		_PI->WriteLoHook(0x40DD5F, fixNotMe_ecx);	//witch hut
+		_PI->WriteLoHook(0x40CD14, fixNotMe_ecx);   	//мельница
+		_PI->WriteLoHook(0x40CEFA, fixNotMe_ecx);   	//мельница		    
 		    		    
             }
 
