@@ -429,6 +429,15 @@ int __stdcall killedHeroSeaToGround(LoHook *h, HookContext *c)
 	return EXEC_DEFAULT;
 }
 
+// not me bugs
+int __stdcall fixNotMe_ecx(LoHook* hook, HookContext* c)
+{
+	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
+	c->ecx = mePlayer->id;
+	
+	return NO_EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -549,7 +558,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A0CE6, mpGroundToSea);
 		_PI->WriteLoHook(0x49E334, mpSeaToGround);
-		_PI->WriteLoHook(0x4DA268, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4DA268, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D883, fixNotMe_ecx);	//shrine of magic		    
 		    	       
             }
 
@@ -676,7 +688,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x49F04A, mpGroundToSea);
 		_PI->WriteLoHook(0x49C814, mpSeaToGround);
-		_PI->WriteLoHook(0x4D53DB, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D53DB, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D1C2, fixNotMe_ecx);	//shrine of magic		    
 		    
             }
 
@@ -794,7 +809,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x49EA3A, mpGroundToSea);
 		_PI->WriteLoHook(0x49C204, mpSeaToGround);
-		_PI->WriteLoHook(0x4D586B, killedHeroSeaToGround);			    
+		_PI->WriteLoHook(0x4D586B, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D162, fixNotMe_ecx);	//shrine of magic		    
 		    	    
             }
 
@@ -911,7 +929,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A0E16, mpGroundToSea);
 		_PI->WriteLoHook(0x49E464, mpSeaToGround);
-		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D983, fixNotMe_ecx);	//shrine of magic		    
 		    		    		    		    
             }
 
@@ -1023,7 +1044,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A0886, mpGroundToSea);
 		_PI->WriteLoHook(0x49DF04, mpSeaToGround);
-		_PI->WriteLoHook(0x4DA348, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4DA348, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic		    
 		    
             }
 
@@ -1343,7 +1367,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A05E6, mpGroundToSea);
 		_PI->WriteLoHook(0x49DC34, mpSeaToGround);
-		_PI->WriteLoHook(0x4D7B18, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D7B18, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D7B3, fixNotMe_ecx);	//shrine of magic		    
 		    		    
             }
 
@@ -1456,7 +1483,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A0F56, mpGroundToSea);
 		_PI->WriteLoHook(0x49E5A4, mpSeaToGround);
-		_PI->WriteLoHook(0x4D7E68, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D7E68, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D733, fixNotMe_ecx);	//shrine of magic		    
 		  		    		    
             }
 
@@ -1566,7 +1596,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A1076, mpGroundToSea);
 		_PI->WriteLoHook(0x49E6C4, mpSeaToGround);
-		_PI->WriteLoHook(0x4D9FF8, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D9FF8, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D923, fixNotMe_ecx);	//shrine of magic		    
 		    	    		    
             }
 
@@ -2354,6 +2387,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A0F26, mpGroundToSea);
 		_PI->WriteLoHook(0x49E574, mpSeaToGround);
 		_PI->WriteLoHook(0x4D85A8, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D7D3, fixNotMe_ecx);	//shrine of magic		    
 		    		    
             }
 
@@ -2467,7 +2503,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A11B6, mpGroundToSea);
 		_PI->WriteLoHook(0x49E804, mpSeaToGround);
-		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D933, fixNotMe_ecx);	//shrine of magic		    
 		    		    
             }
 
@@ -2581,7 +2620,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A0946, mpGroundToSea);
 		_PI->WriteLoHook(0x49DF84, mpSeaToGround);
-		_PI->WriteLoHook(0x4D9968, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D9968, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40DA43, fixNotMe_ecx);	//shrine of magic		    
 		    		    
             }
 
@@ -2691,7 +2733,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// Admiral's hat bug fix + movement fixes
 		_PI->WriteLoHook(0x4A0906, mpGroundToSea);
 		_PI->WriteLoHook(0x49DF54, mpSeaToGround);
-		_PI->WriteLoHook(0x4D8008, killedHeroSeaToGround);		    
+		_PI->WriteLoHook(0x4D8008, killedHeroSeaToGround);
+		    
+		// not me bugs
+		_PI->WriteLoHook(0x40D863, fixNotMe_ecx);	//shrine of magic		    
 		    		    
             }
 
