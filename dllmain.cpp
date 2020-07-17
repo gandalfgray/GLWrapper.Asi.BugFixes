@@ -446,6 +446,14 @@ int __stdcall fixNotMe_eax(LoHook* hook, HookContext* c)
 	return NO_EXEC_DEFAULT;
 }
 
+int __stdcall fixNotMe_edx(LoHook* hook, HookContext* c)
+{
+	H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
+	c->edx = mePlayer->id;
+	
+	return NO_EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
