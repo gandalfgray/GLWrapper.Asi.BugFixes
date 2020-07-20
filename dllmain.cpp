@@ -464,6 +464,18 @@ H3Dlg* __stdcall fixBuyCreaturesDlg(HiHook* hook, H3Dlg* dlg, INT32 x, INT32 y, 
 	return dlg;
 }
 
+int __stdcall fixAdvMgrButton(HiHook* hook, void* advMgr, H3EventMsg* msg, int a3, int a4, int a5)
+{
+	if (msg->item_id == 11)
+	{
+		H3Player* mePlayer = CALL_1(H3Player*, __thiscall, getMeProcAddress, o_H3Main);
+		if(mePlayer != o_ActivePlayer)
+			return 1;
+	}
+
+	return CALL_5(int, __thiscall, hook->GetDefaultFunc(), advMgr, msg, a3,a4,a5);
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -597,7 +609,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4158B0, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452989, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452989 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x54EC50, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x54EC50, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x4099D0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    	       
             }
 
@@ -736,7 +749,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x414CE0, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x4515C9, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteLoHook(0x4515C9 + 0x28, fixNotMePlayer_eax); 	//advmgr panel 2
-		_PI->WriteHiHook(0x5470C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x5470C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x4095E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 
 		    
             }
@@ -867,7 +881,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x414C80, fixNotMeID_eax);	//мельница
 		_PI->WriteLoHook(0x4510C9, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteLoHook(0x4510C9 + 0x28, fixNotMePlayer_eax); 	//advmgr panel 2
-		_PI->WriteHiHook(0x547A20, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x547A20, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409580, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    	    
             }
 
@@ -997,7 +1012,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4159DB, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452E79, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452E79 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x54ED30, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x54ED30, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		    
 		    		    		    		    
             }
 
@@ -1122,7 +1139,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415950, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452979, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452979 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x54E740, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x54E740, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    
             }
 
@@ -1455,7 +1473,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4157E0, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452B59, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452B59 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x52F2C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x52F2C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409900, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    		    
             }
 
@@ -1581,7 +1600,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415760, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452D69, fixNotMePlayer_eax);   //advmgr panel 2
 		_PI->WriteLoHook(0x452D69 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
-		_PI->WriteHiHook(0x54C0B0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures			    
+		_PI->WriteHiHook(0x54C0B0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409880, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		  		    		    
             }
 
@@ -1704,7 +1724,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415950, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452CB9, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452CB9 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x54E850, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x54E850, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409A70, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    	    		    
             }
 
@@ -2504,7 +2525,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415800, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452DA9, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452DA9 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x54CA00, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures			    
+		_PI->WriteHiHook(0x54CA00, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409920, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    		    
             }
 
@@ -2631,7 +2653,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415960, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x453199, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x453199 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
-		_PI->WriteHiHook(0x54F000, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures			    
+		_PI->WriteHiHook(0x54F000, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409A80, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    		    
             }
 
@@ -2758,7 +2781,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415A70, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x4529B9, fixNotMePlayer_eax);   //advmgr panel 2
 		_PI->WriteLoHook(0x4529B9 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
-		_PI->WriteHiHook(0x54E0D0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x54E0D0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x409AC0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    		    
             }
 
@@ -2881,7 +2905,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x415890, fixNotMeID_ecx);   	//мельница
 		_PI->WriteLoHook(0x452BA9, fixNotMePlayer_eax);   //advmgr panel 2
 		_PI->WriteLoHook(0x452BA9 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
-		_PI->WriteHiHook(0x54BA90, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures		    
+		_PI->WriteHiHook(0x54BA90, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
+		_PI->WriteHiHook(0x4098E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
 		    		    
             }
 
