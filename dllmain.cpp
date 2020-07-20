@@ -612,7 +612,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452989, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452989 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54EC50, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x4099D0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x4099D0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D4659, "EB 5B");  // fix crash
 		    	       
             }
 
@@ -754,7 +755,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4515C9, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteLoHook(0x4515C9 + 0x28, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteHiHook(0x5470C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x4095E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x4095E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5CC6AC, "EB 55");  // fix crash		    
 
 		    
             }
@@ -888,7 +890,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4510C9, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteLoHook(0x4510C9 + 0x28, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteHiHook(0x547A20, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409580, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409580, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5CC66C, "EB 55");  // fix crash		    
 		    	    
             }
 
@@ -1021,7 +1024,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452E79, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452E79 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54ED30, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+	    
 		    
 		    		    		    		    
             }
@@ -1486,7 +1490,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452B59, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452B59 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x52F2C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409900, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409900, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5AC6A9, "EB 5B");  // fix crash			    
 		    		    
             }
 
@@ -1615,7 +1620,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452D69, fixNotMePlayer_eax);   //advmgr panel 2
 		_PI->WriteLoHook(0x452D69 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
 		_PI->WriteHiHook(0x54C0B0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409880, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409880, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D22D9, "EB 5B");  // fix crash		    
 		  		    		    
             }
 
@@ -1741,7 +1747,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452CB9, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452CB9 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54E850, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409A70, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409A70, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D4259, "EB 5B");  // fix crash		    
 		    	    		    
             }
 
@@ -2544,7 +2551,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452DA9, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452DA9 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54CA00, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409920, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409920, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D2A59, "EB 5B");  // fix crash		    
 		    		    
             }
 
@@ -2674,7 +2682,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x453199, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x453199 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54F000, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409A80, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409A80, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D5019, "EB 5B");  // fix crash		    
 		    		    
             }
 
@@ -2804,7 +2813,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4529B9, fixNotMePlayer_eax);   //advmgr panel 2
 		_PI->WriteLoHook(0x4529B9 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
 		_PI->WriteHiHook(0x54E0D0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409AC0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409AC0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D48B9, "EB 5B");  // fix crash		    
 		    		    
             }
 
@@ -2930,7 +2940,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452BA9, fixNotMePlayer_eax);   //advmgr panel 2
 		_PI->WriteLoHook(0x452BA9 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
 		_PI->WriteHiHook(0x54BA90, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x4098E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x4098E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D20A9, "EB 5B");  // fix crash		    
 		    		    
             }
 
