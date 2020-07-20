@@ -17,6 +17,7 @@ int aMarketSelectedSlotIndex;
 // Important proc addresses
 int isHumanProcAddress;
 int getMeProcAddress;
+int getDlgItemProcAddress;
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -477,7 +478,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4BAA60;
-		getMeProcAddress = 0x4CE670;		    
+		getMeProcAddress = 0x4CE670;
+		getDlgItemProcAddress = 0x5FF5B0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -603,7 +605,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B6BE0;
-		getMeProcAddress = 0x4C9F40;		    
+		getMeProcAddress = 0x4C9F40;
+		getDlgItemProcAddress = 0x5F6750;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -736,7 +739,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B6E40;
-		getMeProcAddress = 0x4CA1D0;		    
+		getMeProcAddress = 0x4CA1D0;
+		getDlgItemProcAddress = 0x5F6710;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -865,7 +869,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4BAB70;
-		getMeProcAddress = 0x4CE776;		    
+		getMeProcAddress = 0x4CE776;
+		getDlgItemProcAddress = 0x5FF7E0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -992,7 +997,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		   
 		// Important proc addresses
 		isHumanProcAddress = 0x4BADB0;
-		getMeProcAddress = 0x4CEA20;		    
+		getMeProcAddress = 0x4CEA20;
+		getDlgItemProcAddress = 0x5FF610;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
@@ -1323,7 +1329,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B8510;
-		getMeProcAddress = 0x4CC116;		    
+		getMeProcAddress = 0x4CC116;
+		getDlgItemProcAddress = 0x5D63C0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
@@ -1445,7 +1452,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B8E30;
-		getMeProcAddress = 0x4CCA70;		    
+		getMeProcAddress = 0x4CCA70;
+		getDlgItemProcAddress = 0x5FD060;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
@@ -1569,7 +1577,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4BADA0;
-		getMeProcAddress = 0x4CE9B0;		    
+		getMeProcAddress = 0x4CE9B0;
+		getDlgItemProcAddress = 0x5FEFF0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
@@ -2360,7 +2369,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B8F90;
-		getMeProcAddress = 0x4CCBC0;		    
+		getMeProcAddress = 0x4CCBC0;
+		getDlgItemProcAddress = 0x5FD840;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
@@ -2488,7 +2498,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4BAE70;
-		getMeProcAddress = 0x4CEA70;		    
+		getMeProcAddress = 0x4CEA70;
+		getDlgItemProcAddress = 0x5FFD50;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
@@ -2617,7 +2628,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4BA360;
-		getMeProcAddress = 0x4CE050;		   
+		getMeProcAddress = 0x4CE050;
+		getDlgItemProcAddress = 0x5FF5F0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
@@ -2738,7 +2750,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B8870;
-		getMeProcAddress = 0x4CC530;		    
+		getMeProcAddress = 0x4CC530;
+		getDlgItemProcAddress = 0x5FCE00;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
