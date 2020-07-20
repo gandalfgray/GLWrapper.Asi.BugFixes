@@ -476,6 +476,24 @@ int __stdcall fixAdvMgrButton(HiHook* hook, void* advMgr, H3EventMsg* msg, int a
 	return CALL_5(int, __thiscall, hook->GetDefaultFunc(), advMgr, msg, a3,a4,a5);
 }
 
+int __stdcall preserveMonsterNumber(LoHook* hook, HookContext* c)
+{
+	if (*(int*)(c->ebp + 0x1C) == -1 && *(int*)(c->ebp + 0x28) == -1)
+	{
+		c->esp += 4; // pop edi
+		H3Army* army = (H3Army*)c->ecx;
+		int mon_number = 0;
+
+		for (int i = 0; i < 7; i++)
+			mon_number += army->count[i];  // restore count no matter if it is an upgraded creature or not
+
+		c->eax = mon_number;
+		return NO_EXEC_DEFAULT;
+	}
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -614,6 +632,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x54EC50, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x4099D0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
 		_PI->WriteCodePatch(0x5D4659, "EB 5B");  // fix crash
+		  
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC5F5, preserveMonsterNumber);
 		    	       
             }
 
@@ -756,7 +777,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4515C9 + 0x28, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteHiHook(0x5470C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x4095E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5CC6AC, "EB 55");  // fix crash		    
+		_PI->WriteCodePatch(0x5CC6AC, "EB 55");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AA5CA, preserveMonsterNumber);		    
 
 		    
             }
@@ -891,7 +915,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4510C9 + 0x28, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteHiHook(0x547A20, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409580, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5CC66C, "EB 55");  // fix crash		    
+		_PI->WriteCodePatch(0x5CC66C, "EB 55");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AA03A, preserveMonsterNumber);		    
 		    	    
             }
 
@@ -1025,8 +1052,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452E79 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54ED30, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D4A39, "EB 5B");  // fix crash		    
 	    
-		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC725, preserveMonsterNumber);		    
 		    		    		    		    
             }
 
@@ -1154,7 +1183,11 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452979, fixNotMePlayer_eax); 	//advmgr panel 2
 		_PI->WriteLoHook(0x452979 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54E740, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
-		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);		    
+		_PI->WriteHiHook(0x409A30, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
+		_PI->WriteCodePatch(0x5D49D9, "EB 5B");  // fix crash		    
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC12E, preserveMonsterNumber);		    
 		    
             }
 
@@ -1491,7 +1524,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452B59 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x52F2C0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409900, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5AC6A9, "EB 5B");  // fix crash			    
+		_PI->WriteCodePatch(0x5AC6A9, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4ABEF5, preserveMonsterNumber);		    
 		    		    
             }
 
@@ -1621,7 +1657,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452D69 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
 		_PI->WriteHiHook(0x54C0B0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409880, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5D22D9, "EB 5B");  // fix crash		    
+		_PI->WriteCodePatch(0x5D22D9, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC865, preserveMonsterNumber);		    
 		  		    		    
             }
 
@@ -1748,7 +1787,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452CB9 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54E850, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409A70, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5D4259, "EB 5B");  // fix crash		    
+		_PI->WriteCodePatch(0x5D4259, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC905, preserveMonsterNumber);		    
 		    	    		    
             }
 
@@ -2552,7 +2594,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452DA9 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54CA00, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409920, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5D2A59, "EB 5B");  // fix crash		    
+		_PI->WriteCodePatch(0x5D2A59, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC7B5, preserveMonsterNumber);		    
 		    		    
             }
 
@@ -2683,7 +2728,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x453199 + 0x17, fixNotMePlayer_edx); 	//advmgr panel 2
 		_PI->WriteHiHook(0x54F000, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409A80, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5D5019, "EB 5B");  // fix crash		    
+		_PI->WriteCodePatch(0x5D5019, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4ACA45, preserveMonsterNumber);		    
 		    		    
             }
 
@@ -2814,7 +2862,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4529B9 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
 		_PI->WriteHiHook(0x54E0D0, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x409AC0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5D48B9, "EB 5B");  // fix crash		    
+		_PI->WriteCodePatch(0x5D48B9, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC275, preserveMonsterNumber);		    
 		    		    
             }
 
@@ -2941,7 +2992,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x452BA9 + 0x17, fixNotMePlayer_edx);   //advmgr panel 2
 		_PI->WriteHiHook(0x54BA90, SPLICE_, EXTENDED_, THISCALL_, fixBuyCreaturesDlg); //buy creatures
 		_PI->WriteHiHook(0x4098E0, SPLICE_, EXTENDED_, THISCALL_, fixAdvMgrButton);
-		_PI->WriteCodePatch(0x5D20A9, "EB 5B");  // fix crash		    
+		_PI->WriteCodePatch(0x5D20A9, "EB 5B");  // fix crash
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4AC235, preserveMonsterNumber);		    
 		    		    
             }
 
