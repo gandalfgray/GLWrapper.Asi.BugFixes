@@ -600,7 +600,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4DA268, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x46133D, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x46133D, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D4643, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D883, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DC74, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DD7F, fixNotMeID_ecx);	//witch hut
@@ -742,6 +743,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D53DB, killedHeroSeaToGround);
 		    
 		// not me bugs
+		_PI->WriteLoHook(0x45FB9B, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x5CC696, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D1C2, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40D593, fixNotMeID_eax);	//witch hut
 		_PI->WriteLoHook(0x41495E, fixNotMeID_ecx);   	//вагон
@@ -874,6 +877,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D586B, killedHeroSeaToGround);
 		    
 		// not me bugs
+		_PI->WriteLoHook(0x45F83B, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x5CC656, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D162, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40D533, fixNotMeID_eax);	//witch hut
 		_PI->WriteLoHook(0x4148FE, fixNotMeID_ecx);   	//вагон
@@ -1004,7 +1009,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x4618ED, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x4618ED, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D4A23, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D983, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD74, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DE7F, fixNotMeID_ecx);	//witch hut
@@ -1132,7 +1138,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4DA348, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x46123D, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x46123D, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D49C3, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D923, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD14, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DE1F, fixNotMeID_ecx);	//witch hut
@@ -1467,7 +1474,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D7B18, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x460DCD, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x460DCD, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5AC693, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D7B3, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DBA4, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DCAF, fixNotMeID_ecx);	//witch hut
@@ -1595,7 +1603,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D7E68, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x46144D, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x46144D, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D22C3, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D733, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DB24, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DC2F, fixNotMeID_ecx);	//witch hut
@@ -1720,7 +1729,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9FF8, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x46175D, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x46175D, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D4243, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D923, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD14, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DE1F, fixNotMeID_ecx);	//witch hut
@@ -2522,7 +2532,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D85A8, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x4616AD, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x4616AD, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D2A43, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D7D3, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DBC4, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DCCF, fixNotMeID_ecx);	//witch hut
@@ -2651,7 +2662,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9F78, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x461BAD, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x461BAD, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D5003, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D933, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DD24, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DE2F, fixNotMeID_ecx);	//witch hut
@@ -2780,7 +2792,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D9968, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x46128D, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x46128D, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D48A3, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40DA43, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DE34, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DF3F, fixNotMeID_ecx);	//witch hut
@@ -2905,7 +2918,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4D8008, killedHeroSeaToGround);
 		    
 		// not me bugs
-		_PI->WriteLoHook(0x46121D, fixNotMeID_eax);	//townhall		    
+		_PI->WriteLoHook(0x46121D, fixNotMeID_eax);	//townhall
+		_PI->WriteLoHook(0x5D2093, fixNotMePlayer_eax);	//townqvbk		    
 		_PI->WriteLoHook(0x40D863, fixNotMeID_ecx);	//shrine of magic
 		_PI->WriteLoHook(0x40DC54, fixNotMeID_ecx);	//witch hut
 		_PI->WriteLoHook(0x40DD5F, fixNotMeID_ecx);	//witch hut
