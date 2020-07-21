@@ -635,6 +635,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		  
 		// prevent upgraded stack disappearing
 		_PI->WriteLoHook(0x4AC5F5, preserveMonsterNumber);
+		
+		// fix crash
+		_PI->WriteHiHook(0x466710, fixRemoveObstacle);
 		    	       
             }
 
@@ -780,8 +783,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5CC6AC, "EB 55");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AA5CA, preserveMonsterNumber);		    
-
+		_PI->WriteLoHook(0x4AA5CA, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x464E70, fixRemoveObstacle);	
 		    
             }
 
@@ -918,7 +923,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5CC66C, "EB 55");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AA03A, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AA03A, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x464AF0, fixRemoveObstacle);		    
 		    	    
             }
 
@@ -1055,7 +1063,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D4A39, "EB 5B");  // fix crash		    
 	    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC725, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC725, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x466CC0, fixRemoveObstacle);		    
 		    		    		    		    
             }
 
@@ -1187,7 +1198,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D49D9, "EB 5B");  // fix crash		    
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC12E, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC12E, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x4666E0, fixRemoveObstacle);		    
 		    
             }
 
@@ -1289,7 +1303,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x5950D0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужно		    
+		// не нужно
+		    
+		// fix crash
+		_PI->WriteHiHook(0x461EC0, fixRemoveObstacle);			    
 		    
             }
 
@@ -1391,7 +1408,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x595050, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужно		    
+		// не нужно
+		    
+		// fix crash
+		_PI->WriteHiHook(0x461DE0, fixRemoveObstacle);		    
 		    
             }
 
@@ -1527,7 +1547,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5AC6A9, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4ABEF5, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4ABEF5, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x4661A0, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -1660,7 +1683,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D22D9, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC865, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC865, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x466820, fixRemoveObstacle);		    
 		  		    		    
             }
 
@@ -1790,7 +1816,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D4259, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC905, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC905, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x466B30, fixRemoveObstacle);		    
 		    	    		    
             }
 
@@ -1884,7 +1913,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59AAD0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x464330, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -1978,7 +2010,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59AE00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x463FB0, fixRemoveObstacle);			    
 		    		    
             }
 
@@ -2072,7 +2107,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59AB40, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x463F50, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2166,7 +2204,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59AD80, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x4639C0, fixRemoveObstacle);			    
 		    		   
             }
 
@@ -2260,7 +2301,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59A740, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x463B40, fixRemoveObstacle);		    
 		    	    		    		    
             }
 
@@ -2358,7 +2402,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59ACF0, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x464140, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2456,7 +2503,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteHiHook(0x59AD00, SPLICE_, EXTENDED_, THISCALL_, fixBackpackArtMerchantDlg);
 		    
 		// alliance town fixes
-		// не нужен		    
+		// не нужен
+		    
+		// fix crash
+		_PI->WriteHiHook(0x4638F0, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2597,7 +2647,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D2A59, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC7B5, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC7B5, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x466A80, fixRemoveObstacle);
 		    		    
             }
 
@@ -2731,7 +2784,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D5019, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4ACA45, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4ACA45, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x466F80, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2865,7 +2921,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D48B9, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC275, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC275, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x466740, fixRemoveObstacle);			    
 		    		    
             }
 
@@ -2995,7 +3054,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteCodePatch(0x5D20A9, "EB 5B");  // fix crash
 		    
 		// prevent upgraded stack disappearing
-		_PI->WriteLoHook(0x4AC235, preserveMonsterNumber);		    
+		_PI->WriteLoHook(0x4AC235, preserveMonsterNumber);
+		    
+		// fix crash
+		_PI->WriteHiHook(0x4666D0, fixRemoveObstacle);			    
 		    		    
             }
 
