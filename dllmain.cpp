@@ -1317,6 +1317,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		// не нужно
 		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A28E5, preserveMonsterNumber);		    
+		    
 		// fix crash
 		_PI->WriteHiHook(0x461EC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    
@@ -1421,6 +1424,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		// не нужно
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A2BF5, preserveMonsterNumber);		    
 		    
 		// fix crash
 		_PI->WriteHiHook(0x461DE0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
@@ -1927,6 +1933,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		// не нужен
 		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A5D12, preserveMonsterNumber);		    
+		    
 		// fix crash
 		_PI->WriteHiHook(0x464330, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
@@ -2023,6 +2032,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		// не нужен
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A57B2, preserveMonsterNumber);		    
 		    
 		// fix crash
 		_PI->WriteHiHook(0x463FB0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
@@ -2121,6 +2133,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		// не нужен
 		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A5542, preserveMonsterNumber);		    
+		    
 		// fix crash
 		_PI->WriteHiHook(0x463F50, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
@@ -2218,6 +2233,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		// не нужен
 		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A4FE2, preserveMonsterNumber);		    
+		    
 		// fix crash
 		_PI->WriteHiHook(0x4639C0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    		   
@@ -2314,6 +2332,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		// не нужен
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A5162, preserveMonsterNumber);		    
 		    
 		// fix crash
 		_PI->WriteHiHook(0x463B40, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
@@ -2416,6 +2437,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// alliance town fixes
 		// не нужен
 		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A54B2, preserveMonsterNumber);		    
+		    
 		// fix crash
 		_PI->WriteHiHook(0x464140, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
@@ -2516,6 +2540,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// alliance town fixes
 		// не нужен
+		    
+		// prevent upgraded stack disappearing
+		_PI->WriteLoHook(0x4A4FA2, preserveMonsterNumber);		    
 		    
 		// fix crash
 		_PI->WriteHiHook(0x4638F0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
