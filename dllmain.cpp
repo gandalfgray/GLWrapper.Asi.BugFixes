@@ -1105,7 +1105,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4BADB0;
 		getMeProcAddress = 0x4CEA20;
 		getDlgItemProcAddress = 0x5FF610;
-		beforeGameAddress = 0x4E9B6B;		    
+		beforeGameAddress = 0x4EE9DB;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
