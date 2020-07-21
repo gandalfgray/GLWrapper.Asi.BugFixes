@@ -5,6 +5,23 @@ template <typename _Type> struct H3Array
  _Type* Data; // +4 the first item, also start of list
  _Type* EndData; // +8 the end of last item
  _Type* EndMemory; // +12 end of allocated memory
+	
+  // Операция взятия по индексу.
+  // Поддерживаются отрицательные индексы - в этом случае элемент будет браться с конца списка.
+  // Проверки на корректность индекса отсутствуют.
+  inline _Type& operator[](INT32 index)
+  {
+    // Для положительного индекса взятие как обычно.
+    if (index >= 0)
+    {
+      return (this->Data)[index];
+    }
+    // Для отрицательного индекса берём с конца списка.
+    else
+    {
+      return *(_Type*)(this->EndData + index);
+    }
+  } 	
 };
 
 typedef DWORD BitMaskDword;
@@ -569,7 +586,7 @@ struct H3CombatManager : public H3Manager
  INT32 fort_walls_alive[18]; 		// * +13FA8
  INT8 unk20[4];
  void* CCellGrdPcx; 		// * +13FF4 		// * pcx of grids
- void* H3LoadedPcx* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
+ void* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
  INT32 GlobalCardeIndex; 		// * +13FFC
  BOOLEAN RedrawCreatureFrame[2][20]; 		// * +14000 		// * oddly there are only 20, not 21, slots for each side
  BOOLEAN heroAnimation[2]; 		// * +14028
