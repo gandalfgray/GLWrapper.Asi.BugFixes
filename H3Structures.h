@@ -473,17 +473,17 @@ struct H3CombatManager : public H3Manager
  INT8 accessibleSquares[187]; 		// * +4C
  UINT8 accessibleSquares2[187];
  INT8 unk2[2];
- H3CombatSquare squares[187]; 		// * +1C4
+ INT8 H3CombatSquare[187][112]; 		// * +1C4
  INT32 landType; 		// * +5394
  INT8 unk3[8];
  INT32 absoluteObstacleId; 		// * +53A0
  INT32 siegeKind; 		// * +53A4
- INT32 hasMoat; 		// * +53A8
+ BOOL hasMoat; 		// * +53A8
  INT8 unk4[4];
- H3LoadedPcx16* drawBuffer; 		// * +53B0
+ void* drawBuffer; 		// * +53B0
  INT8 unk5[4];
  BOOL doNotDrawShade; 		// * +53B8
- H3MapItem* mapitem; 		// * +53BC 		// * H3MapItem where combat is taking place
+ void* mapitem; 		// * +53BC 		// * H3MapItem where combat is taking place
  INT32 specialTerrain; 		// * +53C0 		// * special terrain type used
  BOOLEAN antiMagicGarrison; 		// * +53C4
  BOOLEAN creatureBank; 		// * +53C5
@@ -496,11 +496,11 @@ struct H3CombatManager : public H3Manager
  UINT32 HeroAnimation[2]; 		// * +53E4 		// * current group
  UINT32 HeroAnimationFrame[2]; 		// * +53EC
  INT8 unk8[16];
- H3LoadedDef* heroDefLoaded[2]; 		// * +5404
- H3LoadedDef* heroFlagLoaded[2]; 		// * +540C
+ void* heroDefLoaded[2]; 		// * +5404
+ void* heroFlagLoaded[2]; 		// * +540C
  INT32 heroFlagFrame[2]; 		// * +5414
- RECT heroUpdateRect[2]; 		// * +541C
- RECT heroFlagUpdateRect[2]; 		// * +543C
+ INT8 heroUpdateRect[2][16]; 		// * +541C
+ INT8 heroFlagUpdateRect[2][16]; 		// * +543C
  H3Array<INT32> eagleEyeSpells[2]; 		// * +545C 		// * eagle eye 2x vector
  INT8 unk9[40]; 		// * chain lightning?
  UINT8 isNotAI[2]; 		// * +54A4
@@ -529,21 +529,21 @@ struct H3CombatManager : public H3Manager
  INT8 unk14[20];
  INT32 siegeKind2; 		// * +132F4
  BOOL finished; 		// * +132F8
- struct H3CombatDlg* dlg; 		// * +132FC
+ void* dlg; 		// * +132FC
  INT8 unk15[356];
- LPCSTR backgroundPcxName; 		// * +13464
- H3AdjacentSquares adjacentSquares[187]; 		// * +13468
+ PCHAR backgroundPcxName; 		// * +13464
+ INT8 adjacentSquares[187][12]; 		// * +13468
  INT8 unk16[12];
- RECT updateRect; 		// * +132E8
+ INT8 updateRect[16]; 		// * +13D38
  INT8 unk17[12];
- INT cmNumWinPcxLoaded; 		// * +13D54
+ INT32 cmNumWinPcxLoaded; 		// * +13D54
  H3Array<H3Obstacle> obstacleInfo; 		// * +13D58 		// * information about obstacles on battlefield
  BOOLEAN tacticsPhase;		// * +13D68
  INT8 unk18[3];
  INT32 turn; 		// * +13D6C
  INT32 tacticsDifference; 		// * +13D70
  INT8 unk19[4]; // spell related?
- TownTowerLoaded Towers[3]; 		// * +13D78
+ INT8 TownTowerLoaded[3][36]; 		// * +13D78
  INT32 waitPhase; 		// * +13DE4
  INT32 HeroDAttack; 		// * +13DE8
  INT32 HeroDDefence; 		// * +13DEC
@@ -553,13 +553,13 @@ struct H3CombatManager : public H3Manager
  INT32 fort_walls_hp[18]; 		// * +13F60 		// * hit points of town walls
  INT32 fort_walls_alive[18]; 		// * +13FA8
  INT8 unk20[4];
- struct H3LoadedPcx* CCellGrdPcx; 		// * +13FF4 		// * pcx of grids
- struct H3LoadedPcx* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
+ void* CCellGrdPcx; 		// * +13FF4 		// * pcx of grids
+ void* H3LoadedPcx* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
  INT32 GlobalCardeIndex; 		// * +13FFC
- BOOL8 RedrawCreatureFrame[2][20]; 		// * +14000 		// * oddly there are only 20, not 21, slots for each side
- BOOL8 heroAnimation[2]; 		// * +14028
- BOOL8 heroFlagAnimation[2]; 		// * +1402A
- BOOL8 turretAnimation[3]; 		// * +1402C
+ BOOLEAN RedrawCreatureFrame[2][20]; 		// * +14000 		// * oddly there are only 20, not 21, slots for each side
+ BOOLEAN heroAnimation[2]; 		// * +14028
+ BOOLEAN heroFlagAnimation[2]; 		// * +1402A
+ BOOLEAN turretAnimation[3]; 		// * +1402C
  INT8 unk21;
  INT8 unk22[188];
 };
