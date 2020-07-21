@@ -19,9 +19,10 @@ struct H3HeroVisited;
 struct H3HeroFlags;
 struct H3Hero;
 struct H3CreatureInfo;
-struct H3CombatManager;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
+struct H3Obstacle;
+struct H3CombatManager;
 struct H3TownManager;
 struct H3Player;
 struct H3Main;
@@ -462,6 +463,20 @@ struct H3Main
  INT8 unk12[4];
 };
 
+// * information about obstacle in combat manager
+struct H3Obstacle // size 24
+{
+ void* def;
+ void* info; // * +4
+ UINT8 anchorHex; // * +8
+ INT8 unk_09;    // {-1}
+ INT8 unk_0A;    // {1}
+ INT8 unk_0B;
+ UINT32 unk_0C;    // {0}
+ UINT32 unk_10;    // {0}
+ UINT32 unk_14;     // {-1}
+};
+	
 // * the manager of the battlefield
 struct H3CombatManager : public H3Manager
 {
