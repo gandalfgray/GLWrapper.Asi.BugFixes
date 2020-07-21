@@ -664,6 +664,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		
 		// fix crash
 		_PI->WriteHiHook(0x466710, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		
+		// fix wrong half damage
+		_PI->WriteLoHook(0x442E9B, fixForgetfullnessDamage);		    
 		    	       
             }
 
@@ -814,7 +817,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AA5CA, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464E70, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);	
+		_PI->WriteHiHook(0x464E70, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x441EAB, fixForgetfullnessDamage);		    
 		    
             }
 
@@ -956,7 +962,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AA03A, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464AF0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x464AF0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x4419AB, fixForgetfullnessDamage);		    
 		    	    
             }
 
@@ -1098,7 +1107,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC725, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466CC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466CC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44371B, fixForgetfullnessDamage);		    
 		    		    		    		    
             }
 
@@ -1235,7 +1247,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC12E, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4666E0, SPLICE_, EXTENDED_, THISCALL_, fixBukaCompleteRemoveObstacle);		    
+		_PI->WriteHiHook(0x4666E0, SPLICE_, EXTENDED_, THISCALL_, fixBukaCompleteRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x442F7B, fixForgetfullnessDamage);		    
 		    
             }
 
@@ -1345,7 +1360,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A28E5, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x461EC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x461EC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44191B, fixForgetfullnessDamage);		    
 		    
             }
 
@@ -1455,7 +1473,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A2BF5, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x461DE0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x461DE0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44166B, fixForgetfullnessDamage);		    
 		    
             }
 
@@ -1596,7 +1617,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4ABEF5, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4661A0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x4661A0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44302B, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -1734,7 +1758,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC865, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466820, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466820, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44327B, fixForgetfullnessDamage);		    
 		  		    		    
             }
 
@@ -1869,7 +1896,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC905, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466B30, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466B30, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44317B, fixForgetfullnessDamage);		    
 		    	    		    
             }
 
@@ -1971,7 +2001,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A5D12, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464330, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x464330, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x4436AB, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -2073,7 +2106,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A57B2, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x463FB0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x463FB0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x4430BB, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -2175,7 +2211,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A5542, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x463F50, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x463F50, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44326B, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -2277,7 +2316,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A4FE2, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4639C0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x4639C0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x442D9B, fixForgetfullnessDamage);		    
 		    		   
             }
 
@@ -2379,7 +2421,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A5162, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x463B40, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x463B40, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x442E8B, fixForgetfullnessDamage);		    
 		    	    		    		    
             }
 
@@ -2485,7 +2530,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A54B2, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464140, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x464140, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44335B, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -2591,7 +2639,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4A4FA2, preserveMonsterNumber);		    
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4638F0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x4638F0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x442CCB, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -2738,6 +2789,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// fix crash
 		_PI->WriteHiHook(0x466A80, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44328B, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -2876,7 +2930,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4ACA45, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466F80, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466F80, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x44366B, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -3015,7 +3072,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC275, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466740, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x466740, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x442E5B, fixForgetfullnessDamage);		    
 		    		    
             }
 
@@ -3150,7 +3210,10 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC235, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4666D0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x4666D0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
+		    
+		// fix wrong half damage
+		_PI->WriteLoHook(0x4430DB, fixForgetfullnessDamage);		    
 		    		    
             }
 
