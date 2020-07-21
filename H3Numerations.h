@@ -173,3 +173,18 @@
 #define HTF_FOUNTAIN_FORTUNE_4 0x20000000
 #define HTF_UNK2 0x40000000
 #define HTF_UNK3 0x80000000
+
+// Battle actions
+#define	BA_CANCEL 0
+#define	BA_CAST_SPELL 1
+#define	BA_WALK 2
+#define	BA_DEFEND 3
+#define	BA_RETREAT 4
+#define	BA_SURRENDER 5
+#define	BA_WALK_ATTACK 6
+#define	BA_SHOOT 7
+#define	BA_WAIT 8
+#define	BA_CATAPULT 9
+#define	BA_MONSTER_SPELL 10
+#define	BA_FIRST_AID_TENT 11
+#define	BA_NOTHING 12
