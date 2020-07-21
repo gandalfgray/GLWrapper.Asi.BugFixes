@@ -19,6 +19,7 @@ int isHumanProcAddress;
 int getMeProcAddress;
 int getDlgItemProcAddress;
 int beforeGameAddress;
+int canShootProcAddress;
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -539,6 +540,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CE670;
 		getDlgItemProcAddress = 0x5FF5B0;
 		beforeGameAddress = 0x4EEE0B;
+		canShootProcAddress = 0x442610;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -678,6 +680,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4C9F40;
 		getDlgItemProcAddress = 0x5F6750;
 		beforeGameAddress = 0x4E985B;
+		canShootProcAddress = 0x4478E0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -824,6 +827,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CA1D0;
 		getDlgItemProcAddress = 0x5F6710;
 		beforeGameAddress = 0x4E9B6B;
+		canShootProcAddress = 0x4473E0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -965,7 +969,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4BAB70;
 		getMeProcAddress = 0x4CE776;
 		getDlgItemProcAddress = 0x5FF7E0;
-		beforeGameAddress = 0x4EEB0B;		   
+		beforeGameAddress = 0x4EEB0B;
+		canShootProcAddress = 0x442E90;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -1105,7 +1110,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4BADB0;
 		getMeProcAddress = 0x4CEA20;
 		getDlgItemProcAddress = 0x5FF610;
-		beforeGameAddress = 0x4EE9DB;		    
+		beforeGameAddress = 0x4EE9DB;
+		canShootProcAddress = 0x4426F0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
