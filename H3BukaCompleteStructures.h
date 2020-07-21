@@ -175,7 +175,7 @@ struct H3BukaCompleteCombatManager : public H3Manager
  INT32 fort_walls_alive[18]; 		// * +13FA8
  INT8 unk20[4];
  void* CCellGrdPcx; 		// * +13FF4 		// * pcx of grids
- void* H3LoadedPcx* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
+ void* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
  INT32 GlobalCardeIndex; 		// * +13FFC
  BOOLEAN RedrawCreatureFrame[2][20]; 		// * +14000 		// * oddly there are only 20, not 21, slots for each side
  BOOLEAN heroAnimation[2]; 		// * +14028
