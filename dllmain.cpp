@@ -494,6 +494,18 @@ int __stdcall preserveMonsterNumber(LoHook* hook, HookContext* c)
 	return EXEC_DEFAULT;
 }
 
+void __stdcall fixRemoveObstacle(HiHook* h, H3CombatManager* bm, int hex_id)
+{
+    CALL_2(void, __thiscall,  h->GetDefaultFunc(), bm, hex_id);
+	bm->obstacleInfo[hex_id].unk_10 = -1;
+}
+
+void __stdcall fixBukaCompleteRemoveObstacle(HiHook* h, H3BukaCompleteCombatManager* bm, int hex_id)
+{
+    CALL_2(void, __thiscall,  h->GetDefaultFunc(), bm, hex_id);
+	bm->obstacleInfo[hex_id].unk_10 = -1;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -1201,7 +1213,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC12E, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4666E0, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x4666E0, fixBukaCompleteRemoveObstacle);		    
 		    
             }
 
