@@ -649,7 +649,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC5F5, preserveMonsterNumber);
 		
 		// fix crash
-		_PI->WriteHiHook(0x466710, fixRemoveObstacle);
+		_PI->WriteHiHook(0x466710, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
 		    	       
             }
 
@@ -798,7 +798,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AA5CA, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464E70, fixRemoveObstacle);	
+		_PI->WriteHiHook(0x464E70, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);	
 		    
             }
 
@@ -938,7 +938,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AA03A, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464AF0, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x464AF0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    	    
             }
 
@@ -1078,7 +1078,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC725, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466CC0, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466CC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    		    		    
             }
 
@@ -1213,7 +1213,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC12E, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4666E0, fixBukaCompleteRemoveObstacle);		    
+		_PI->WriteHiHook(0x4666E0, SPLICE_, EXTENDED_, THISCALL_, fixBukaCompleteRemoveObstacle);		    
 		    
             }
 
@@ -1318,7 +1318,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужно
 		    
 		// fix crash
-		_PI->WriteHiHook(0x461EC0, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x461EC0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    
             }
 
@@ -1423,7 +1423,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужно
 		    
 		// fix crash
-		_PI->WriteHiHook(0x461DE0, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x461DE0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    
             }
 
@@ -1562,7 +1562,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4ABEF5, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4661A0, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x4661A0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -1698,7 +1698,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC865, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466820, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466820, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		  		    		    
             }
 
@@ -1831,7 +1831,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC905, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466B30, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466B30, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    	    		    
             }
 
@@ -1928,7 +1928,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464330, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x464330, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2025,7 +2025,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x463FB0, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x463FB0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    		    
             }
 
@@ -2122,7 +2122,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x463F50, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x463F50, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2219,7 +2219,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4639C0, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x4639C0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    		   
             }
 
@@ -2316,7 +2316,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x463B40, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x463B40, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    	    		    		    
             }
 
@@ -2417,7 +2417,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x464140, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x464140, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2518,7 +2518,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		// не нужен
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4638F0, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x4638F0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2662,7 +2662,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC7B5, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466A80, fixRemoveObstacle);
+		_PI->WriteHiHook(0x466A80, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);
 		    		    
             }
 
@@ -2799,7 +2799,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4ACA45, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466F80, fixRemoveObstacle);		    
+		_PI->WriteHiHook(0x466F80, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);		    
 		    		    
             }
 
@@ -2936,7 +2936,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC275, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x466740, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x466740, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    		    
             }
 
@@ -3069,7 +3069,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		_PI->WriteLoHook(0x4AC235, preserveMonsterNumber);
 		    
 		// fix crash
-		_PI->WriteHiHook(0x4666D0, fixRemoveObstacle);			    
+		_PI->WriteHiHook(0x4666D0, SPLICE_, EXTENDED_, THISCALL_, fixRemoveObstacle);			    
 		    		    
             }
 
