@@ -508,6 +508,16 @@ void __stdcall fixBukaCompleteRemoveObstacle(HiHook* h, H3BukaCompleteCombatMana
 	bm->obstacleInfo[hex_id].unk_10 = -1;
 }
 
+int __stdcall fixForgetfullnessDamage(LoHook* hook, HookContext* c)
+{
+	H3CombatMonster* battleStack = (H3CombatMonster*)c->ecx;
+	
+	if(CALL_2(bool, __thiscall, canShootProcAddress, battleStack, 0) == false)
+		c->flags.ZF = 1;
+
+	return EXEC_DEFAULT;
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
@@ -1245,7 +1255,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B0220;
-		beforeGameAddress = 0x4E37F2;		    
+		beforeGameAddress = 0x4E37F2;
+		canShootProcAddress = 0x447350;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5F3+1, 0x4D); // fdiv -> fmul
@@ -1354,7 +1365,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B04A0;
-		beforeGameAddress = 0x4E323C;			    
+		beforeGameAddress = 0x4E323C;
+		canShootProcAddress = 0x4470A0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D6A3+1, 0x4D); // fdiv -> fmul
@@ -1469,7 +1481,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4B8510;
 		getMeProcAddress = 0x4CC116;
 		getDlgItemProcAddress = 0x5D63C0;
-		beforeGameAddress = 0x4EC20B;		    
+		beforeGameAddress = 0x4EC20B;
+		canShootProcAddress = 0x4427A0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
@@ -1604,7 +1617,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4B8E30;
 		getMeProcAddress = 0x4CCA70;
 		getDlgItemProcAddress = 0x5FD060;
-		beforeGameAddress = 0x4EC41B;		    
+		beforeGameAddress = 0x4EC41B;
+		canShootProcAddress = 0x4429F0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
@@ -1741,7 +1755,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4BADA0;
 		getMeProcAddress = 0x4CE9B0;
 		getDlgItemProcAddress = 0x5FEFF0;
-		beforeGameAddress = 0x4EE77B;		    
+		beforeGameAddress = 0x4EE77B;
+		canShootProcAddress = 0x4428F0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
@@ -1873,7 +1888,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B3B10;
-		beforeGameAddress = 0x4E75EB;		    
+		beforeGameAddress = 0x4E75EB;
+		canShootProcAddress = 0x442E20;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
@@ -1974,7 +1990,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B3540;
-		beforeGameAddress = 0x4E753B;		    
+		beforeGameAddress = 0x4E753B;
+		canShootProcAddress = 0x442830;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1C3+1, 0x4D); // fdiv -> fmul
@@ -2075,7 +2092,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B3460;
-		beforeGameAddress = 0x4E703B;			    
+		beforeGameAddress = 0x4E703B;
+		canShootProcAddress = 0x4429E0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E163+1, 0x4D); // fdiv -> fmul
@@ -2176,7 +2194,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B3150;
-		beforeGameAddress = 0x4E6F4B;		    
+		beforeGameAddress = 0x4E6F4B;
+		canShootProcAddress = 0x442510;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E183+1, 0x4D); // fdiv -> fmul
@@ -2277,7 +2296,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B2F90;
-		beforeGameAddress = 0x4E6E0B;		    
+		beforeGameAddress = 0x4E6E0B;
+		canShootProcAddress = 0x442600;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E213+1, 0x4D); // fdiv -> fmul
@@ -2382,7 +2402,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B3480;
-		beforeGameAddress = 0x4E703B;		    
+		beforeGameAddress = 0x4E703B;
+		canShootProcAddress = 0x442AD0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E433+1, 0x4D); // fdiv -> fmul
@@ -2487,7 +2508,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		    
 		// Important proc addresses
 		isHumanProcAddress = 0x4B2D00;
-		beforeGameAddress = 0x4E712B;		    
+		beforeGameAddress = 0x4E712B;
+		canShootProcAddress = 0x442440;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E0F3+1, 0x4D); // fdiv -> fmul
@@ -2594,7 +2616,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4B8F90;
 		getMeProcAddress = 0x4CCBC0;
 		getDlgItemProcAddress = 0x5FD840;
-		beforeGameAddress = 0x4ECE0B;		    
+		beforeGameAddress = 0x4ECE0B;
+		canShootProcAddress = 0x442A00;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
@@ -2735,7 +2758,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4BAE70;
 		getMeProcAddress = 0x4CEA70;
 		getDlgItemProcAddress = 0x5FFD50;
-		beforeGameAddress = 0x4EEDDB;		    
+		beforeGameAddress = 0x4EEDDB;
+		canShootProcAddress = 0x442DE0;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
@@ -2877,7 +2901,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4BA360;
 		getMeProcAddress = 0x4CE050;
 		getDlgItemProcAddress = 0x5FF5F0;
-		beforeGameAddress = 0x4EE53B;		    
+		beforeGameAddress = 0x4EE53B;
+		canShootProcAddress = 0x4425D0;		    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
@@ -3011,7 +3036,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		isHumanProcAddress = 0x4B8870;
 		getMeProcAddress = 0x4CC530;
 		getDlgItemProcAddress = 0x5FCE00;
-		beforeGameAddress = 0x4EC5DB;		    
+		beforeGameAddress = 0x4EC5DB;
+		canShootProcAddress = 0x442850;			    
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
