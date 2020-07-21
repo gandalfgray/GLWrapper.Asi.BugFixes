@@ -82,3 +82,105 @@ struct H3BukaCompleteCombatMonster
  INT32 count_retaliations; 		// 0x454 number of retaliations left
  H3CombatMonsterSpellsData spells_data; // 0x458 information about some spell effects
 };
+
+// * the manager of the battlefield
+struct H3BukaCompleteCombatManager : public H3Manager
+{
+ INT8 unk1[4];
+ INT32 action; 		// * +3C
+ INT32 actionParameter; 		// * +40
+ INT32 actionTarget; 		// * +44
+ INT32 actionParameter2; 		// * +48
+ INT8 accessibleSquares[187]; 		// * +4C
+ UINT8 accessibleSquares2[187];
+ INT8 unk2[2];
+ INT8 H3CombatSquare[187][112]; 		// * +1C4
+ INT32 landType; 		// * +5394
+ INT8 unk3[8];
+ INT32 absoluteObstacleId; 		// * +53A0
+ INT32 siegeKind; 		// * +53A4
+ BOOL hasMoat; 		// * +53A8
+ INT8 unk4[4];
+ void* drawBuffer; 		// * +53B0
+ INT8 unk5[4];
+ BOOL doNotDrawShade; 		// * +53B8
+ void* mapitem; 		// * +53BC 		// * H3MapItem where combat is taking place
+ INT32 specialTerrain; 		// * +53C0 		// * special terrain type used
+ BOOLEAN antiMagicGarrison; 		// * +53C4
+ BOOLEAN creatureBank; 		// * +53C5
+ BOOLEAN boatCombat; 		// * +53C6
+ INT8 unk6;
+ H3Town* town; 		// * +53C8 		// * town structure where combat is taking place
+ H3Hero* hero[2]; 		// * +53CC 		// * hero structures from each side
+ INT32 heroSpellPower[2]; 		// * +53D4 		// * spell power from each side
+ INT8 unk7[8];
+ UINT32 HeroAnimation[2]; 		// * +53E4 		// * current group
+ UINT32 HeroAnimationFrame[2]; 		// * +53EC
+ INT8 unk8[16];
+ void* heroDefLoaded[2]; 		// * +5404
+ void* heroFlagLoaded[2]; 		// * +540C
+ INT32 heroFlagFrame[2]; 		// * +5414
+ INT8 heroUpdateRect[2][16]; 		// * +541C
+ INT8 heroFlagUpdateRect[2][16]; 		// * +543C
+ H3Array<INT32> eagleEyeSpells[2]; 		// * +545C 		// * eagle eye 2x vector
+ INT8 unk9[40]; 		// * chain lightning?
+ UINT8 isNotAI[2]; 		// * +54A4
+ BOOLEAN isHuman[2]; 		// * +54A6
+ INT32 heroOwner[2]; 		// * +54A8
+ BOOLEAN artifactAutoCast[2]; 		// * +54B0
+ INT8 unk10[2];
+ BOOL heroCasted[2]; 		// * +54B4
+ INT32 heroMonCount[2]; 		// * +54BC
+ H3Army* army[2]; 		// * +54C4
+ H3BukaCompleteCombatMonster stacks[2][21]; 		// * +54CC 		// * a two-sided array of 21 stacks for each side of combat
+ INT8 unk11[4];
+ INT32 turnsSinceLastEnchanterCast[2]; 		// * +132A0
+ INT8 unk12[16];
+ INT32 currentMonSide; 		// * +132B8
+ INT32 currentMonIndex; 		// * +132BC
+ INT32 currentActiveSide; 		// * +132C0
+ INT32 autoCombat; 		// * +132C4
+ H3CombatMonster* activeStack; 		// * +132C8
+ INT8 blueHighlight; 		// * +132CC
+ INT8 unk13[3];
+ INT32 creature_at_mouse_pos; 		// * +132D0
+ INT32 mouse_coord; 		// * +132D4
+ INT32 attacker_coord; 		// * +132D8
+ INT32 move_type; 		// * +132DC 		// * the icons of CRCOMBAT.def, see H3MouseManager::H3MouseBattleFieldCursorType
+ INT8 unk14[20];
+ INT32 siegeKind2; 		// * +132F4
+ BOOL finished; 		// * +132F8
+ void* dlg; 		// * +132FC
+ INT8 unk15[356];
+ PCHAR backgroundPcxName; 		// * +13464
+ INT8 adjacentSquares[187][12]; 		// * +13468
+ INT8 unk16[12];
+ INT8 updateRect[16]; 		// * +13D38
+ INT8 unk17[12];
+ INT32 cmNumWinPcxLoaded; 		// * +13D54
+ H3Array<H3Obstacle> obstacleInfo; 		// * +13D58 		// * information about obstacles on battlefield
+ BOOLEAN tacticsPhase;		// * +13D68
+ INT8 unk18[3];
+ INT32 turn; 		// * +13D6C
+ INT32 tacticsDifference; 		// * +13D70
+ INT8 unk19[4]; // spell related?
+ INT8 TownTowerLoaded[3][36]; 		// * +13D78
+ INT32 waitPhase; 		// * +13DE4
+ INT32 HeroDAttack; 		// * +13DE8
+ INT32 HeroDDefence; 		// * +13DEC
+ INT32 HeroDSpellPower2; 		// * +13DF0
+ INT32 HeroDSpellPoints; 		// * +13DF4
+ INT32 TownPicturesLoaded[90]; 		// * +13DF8		
+ INT32 fort_walls_hp[18]; 		// * +13F60 		// * hit points of town walls
+ INT32 fort_walls_alive[18]; 		// * +13FA8
+ INT8 unk20[4];
+ void* CCellGrdPcx; 		// * +13FF4 		// * pcx of grids
+ void* H3LoadedPcx* CCellShdPcx; 		// * +13FF8 		// * pcx to shade in blue using cheat menu
+ INT32 GlobalCardeIndex; 		// * +13FFC
+ BOOLEAN RedrawCreatureFrame[2][20]; 		// * +14000 		// * oddly there are only 20, not 21, slots for each side
+ BOOLEAN heroAnimation[2]; 		// * +14028
+ BOOLEAN heroFlagAnimation[2]; 		// * +1402A
+ BOOLEAN turretAnimation[3]; 		// * +1402C
+ INT8 unk21;
+ INT8 unk22[188];
+};
