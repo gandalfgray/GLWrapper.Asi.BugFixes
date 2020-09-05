@@ -20,6 +20,7 @@ int getMeProcAddress;
 int getDlgItemProcAddress;
 int beforeGameAddress;
 int canShootProcAddress;
+int advManagerShowProcAddr;
 
 Patcher* _P;
 PatcherInstance* _PI;
@@ -550,7 +551,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CE670;
 		getDlgItemProcAddress = 0x5FF5B0;
 		beforeGameAddress = 0x4EEE0B;
-		canShootProcAddress = 0x442610;		    
+		canShootProcAddress = 0x442610;
+		advManagerShowProcAddr = 0x406F60;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E3A3+1, 0x4D); // fdiv -> fmul
@@ -693,7 +695,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4C9F40;
 		getDlgItemProcAddress = 0x5F6750;
 		beforeGameAddress = 0x4E985B;
-		canShootProcAddress = 0x4478E0;			    
+		canShootProcAddress = 0x4478E0;
+		advManagerShowProcAddr = 0x406AD0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D5B3+1, 0x4D); // fdiv -> fmul
@@ -843,7 +846,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CA1D0;
 		getDlgItemProcAddress = 0x5F6710;
 		beforeGameAddress = 0x4E9B6B;
-		canShootProcAddress = 0x4473E0;		    
+		canShootProcAddress = 0x4473E0;
+		advManagerShowProcAddr = 0x406AA0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41D553+1, 0x4D); // fdiv -> fmul
@@ -989,7 +993,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CE776;
 		getDlgItemProcAddress = 0x5FF7E0;
 		beforeGameAddress = 0x4EEB0B;
-		canShootProcAddress = 0x442E90;		    
+		canShootProcAddress = 0x442E90;
+		advManagerShowProcAddr = 0x406F80;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E2D3+1, 0x4D); // fdiv -> fmul
@@ -1133,7 +1138,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CEA20;
 		getDlgItemProcAddress = 0x5FF610;
 		beforeGameAddress = 0x4EE9DB;
-		canShootProcAddress = 0x4426F0;			    
+		canShootProcAddress = 0x4426F0;
+		advManagerShowProcAddr = 0x406F50;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E456+1, 0x4D); // fdiv -> fmul
@@ -1503,7 +1509,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CC116;
 		getDlgItemProcAddress = 0x5D63C0;
 		beforeGameAddress = 0x4EC20B;
-		canShootProcAddress = 0x4427A0;			    
+		canShootProcAddress = 0x4427A0;
+		advManagerShowProcAddr = 0x406E80;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E343+1, 0x4D); // fdiv -> fmul
@@ -1642,7 +1649,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CCA70;
 		getDlgItemProcAddress = 0x5FD060;
 		beforeGameAddress = 0x4EC41B;
-		canShootProcAddress = 0x4429F0;			    
+		canShootProcAddress = 0x4429F0;
+		advManagerShowProcAddr = 0x406E10;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E033+1, 0x4D); // fdiv -> fmul
@@ -1783,7 +1791,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CE9B0;
 		getDlgItemProcAddress = 0x5FEFF0;
 		beforeGameAddress = 0x4EE77B;
-		canShootProcAddress = 0x4428F0;		    
+		canShootProcAddress = 0x4428F0;
+		advManagerShowProcAddr = 0x406FD0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E223+1, 0x4D); // fdiv -> fmul
@@ -2668,7 +2677,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CCBC0;
 		getDlgItemProcAddress = 0x5FD840;
 		beforeGameAddress = 0x4ECE0B;
-		canShootProcAddress = 0x442A00;			    
+		canShootProcAddress = 0x442A00;
+		advManagerShowProcAddr = 0x406EB0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E143+1, 0x4D); // fdiv -> fmul
@@ -2813,7 +2823,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CEA70;
 		getDlgItemProcAddress = 0x5FFD50;
 		beforeGameAddress = 0x4EEDDB;
-		canShootProcAddress = 0x442DE0;			    
+		canShootProcAddress = 0x442DE0;
+		advManagerShowProcAddr = 0x407010;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E413+1, 0x4D); // fdiv -> fmul
@@ -2959,7 +2970,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CE050;
 		getDlgItemProcAddress = 0x5FF5F0;
 		beforeGameAddress = 0x4EE53B;
-		canShootProcAddress = 0x4425D0;		    
+		canShootProcAddress = 0x4425D0;
+		advManagerShowProcAddr = 0x406FD0;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E353+1, 0x4D); // fdiv -> fmul
@@ -3097,7 +3109,8 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 		getMeProcAddress = 0x4CC530;
 		getDlgItemProcAddress = 0x5FCE00;
 		beforeGameAddress = 0x4EC5DB;
-		canShootProcAddress = 0x442850;			    
+		canShootProcAddress = 0x442850;
+		advManagerShowProcAddr = 0x406E00;
 		    
                 // Armorer fix
                 _PI->WriteByte(0x41E1A3+1, 0x4D); // fdiv -> fmul
