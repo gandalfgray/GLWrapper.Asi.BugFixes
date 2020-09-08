@@ -1,4 +1,3 @@
-
 template <typename _Type> struct H3Array
 {
  BOOL _init; // +0 useless
@@ -43,6 +42,7 @@ struct H3CombatManager;
 struct H3TownManager;
 struct H3Player;
 struct H3Main;
+struct H3Spell;
 
 #define o_HEROES_COUNT (*(INT32*)aHeroesCount)
 #define o_H3Main (*(H3Main**)aH3Main)
@@ -52,6 +52,8 @@ struct H3Main;
 #define o_Market_BackpackIndexOfFirstSlot (char)(*(INT32*)aMarketBackpackIndexOfFirstSlot)
 #define o_Market_SelectedSlotIndex *(INT32*)aMarketSelectedSlotIndex
 #define o_Market_SelectedBackpackSlotIndex (o_Market_SelectedSlotIndex - 18)
+#define o_H3Spell (*(H3Spell**)aH3Spell)
+#define o_NetworkGame *(bool*)aNetworkGame
 
 struct H3String
 {
@@ -594,4 +596,47 @@ struct H3CombatManager : public H3Manager
  BOOLEAN turretAnimation[3]; 		// * +1402C
  INT8 unk21;
  INT8 unk22[188];
+};
+
+struct H3Spell // size
+{
+ INT32 type; // -1 enemy, 0 area, 1 friendly
+ PCHAR soundName;
+ UINT32 animationRelated;
+	struct SpellFlags
+	{
+		unsigned battlefield_spell : 1;		// 1
+		unsigned map_spell : 1;				// 2
+		unsigned time_scale : 1;			// 4
+		unsigned creature_spell : 1;		// 8
+		unsigned single_target : 1;			// 10
+		unsigned single_shooting_stack : 1;	// 20
+		unsigned expert_mass_version : 1;	// 40
+		unsigned target_anywhere : 1;		// 80
+		unsigned _unk100 : 1;				// 100
+		unsigned _unk200 : 1;				// 200 ~ Destroy Undead / Death Ripple
+		unsigned mind_spell : 1;			// 400
+		unsigned friendly_mass : 1;			// 800
+		unsigned cannot_target_siege : 1;	// 1000 / Death Ripple
+		unsigned spell_from_artifact : 1;	// 2000
+		unsigned _unk4000 : 1;				// 4000
+		unsigned AI8000 : 1;				// 8000
+		unsigned AI_area_effect : 1;		// 10000
+		unsigned AI20000 : 1;				// 20000
+		unsigned AI40000 : 1;				// 40000
+		unsigned AIhypnotize : 1;			// 80000
+		unsigned AImisc : 1;            // 100000
+		unsigned _unused : 11;			// 200000
+		// 200000 ~ Destroy Undead/ Death Ripple
+	}flags;
+ PCHAR name;
+ PCHAR shortName;
+ INT32 level;
+ DWORD school_flags;
+ INT32 mana_cost[4];
+ INT32 base_value;
+ INT32 sp_effect[4];
+ INT32 chance_to_get[9];
+ UINT32 ai_value[4];
+ PCHAR description[4];
 };
