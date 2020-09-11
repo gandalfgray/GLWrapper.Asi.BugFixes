@@ -667,25 +667,6 @@ int __stdcall changeStatsFromTxt(LoHook* h, HookContext* c)
     return EXEC_DEFAULT;
 }
 
-/*
-// Подготавливаем информацию о стартовых героях игроков.
-int __stdcall LoHook_RandMapGen_Prepare_StartHeroesInfo(LoHook* h, HookContext* c)
-{
-  // Если текущим игроком выбран герой, записываем его номер.
-  if (*(int*)(c->eax + 32) >= 0)
-  {
-    RandMap_PreSelectedHeroes[c->ecx] = *(int*)(c->eax + 44 + 4* *(int*)(c->eax + 32));
-  }
-  // Иначе - номера нет.
-  else
-  {
-    RandMap_PreSelectedHeroes[c->ecx] = -1;
-  }
-  
-  return EXEC_DEFAULT;
-}
-*/
-
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     if ( DLL_PROCESS_ATTACH == ul_reason_for_call)
